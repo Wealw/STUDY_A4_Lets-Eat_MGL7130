@@ -1,0 +1,41 @@
+header {
+  height: 8em;
+  display: grid;
+  grid-template: "logo option" "search filter";
+  grid-template-columns: calc(100% - 4em) 4em;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img {
+  height: 3em;
+  padding: 0.5em;
+}
+
+.roundBox {
+  height: 3em;
+  width: 3em;
+  margin: 0.5em;
+  background-color: lightgray;
+  border-radius: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border-radius: 2em;
+  width: calc(100% - 2em);
+  height: 3em;
+  margin: 1em 0.5em;
+}
+
+form {
+  position: relative;
+}
+
+form > fa-icon {
+  position: absolute;
+  top: 1.75em;
+  left: 1.5em;
+}
