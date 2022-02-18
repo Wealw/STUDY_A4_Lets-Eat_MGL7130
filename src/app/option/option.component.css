@@ -1,0 +1,9 @@
+.option{
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: blue;
+  height: 10em;
+  width: 10em;
+}
