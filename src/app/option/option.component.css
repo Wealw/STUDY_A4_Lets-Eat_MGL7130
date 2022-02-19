@@ -1,9 +1,18 @@
-.option{
-  z-index: 999;
+.option-container{
+  z-index: 998;
   position: absolute;
   top: 0;
   right: 0;
-  background-color: blue;
+  height: 100%;
+  width: 100%;
+}
+
+.options{
+  z-index: 999;
+  position: absolute;
+  top: 0;
+ right: 0;
   height: 10em;
   width: 10em;
+  background-color: blue;
 }

@@ -23,11 +23,18 @@ img {
   align-items: center;
 }
 
+fa-icon{
+  color: white;
+}
+
 input {
   border-radius: 2em;
-  width: calc(100% - 2em);
+  width: calc(100% - 2em - 4em);
   height: 3em;
   margin: 1em 0.5em;
+  padding-left: 4em;
+  border-color: lightgray;
+  border-style: solid;
 }
 
 form {
@@ -35,6 +42,7 @@ form {
 }
 
 form > fa-icon {
+  color: lightgray;
   position: absolute;
   top: 1.75em;
   left: 1.5em;

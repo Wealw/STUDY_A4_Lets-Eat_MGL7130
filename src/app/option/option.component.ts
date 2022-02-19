@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 
 @Component({
   selector: 'app-option',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OptionComponent implements OnInit {
 
-  constructor() { }
+  areOptionOpened = false
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  toggleOption() {
+    this.areOptionOpened = !this.areOptionOpened
+  }
 }

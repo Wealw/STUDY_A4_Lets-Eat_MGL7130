@@ -1,13 +1,14 @@
-<header>
+<header [ngStyle]="{'height': (isSearchBarEnable) ? '8em' : '4em'}">
   <img src="../../assets/icons/logotype.png" alt="let's eat" style="grid-area: logo">
-  <div class="roundBox" style="grid-area: option">
-    <fa-icon [icon]="faEllipsisV" size="lg"></fa-icon>
+  <div class="roundBox" style="grid-area: option" (click)="this.options.first.toggleOption()">
+    <fa-icon [icon]="faEllipsisV" size="lg" ></fa-icon>
   </div>
-  <form method="get" style="grid-area: search">
-    <input>
-    <fa-icon [icon]="faSearch" size="1x"></fa-icon>
-  </form>
-  <div class="roundBox" style="grid-area: filter">
-    <fa-icon [icon]="faFilter" size="lg"></fa-icon>
-  </div>
+    <form method="get" style="grid-area: search" *ngIf="isSearchBarEnable">
+      <input>
+      <fa-icon [icon]="faSearch" size="1x"></fa-icon>
+    </form>
+    <div class="roundBox" style="grid-area: filter" *ngIf="isSearchBarEnable">
+      <fa-icon [icon]="faFilter" size="lg"></fa-icon>
+    </div>
 </header>
+<app-option></app-option>
