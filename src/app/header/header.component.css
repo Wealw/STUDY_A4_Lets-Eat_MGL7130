@@ -1,4 +1,5 @@
 header {
+  margin: 0 1.5em;
   height: 8em;
   display: grid;
   grid-template: "logo option" "search filter";
@@ -28,10 +29,10 @@ fa-icon{
 }
 
 input {
-  border-radius: 2em;
+  border-radius: 0.5em;
   width: calc(100% - 2em - 4em);
   height: 3em;
-  margin: 1em 0.5em;
+  margin: 1em 0;
   padding-left: 4em;
   border-color: lightgray;
   border-style: solid;
@@ -45,5 +46,5 @@ form > fa-icon {
   color: lightgray;
   position: absolute;
   top: 1.75em;
-  left: 1.5em;
+  left: 1em;
 }

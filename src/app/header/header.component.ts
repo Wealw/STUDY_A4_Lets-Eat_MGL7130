@@ -10,6 +10,7 @@ import {OptionComponent} from "../option/option.component";
 export class HeaderComponent implements OnInit {
   @ViewChildren(OptionComponent) options: QueryList<OptionComponent>
   isSearchBarEnable = true
+  displayBackButton = false
   option: OptionComponent | undefined;
 
   constructor() {
@@ -29,6 +30,14 @@ export class HeaderComponent implements OnInit {
 
   enableSearchBar() {
     this.isSearchBarEnable = true;
+  }
+
+  disableBackButton(){
+    this.displayBackButton = false
+  }
+
+  enableBackButton(){
+    this.displayBackButton = true
   }
 
 }
