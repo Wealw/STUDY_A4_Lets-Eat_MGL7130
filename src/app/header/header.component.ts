@@ -1,6 +1,7 @@
 import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {faEllipsisV, faFilter, faSearch} from '@fortawesome/free-solid-svg-icons'
 import {OptionComponent} from "../option/option.component";
+import {FilterComponent} from "../filter/filter.component";
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,14 @@ import {OptionComponent} from "../option/option.component";
 })
 export class HeaderComponent implements OnInit {
   @ViewChildren(OptionComponent) options: QueryList<OptionComponent>
+  @ViewChildren(FilterComponent) filters: QueryList<FilterComponent>
   isSearchBarEnable = true
   displayBackButton = false
+  faEllipsisV = faEllipsisV
+  faFilter = faFilter
+  faSearch = faSearch
   option: OptionComponent | undefined;
+  filter: FilterComponent | undefined
 
   constructor() {
 
@@ -20,9 +26,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  faEllipsisV = faEllipsisV
-  faFilter = faFilter
-  faSearch = faSearch
+
 
   disableSearchBar() {
     this.isSearchBarEnable = false;
@@ -39,6 +43,8 @@ export class HeaderComponent implements OnInit {
   enableBackButton(){
     this.displayBackButton = true
   }
+
+
 
 }
 

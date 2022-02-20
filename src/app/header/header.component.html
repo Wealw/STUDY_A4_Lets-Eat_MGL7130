@@ -5,10 +5,11 @@
   </div>
     <form method="get" style="grid-area: search" *ngIf="isSearchBarEnable">
       <input placeholder="Recherche...">
-      <fa-icon [icon]="faSearch" size="1x"></fa-icon>
+      <fa-icon [icon]="this.faSearch" size="1x"></fa-icon>
     </form>
-    <div class="roundBox" style="grid-area: filter" *ngIf="isSearchBarEnable">
+    <div class="roundBox" style="grid-area: filter" *ngIf="isSearchBarEnable" (click)="this.filters.first.toggleFilter()">
       <fa-icon [icon]="faFilter" size="lg"></fa-icon>
     </div>
 </header>
 <app-option></app-option>
+<app-filter></app-filter>

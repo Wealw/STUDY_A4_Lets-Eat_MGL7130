@@ -9,7 +9,6 @@ import {faSignInAlt, faSign, faUser, faUtensilSpoon} from '@fortawesome/free-sol
 export class OptionComponent implements OnInit {
 
   faSignInAlt =faSignInAlt ;
-  faSign = faSign;
   faUser = faUser;
   faUtensilSpoon = faUtensilSpoon;
 
@@ -20,8 +19,8 @@ export class OptionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
- 
+
+
 
   toggleOption() {
     this.areOptionOpened = !this.areOptionOpened

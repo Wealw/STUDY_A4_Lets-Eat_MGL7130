@@ -9,14 +9,16 @@ import {HeaderComponent} from './header/header.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { MainComponent } from './main/main.component';
-import { OptionComponent } from './option/option.component'
+import { OptionComponent } from './option/option.component';
+import { FilterComponent } from './filter/filter.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MainComponent,
-    OptionComponent
+    OptionComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
