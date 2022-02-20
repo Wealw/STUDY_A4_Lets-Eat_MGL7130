@@ -1,4 +1,5 @@
 import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {faSignInAlt, faSign, faUser, faUtensilSpoon} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-option',
@@ -7,6 +8,11 @@ import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/co
 })
 export class OptionComponent implements OnInit {
 
+  faSignInAlt =faSignInAlt ;
+  faSign = faSign;
+  faUser = faUser;
+  faUtensilSpoon = faUtensilSpoon;
+
   areOptionOpened = false
 
   constructor() {
@@ -14,6 +20,8 @@ export class OptionComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+ 
 
   toggleOption() {
     this.areOptionOpened = !this.areOptionOpened

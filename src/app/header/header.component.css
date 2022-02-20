@@ -14,10 +14,10 @@ img {
 }
 
 .roundBox {
-  height: 3em;
-  width: 3em;
-  margin: 0.5em;
-  background-color: lightgray;
+  height: 2.5em;
+  width: 2.5em;
+  margin: 0.75em;
+  background-color:lightgray;
   border-radius: 4em;
   display: flex;
   justify-content: center;
@@ -25,13 +25,14 @@ img {
 }
 
 fa-icon{
-  color: white;
+  color: #fff;
+  font-weight: 800;
 }
 
 input {
   border-radius: 0.5em;
   width: calc(100% - 2em - 4em);
-  height: 3em;
+  height: 2.5em;
   margin: 1em 0;
   padding-left: 4em;
   border-color: lightgray;
@@ -45,6 +46,6 @@ form {
 form > fa-icon {
   color: lightgray;
   position: absolute;
-  top: 1.75em;
+  top: 1.68em;
   left: 1em;
 }
