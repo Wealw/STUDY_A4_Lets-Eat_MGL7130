@@ -1,9 +1,9 @@
 header {
   margin: 0 1.5em;
-  height: 8em;
+  height: 4em;
   display: grid;
-  grid-template: "logo option" "search filter";
-  grid-template-columns: calc(100% - 4em) 4em;
+  grid-template: "search filter option";
+  grid-template-columns: calc(100% - 8em) 4em 4em;
   justify-content: space-between;
   align-items: center;
 }
