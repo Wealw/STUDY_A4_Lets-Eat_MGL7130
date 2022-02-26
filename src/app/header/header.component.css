@@ -2,9 +2,9 @@ header {
   margin: 0 1.5em;
   height: 4em;
   display: grid;
-  grid-template: "search filter option";
-  grid-template-columns: calc(100% - 8em) 4em 4em;
-  justify-content: space-between;
+  grid-template: "first second third";
+  grid-template-columns: 1fr 1fr auto;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -31,7 +31,7 @@ fa-icon{
 
 input {
   border-radius: 0.5em;
-  width: calc(100% - 2em - 4em);
+  width: calc(100% - 5em);
   height: 2.5em;
   margin: 1em 0;
   padding-left: 4em;
