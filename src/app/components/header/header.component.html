@@ -2,10 +2,10 @@
   <div class="roundBox" style="grid-area: first" *ngIf="!isSearchBarEnable">
     <fa-icon [icon]="faArrowLeft"></fa-icon>
  </div>
-  <span  style="grid-area: second" *ngIf="!isSearchBarEnable">
+  <span  style="grid-area: second" *ngIf="isSearchBarEnable">
     <h1>Test</h1>
   </span>
-  <form method="get" style="grid-area: first" *ngIf="isSearchBarEnable">
+  <form method="get" style="grid-area: first" *ngIf="!isSearchBarEnable">
     <input placeholder="Recherche...">
     <fa-icon [icon]="this.faSearch" size="1x"></fa-icon>
   </form>
