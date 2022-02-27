@@ -1,11 +1,12 @@
 {
   "name": "lets-eat",
   "short_name": "lets-eat",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#f3780d",
+  "background_color": "#f3780d",
   "display": "standalone",
   "scope": "./",
-  "start_url": "./",
+  "start_url": "./index.html",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",

@@ -1,6 +1,6 @@
 header {
   margin: 0 1.5em;
-  height: 8em;
+  height: 5em;
   display: grid;
   grid-template: "logo option" "search filter";
   grid-template-columns: calc(100% - 4em) 4em;
@@ -8,15 +8,10 @@ header {
   align-items: center;
 }
 
-img {
-  height: 3em;
-  padding: 0.5em;
-}
-
 .roundBox {
   height: 2.5em;
   width: 2.5em;
-  margin: 0.75em;
+  margin: 0.73em;
   background-color:lightgray;
   border-radius: 4em;
   display: flex;
@@ -31,21 +26,21 @@ fa-icon{
 
 input {
   border-radius: 0.5em;
-  width: calc(100% - 2em - 4em);
+  width: calc(100% - 1em - 1em);
   height: 2.5em;
-  margin: 1em 0;
+  margin: em 0;
   padding-left: 4em;
   border-color: lightgray;
   border-style: solid;
 }
 
 form {
-  position: relative;
+  position: absolute;
 }
 
 form > fa-icon {
   color: lightgray;
   position: absolute;
-  top: 1.68em;
+  top: 1em;
   left: 1em;
 }

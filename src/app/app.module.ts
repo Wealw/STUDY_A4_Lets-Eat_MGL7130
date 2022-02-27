@@ -10,7 +10,10 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { MainComponent } from './main/main.component';
 import { OptionComponent } from './option/option.component';
-import { FilterComponent } from './filter/filter.component'
+import { FilterComponent } from './filter/filter.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { RestaurantComponent } from './restaurant/restaurant.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +21,13 @@ import { FilterComponent } from './filter/filter.component'
     HeaderComponent,
     MainComponent,
     OptionComponent,
-    FilterComponent
+    FilterComponent,
+    RestaurantComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatSliderModule,
     GoogleMapsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
@@ -30,10 +35,12 @@ import { FilterComponent } from './filter/filter.component'
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule {
 }
