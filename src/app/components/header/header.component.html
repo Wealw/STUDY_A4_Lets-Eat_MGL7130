@@ -4,7 +4,7 @@
  </div>
   <span  style="grid-area: second" *ngIf="!isSearchBarEnable">
   </span>
-  <div class="formulaire">
+  <div class="formulaire" *ngIf="isSearchBarEnable">
     <input placeholder="Recherche..." [value]="this.restaurantService.recherche.texte">
     <fa-icon [icon]="this.faSearch" size="1x"></fa-icon>
   </div>
