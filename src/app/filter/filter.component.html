@@ -1,3 +1,44 @@
+<form method="post">
 <div class="container" *ngIf="areFilterDisplayed">
-
+  <div>
+    <p class="inline">Distance:</p>
+  <input type="range" min="0" max="100" value="50" class="range" id="myRange">
 </div>
+
+<div>
+    
+<p class="pri">Prix:</p>
+&nbsp;&nbsp;&nbsp;&nbsp;<label class="label">Min</label>
+<input type="number" class="prix" name="min" min="0" >
+<label class="label">Max</label>
+<input type="number" class="prix" name="max" >
+</div>
+
+<div >
+    
+    <select >
+      <option>Catégorie</option>
+      <option>Catégorie</option>
+      <option>Catégorie</option>
+    </select><br>
+    
+  </div>
+
+    <div class="notation">
+    
+    <p>Notation:</p>
+      <div class="stars" >
+        <input type="radio" name="rating" value="1" />
+        <input type="radio" name="rating" value="2" />
+        <input type="radio" name="rating" value="3" />
+        <input type="radio" name="rating" value="4" />
+        <input type="radio" name="rating" value="5" />
+        <i></i>
+      </div>
+  </div>
+  <div class="btn">
+    
+  <button type="submit">Appliquer</button>
+  </div>
+</div>
+</form>
