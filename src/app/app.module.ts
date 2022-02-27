@@ -11,6 +11,8 @@ import {GoogleMapsModule} from '@angular/google-maps';
 import { MainComponent } from './main/main.component';
 import { OptionComponent } from './option/option.component';
 import { FilterComponent } from './filter/filter.component'
+import {RestaurantDetailsComponent} from "./restaurant-details/restaurant-details.component";
+import { RestaurantReviewsComponent } from './restaurant-reviews/restaurant-reviews.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FilterComponent } from './filter/filter.component'
     HeaderComponent,
     MainComponent,
     OptionComponent,
-    FilterComponent
+    FilterComponent,
+    RestaurantDetailsComponent,
+    RestaurantReviewsComponent
   ],
   imports: [
     BrowserModule,
