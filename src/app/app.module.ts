@@ -16,6 +16,8 @@ import {RestaurantService} from "./services/restaurant/restaurant.service";
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {RestaurantComponent} from './components/restaurant/restaurant.component';
+import {RestaurantDetailsComponent} from "./components/restaurant-details/restaurant-details.component";
+import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restaurant-reviews.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import {RestaurantComponent} from './components/restaurant/restaurant.component'
     AppComponent,
     RestaurantComponent,
     FilterComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    RestaurantDetailsComponent,
+    RestaurantReviewsComponent
   ],
   imports: [
     BrowserModule,
