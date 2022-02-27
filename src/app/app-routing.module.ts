@@ -6,7 +6,7 @@ import {MainComponent} from "./components/main/main.component";
 
 const routes: Routes = [
   {
-    path: 'acceuil',
+    path: 'accueil',
     component: MainComponent
   },
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'acceuil'
+    redirectTo: 'accueil'
   }
 ];
 

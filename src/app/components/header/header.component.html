@@ -1,9 +1,8 @@
 <header [ngStyle]="{'grid-template-columns' : (isSearchBarEnable) ? '1fr auto auto' : '1fr 1fr auto'}">
-  <div class="roundBox" style="grid-area: first" *ngIf="!isSearchBarEnable">
+  <div class="roundBox" style="grid-area: first" *ngIf="!isSearchBarEnable" (click)="navigateToHome()">
     <fa-icon [icon]="faArrowLeft"></fa-icon>
  </div>
   <span  style="grid-area: second" *ngIf="!isSearchBarEnable">
-    <h1>Test</h1>
   </span>
   <form method="get" style="grid-area: first" *ngIf="isSearchBarEnable">
     <input placeholder="Recherche...">

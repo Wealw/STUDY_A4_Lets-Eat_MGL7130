@@ -2,6 +2,15 @@ import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {faEllipsisV, faFilter, faSearch, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import {OptionComponent} from "../option/option.component";
 import {FilterComponent} from "../filter/filter.component";
+import {
+  Router,
+  NavigationStart,
+  NavigationEnd,
+  NavigationError,
+  NavigationCancel,
+  RoutesRecognized
+} from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -11,26 +20,32 @@ import {FilterComponent} from "../filter/filter.component";
 export class HeaderComponent implements OnInit {
   @ViewChildren(OptionComponent) options: QueryList<OptionComponent>
   @ViewChildren(FilterComponent) filters: QueryList<FilterComponent>
-  isSearchBarEnable = false
+  isSearchBarEnable = true
   faEllipsisV = faEllipsisV
   faFilter = faFilter
   faSearch = faSearch
   faArrowLeft = faArrowLeft
   option: OptionComponent | undefined;
   filter: FilterComponent | undefined
+  searchEnabledRoute = ["/accueil"]
 
-  constructor() {
-
+  constructor(private router: Router) {
+    console.log(this.router.url)
+    this.updateSearchBarDisplay()
+    router.events.forEach((event) => {
+      this.updateSearchBarDisplay()
+    });
   }
 
   ngOnInit(): void {
   }
-  disableSearchBar() {
-    this.isSearchBarEnable = false;
+
+  updateSearchBarDisplay() {
+    this.isSearchBarEnable = this.searchEnabledRoute.includes(this.router.url);
   }
 
-  enableSearchBar() {
-    this.isSearchBarEnable = true;
+  navigateToHome() {
+    this.router.navigate([`accueil`])
   }
 }
 

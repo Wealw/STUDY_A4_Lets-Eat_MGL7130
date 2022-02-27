@@ -1,4 +1,7 @@
 header {
+  position: absolute;
+  width: calc(100% - 3em);
+  z-index: 100;
   margin: 0 1.5em;
   height: 4em;
   display: grid;
@@ -8,12 +11,8 @@ header {
   align-items: center;
 }
 
-img {
-  height: 3em;
-  padding: 0.5em;
-}
-
 .roundBox {
+  box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.35);
   height: 2.5em;
   width: 2.5em;
   margin: 0.75em;
@@ -30,10 +29,11 @@ fa-icon{
 }
 
 input {
+  box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.35);
   border-radius: 0.5em;
   width: calc(100% - 1em);
   height: 2.5em;
-  margin: 1em 0;
+  margin: 0.5em 0;
   padding-left: 3em;
   border-color: lightgray;
   border-style: solid;
@@ -43,6 +43,6 @@ input {
 form > fa-icon {
   color: lightgray;
   position: absolute;
-  top: 1.55em;
-  left: 2.5em;
+  top: 1.25em;
+  left: 1em;
 }
