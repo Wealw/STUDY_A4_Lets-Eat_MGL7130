@@ -40,7 +40,7 @@ input {
 }
 
 
-form > fa-icon {
+.formulaire > fa-icon {
   color: lightgray;
   position: absolute;
   top: 1.25em;

@@ -7,6 +7,7 @@ import firebase from "firebase/compat/app";
 import {Observable} from "rxjs";
 import {Adresse} from "../../models/Adresse";
 import GeoPoint = firebase.firestore.GeoPoint;
+import {Recherche} from "../../models/Recherche";
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,10 @@ import GeoPoint = firebase.firestore.GeoPoint;
 export class RestaurantService {
   restaurants: Observable<any> = new Observable<any>();
   restaurant: Observable<any> = new Observable<any>();
+  recherche : Recherche
 
   constructor(private angularFirestore: AngularFirestore) {
+    this.recherche = new Recherche()
   }
 
   getAllRestaurents() {

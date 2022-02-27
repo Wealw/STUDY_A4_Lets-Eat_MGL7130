@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RestaurantService} from "../../services/restaurant/restaurant.service";
 
 @Component({
   selector: 'app-filter',
@@ -9,7 +10,7 @@ export class FilterComponent implements OnInit {
 
   areFilterDisplayed = false
 
-  constructor() { }
+  constructor( public restaurantService : RestaurantService) { }
 
   ngOnInit(): void {
   }

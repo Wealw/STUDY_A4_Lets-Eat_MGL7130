@@ -2,21 +2,22 @@
   <form method="post">
     <div>
       <p class="inline">Distance:</p>
-      <input type="range" min="0" max="100" value="50" class="range" id="myRange">
+      <input type="range" min="0" max="100" class="range" id="myRange" [value]="this.restaurantService.recherche.distance">
     </div>
 
     <div>
 
       <p class="pri">Prix:</p>
       &nbsp;&nbsp;&nbsp;&nbsp;<label class="label">Min</label>
-      <input type="number" class="prix" name="min" min="0">
+      <input type="number" class="prix" name="min" min="0" [value]="this.restaurantService.recherche.prix_min">
       <label class="label">Max</label>
-      <input type="number" class="prix" name="max">
+      <input type="number" class="prix" name="max"  [value]="this.restaurantService.recherche.prix_max">
     </div>
 
     <div>
 
-      <select>
+      <select [value]="this.restaurantService.recherche.categorie">
+        <option></option>
         <option>Catégorie</option>
         <option>Catégorie</option>
         <option>Catégorie</option>

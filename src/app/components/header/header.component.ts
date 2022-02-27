@@ -2,6 +2,7 @@ import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {faEllipsisV, faFilter, faSearch, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import {OptionComponent} from "../option/option.component";
 import {FilterComponent} from "../filter/filter.component";
+import {RestaurantService} from "../../services/restaurant/restaurant.service";
 import {
   Router,
   NavigationStart,
@@ -29,7 +30,7 @@ export class HeaderComponent implements OnInit {
   filter: FilterComponent | undefined
   searchEnabledRoute = ["/accueil"]
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public restaurantService : RestaurantService) {
     console.log(this.router.url)
     this.updateSearchBarDisplay()
     router.events.forEach((event) => {
