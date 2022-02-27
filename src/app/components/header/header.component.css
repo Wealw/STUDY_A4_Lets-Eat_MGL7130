@@ -8,6 +8,11 @@ header {
   align-items: center;
 }
 
+img {
+  height: 3em;
+  padding: 0.5em;
+}
+
 .roundBox {
   height: 2.5em;
   width: 2.5em;
@@ -26,13 +31,14 @@ fa-icon{
 
 input {
   border-radius: 0.5em;
-  width: calc(100% - 0.5em);
+  width: calc(100% - 1em);
   height: 2.5em;
   margin: 1em 0;
   padding-left: 3em;
   border-color: lightgray;
   border-style: solid;
 }
+
 
 form > fa-icon {
   color: lightgray;
