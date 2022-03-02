@@ -6,3 +6,13 @@ main{
   top: 4em;
   z-index: 0;
 }
+.sub_main{
+  height: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  .filter{
+    display:none;
+  }
+}

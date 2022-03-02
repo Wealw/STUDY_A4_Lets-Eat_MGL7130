@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
 import {Restaurant} from "../../models/Restaurant";
 import {Router} from "@angular/router";
+import {FilterComponent} from "../filter/filter.component";
 
 @Component({
   selector: 'app-main',
@@ -10,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class MainComponent implements OnInit {
 
+  filter: FilterComponent | undefined
   //Google maps option instance : will be used in the future point display system
   mapOptions: google.maps.MapOptions = {
     center: {lat: 45.505423, lng: -73.6594142},
