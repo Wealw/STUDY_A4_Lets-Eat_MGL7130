@@ -1,25 +1,18 @@
-.filter-container{
-  position: absolute;
-  top: 4em;
-  z-index: 900;
-  color: #222;
-  width: 100%;
-  height: 100%;
-
-  /*box-shadow: 3px 3px 9px 2px rgba(0,0,0,0.35);*/
-}
-
 form{
   padding: 0 !important;
   box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.35);
   width: 100%;
   background-color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.distance{
+  padding-top: 20px;
+}
 .range {
   -webkit-appearance: none;
    height: 10px;
-   width:50%;
+   width:60%;
    background:lightgray;
   outline: none;
   opacity: 0.7;
@@ -51,13 +44,15 @@ form{
   display:inline;
   margin-left:22px;
   font-weight: 550;
+  font-size: 14px;
 }
 .pri{
   margin: 10px 22px;
   font-weight: 550;
+  font-size: 14px;
 }
 .prix{
-  width: 80px;
+  width: 90px;
   padding: 0 10px;
 
 }
@@ -66,9 +61,11 @@ select{
   margin: 18px 22px;
   width: 74%;
   height: 30px;
+  font-size: 14px;
 }
-.label{
+label{
   padding: 20px 10px;
+  font-size: 14px;
 }
 
 .notation{
@@ -78,6 +75,7 @@ select{
 
 .notation p{
   font-weight: 550;
+  font-size: 14px;
 }
 .stars {
   --s:35px;
@@ -168,4 +166,72 @@ input:nth-of-type(10):hover ~ i {--l:10}
 .closer{
   height: 100%;
   width: 100%;
+}
+
+
+@media screen and (min-width: 961px) and (orientation: landscape) {
+
+  form{
+    height: 100%;
+    box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.35);
+  
+  }
+
+  .distance{
+    padding-top: 30px;
+  }
+  .range {
+    -webkit-appearance: none;
+     height: 10px;
+     width:80%;
+     background:lightgray;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    display: inline;
+    margin-left: 20px;
+    
+  }
+
+  .pri{
+    margin: 10px 0 10px 20px;
+    font-weight: 550;
+    font-size: 14px;
+    color: #222;
+  }
+  
+  label{
+    padding: 10px 5px;
+    font-size: 14px;
+    color: #222;
+  }
+
+  select{
+    margin: 18px 22px;
+    width: 74%;
+    height: 30px;
+    font-size: 16px;
+    color: #222;
+  }
+
+  .notation{
+    color: black;
+    margin-left:22px
+  }
+  
+  .notation p{
+    font-weight: 550;
+    font-size: 14px;
+  }
+
+  .btn button{
+  
+    margin-top:10px;
+  
+  }
+  .prix{
+    width: 80px;
+    height: 28px;
+  }
 }

@@ -8,15 +8,12 @@ import {RestaurantService} from "../../services/restaurant/restaurant.service";
 })
 export class FilterComponent implements OnInit {
 
-  areFilterDisplayed = false
 
   constructor( public restaurantService : RestaurantService) { }
 
   ngOnInit(): void {
   }
 
-  toggleFilter(){
-    this.areFilterDisplayed = ! this.areFilterDisplayed
-  }
+
 
 }
