@@ -1,7 +1,8 @@
 <main>
   <google-map height="100%" width="100%" [options]="mapOptions">
-    <span *ngFor="let restaurant of restaurants">
-      <map-marker [position]="{lat: this.restaurant.geoPoint.latitude, lng: this.restaurant.geoPoint.longitude}"   [icon]='"assets/icons/icon-72x72.png"'  (mapClick)="goMenu(restaurant.id)"></map-marker>
+    <!--TODO : Auto refresh oskour-->
+    <span *ngFor="let restaurant of this.restaurantService.restaurants">
+      <map-marker [position]="{lat: restaurant.geoPoint.latitude, lng: restaurant.geoPoint.longitude}"   [icon]='"assets/icons/icon-72x72.png"'  (mapClick)="goMenu(restaurant.id)"></map-marker>
     </span>
   </google-map>
 </main>
