@@ -10,6 +10,9 @@ main{
   height: 100%;
   text-align: center;
 }
+.filter{
+  text-align: left;
+}
 
 @media screen and (max-width: 480px) {
   .filter{
