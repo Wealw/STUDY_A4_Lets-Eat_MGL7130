@@ -6,8 +6,7 @@
     <!--TODO : Auto refresh oskour-->
     <span *ngFor="let res of this.restaurantService.restaurants">
       <map-marker [position]="{lat: res.geoPoint.latitude, lng: res.geoPoint.longitude}"
-                  [icon]='"assets/icons/icon-72x72.png"' (mapClick)="goMenu(res.id)" ></map-marker>
-      <p>{{res.id}}</p>
+                  [icon]='"assets/icons/icon-72x72.png"' (mapClick)="goMenu(res.id)"></map-marker>
     </span>
   </google-map>
 </div>
