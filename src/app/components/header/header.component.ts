@@ -53,4 +53,3 @@ export class HeaderComponent implements OnInit {
     this.areFilterDisplayed = ! this.areFilterDisplayed
   }
 }
-

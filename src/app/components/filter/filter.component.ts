@@ -16,4 +16,12 @@ export class FilterComponent implements OnInit {
 
 
 
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
+  }
+
+  getNumber(event: Event) : number {
+    return Number((event.target as HTMLInputElement).value);
+  }
+
 }

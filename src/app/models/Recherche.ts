@@ -1,6 +1,6 @@
 import {FormControl} from "@angular/forms";
 
-export class Recherche extends FormControl{
+export class Recherche {
   public texte: string
   public distance: number
   public prix_min: number
@@ -8,18 +8,14 @@ export class Recherche extends FormControl{
   public categorie: string
   public notation: number
 
+  private static instance : Recherche
 
-  constructor() {
-    super()
-    this.texte = "";
-    this.distance = 2;
-    this.prix_min = 0;
-    this.prix_max = 456789;
-    this.categorie = "";
-    this.notation = 5;
+  private constructor() {
+    this.texte = ""
   }
 
-  public GenerateSearchString() {
-    return ""
+  static getInstance(){
+    if (Recherche.instance == undefined) Recherche.instance = new Recherche()
+    return Recherche.instance
   }
 }
