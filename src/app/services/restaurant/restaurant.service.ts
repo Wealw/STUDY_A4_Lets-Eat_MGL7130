@@ -25,7 +25,7 @@ export class RestaurantService {
 
   getAllRestaurants() {
     console.log(this.recherche)
-    let temp : Restaurant[] = []
+    let temp: Restaurant[] = []
     let query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges()
     query.forEach(obj => {
       obj.forEach(res => {
@@ -39,9 +39,11 @@ export class RestaurantService {
 
   private chainedQuery(ref: CollectionReference): Query {
     let temp = ref.orderBy("nom")
-    if (this.recherche.categorie != "" &&this.recherche.categorie != undefined) {
-      temp = temp.where("categorie", "==", this.recherche.categorie)
-    }
+    if (this.recherche.categorie != "" && this.recherche.categorie != undefined) temp = temp.where("categorie", "==", this.recherche.categorie)
+    // TODO : Check if the attribute are available
+    if (this.recherche.notation != 0) temp = temp.where('notation', '>=', this.recherche.notation)
+    if (this.recherche.prix_min) temp = temp.where("menu.articles.*.taillePrix.prix", "==", this.recherche.prix_min)
+    if (this.recherche.prix_max) temp = temp.where("categorie", "==", this.recherche.categorie)
     return temp
   }
 
