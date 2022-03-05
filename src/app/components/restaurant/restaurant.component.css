@@ -1,10 +1,26 @@
-section{
-  padding: 60px 0 0 30px ;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: #222;
-
+.header{
+    margin: 1.5em;
+   color: black;
+  }
+.back{
+    margin: 0.73em;
+    background-color:white;
+    float:left;
+    color: #222;
+    display: inline;
 }
-
+.roundBox {
+  height: 2.5em;
+  width: 2.5em;
+  margin: 0.73em;
+  background-color: lightgray;
+  border-radius: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  color: white;
+}
 .sub_container{
     margin-top: 1.5em;
 
@@ -70,17 +86,24 @@ section{
     font-size:14px;
   }
 
+  section{
+    padding: 60px 0 0 30px ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #222;
+
+  }
 
   .titre{
     font-size: 22px;
     font-weight: 700;
-
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: inline;
   }
   .heart {
     display: inline;
     color: lightgray;
     font-size: 20px;
+    display: inline;
   }
   .heart:hover{
     color: orange;
@@ -92,7 +115,7 @@ section{
   }
  .icon{
    display: inline;
-   font-size: 14px;
+   font-size:  14px;
    color: lightgray;
  }
  .checked {
@@ -101,7 +124,7 @@ section{
 .Nchecked {
   color: lightgrey;
 }
-  .image{
+  img{
     width: 100px;
     height:80px;
     float: left;
@@ -109,23 +132,7 @@ section{
   .name{
     font-size: 15px;
     font-weight: 550;
-    margin-left:10px;
 
-  }
-
-.price{
-  font-size:15px;
-  font-weight:400;
-}
-.detail{
-  font-size:15px;
-  font-weight:400;
-
-
-}
-
-  .section2{
-    padding-top:40px;
   }
 
 

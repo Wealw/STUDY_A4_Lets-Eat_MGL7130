@@ -18,6 +18,7 @@ import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {RestaurantComponent} from './components/restaurant/restaurant.component';
 import {RestaurantDetailsComponent} from "./components/restaurant-details/restaurant-details.component";
 import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restaurant-reviews.component";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 
 @NgModule({
   declarations: [
@@ -39,12 +40,11 @@ import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restau
     GoogleMapsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      // Register the ServiceWorker as soon as the app is stable
-      // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     FontAwesomeModule,
     BrowserAnimationsModule
   ],
