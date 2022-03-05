@@ -146,7 +146,10 @@ input:nth-of-type(10):hover ~ i {--l:10}
   text-align: center;
 
 }
-.btn button{
+.btn .button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color:#fff;
   background-color: #f3780d;
   border: #f3780d;
@@ -159,7 +162,7 @@ input:nth-of-type(10):hover ~ i {--l:10}
 
 }
 
-.btn button:hover{
+.btn .button:hover{
   background-color: lightgray;
   color: #f3780d;
 }
