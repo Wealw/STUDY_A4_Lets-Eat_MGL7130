@@ -29,7 +29,6 @@ export class RestaurantService {
         temp.push(res as Restaurant)
       })
     })
-    console.log(temp)
     this.restaurants = temp
     return this.restaurants
   }
