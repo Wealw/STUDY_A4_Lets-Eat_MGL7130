@@ -14,9 +14,9 @@
            (input)="restaurantService.recherche.prix_max=getNumber($event)">
   </div>
   <div>
-    <select [value]="this.restaurantService.recherche.categorie">
+    <select [value]="this.restaurantService.recherche.categorie" (input)="restaurantService.recherche.categorie=getValue($event)">
       <option></option>
-      <option>Catégorie</option>
+      <option value="pizza">Pizza</option>
       <option>Catégorie</option>
       <option>Catégorie</option>
     </select><br>
