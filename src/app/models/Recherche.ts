@@ -1,5 +1,3 @@
-import {FormControl} from "@angular/forms";
-
 export class Recherche {
   public texte: string
   public distance: number

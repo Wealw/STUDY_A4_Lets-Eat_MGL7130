@@ -41,6 +41,7 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateToHome() {
+    // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`accueil`])
   }
 

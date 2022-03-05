@@ -1,12 +1,8 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore, CollectionReference} from "@angular/fire/compat/firestore";
-import {Menu} from "../../models/Menu";
-import {Article} from "../../models/Article";
-import {TaillePrix} from "../../models/TaillePrix";
 import firebase from "firebase/compat/app";
-import {map, Observable} from "rxjs";
-import {Adresse} from "../../models/Adresse";
-import GeoPoint = firebase.firestore.GeoPoint;
+import {Observable} from "rxjs";
+
 import {Recherche} from "../../models/Recherche";
 import Query = firebase.firestore.Query;
 import {Restaurant} from "../../models/Restaurant";
@@ -27,6 +23,7 @@ export class RestaurantService {
     console.log('recherche --->',this.recherche)
     let temp: Restaurant[] = []
     let query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges();
+    // noinspection JSIgnoredPromiseFromCall
     query.forEach(obj => {
       obj.forEach(res => {
         temp.push(res as Restaurant)

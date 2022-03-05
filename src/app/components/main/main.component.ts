@@ -29,6 +29,7 @@ export class MainComponent implements OnInit {
   }
 
   goMenu(idRestaurant : string) {
+    // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`restaurant/${idRestaurant}`])
   }
 }

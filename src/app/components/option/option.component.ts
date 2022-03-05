@@ -1,5 +1,5 @@
-import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {faSignInAlt, faSign, faUser, faUtensilSpoon} from '@fortawesome/free-solid-svg-icons';
+import {Component, OnInit} from '@angular/core';
+import {faSignInAlt, faUser, faUtensilSpoon} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-option',

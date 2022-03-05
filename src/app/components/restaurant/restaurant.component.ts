@@ -1,5 +1,5 @@
 
-import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import { faEllipsisV, faBackward, faBackspace, faFastBackward, faHeart, faClock, faPhone, faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 import {OptionComponent} from "../option/option.component";
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
