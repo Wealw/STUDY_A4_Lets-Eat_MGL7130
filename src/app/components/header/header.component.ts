@@ -20,14 +20,14 @@ import {
 })
 export class HeaderComponent implements OnInit {
   @ViewChildren(OptionComponent) options: QueryList<OptionComponent>
+  @ViewChildren(FilterComponent) filters: QueryList<FilterComponent>
   isSearchBarEnable = true
-  areFilterDisplayed = false
-
   faEllipsisV = faEllipsisV
   faFilter = faFilter
   faSearch = faSearch
   faArrowLeft = faArrowLeft
   option: OptionComponent | undefined;
+  filter: FilterComponent | undefined
   searchEnabledRoute = ["/accueil"]
 
   constructor(private router: Router, public restaurantService : RestaurantService) {
@@ -47,9 +47,5 @@ export class HeaderComponent implements OnInit {
 
   navigateToHome() {
     this.router.navigate([`accueil`])
-  }
-
-  toggleFilter(){
-    this.areFilterDisplayed = ! this.areFilterDisplayed
   }
 }

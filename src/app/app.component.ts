@@ -20,8 +20,4 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
-  goMenu(idRestaurant: string) {
-    console.log('go menu called')
-    this.router.navigate(['restaurant/', idRestaurant])
-  }
 }

@@ -9,7 +9,7 @@
     <fa-icon [icon]="this.faSearch" size="1x"></fa-icon>
   </div>
 
-  <div class="filter" style="grid-area: second" *ngIf="isSearchBarEnable" (click)="this.toggleFilter()">
+  <div class="roundBox" style="grid-area: second" *ngIf="isSearchBarEnable" (click)="this.filters.first.toggleFilter()">
     <fa-icon [icon]="faFilter" size="lg"></fa-icon>
   </div>
   <div class="roundBox" style="grid-area: third" (click)="this.options.first.toggleOption()">
@@ -18,6 +18,4 @@
 
 </header>
 <app-option></app-option>
-<div class="filter-container" *ngIf="areFilterDisplayed">
 <app-filter></app-filter>
-</div>

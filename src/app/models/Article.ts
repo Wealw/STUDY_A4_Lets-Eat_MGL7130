@@ -1,6 +1,7 @@
 import {TaillePrix} from "./TaillePrix";
 
 export class Article {
+  id?: string
   nom: string
   description: string
   categorie: string
@@ -8,13 +9,14 @@ export class Article {
   taillePrix: TaillePrix[]
 
   constructor(
+    id: string,
     nom: string,
     description: string,
     categorie: string,
     photo: string,
     taillePrix: TaillePrix[]
   ) {
-    this.nom = nom;
+    this.id = id;
     this.description = description;
     this.categorie = categorie;
     this.photo = photo;

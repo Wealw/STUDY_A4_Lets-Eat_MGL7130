@@ -38,6 +38,7 @@ export class RestaurantComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
     this.restaurantService.getOneRestaurant(id).subscribe(res => {
       this.restaurant = res;
+      console.log('restaurant -->', res)
     })
   }
 

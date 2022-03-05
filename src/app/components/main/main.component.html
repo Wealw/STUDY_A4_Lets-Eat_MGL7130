@@ -1,7 +1,4 @@
 <main>
-  <div class="row sub_main">
-    <div class="col-0 col-sm-3 filter"><app-filter></app-filter></div>
-    <div class="col-12 col-sm-9 " >
   <google-map height="100%" width="100%" [options]="mapOptions">
     <!--TODO : Auto refresh oskour-->
     <span *ngFor="let res of this.restaurantService.restaurants">
@@ -9,6 +6,4 @@
                   [icon]='"assets/icons/icon-72x72.png"' (mapClick)="goMenu(res.id)"></map-marker>
     </span>
   </google-map>
-</div>
-  </div>
 </main>
