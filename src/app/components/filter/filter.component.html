@@ -1,45 +1,39 @@
-<div class="filter-container" *ngIf="areFilterDisplayed">
-  <div class="form-back">
-    <div>
-      <p class="inline">Distance:</p>
-      <input type="range" min="0" max="100" class="range" id="myRange" [value]="this.restaurantService.recherche.distance" (input)="restaurantService.recherche.distance=getNumber($event)">
-    </div>
-
-    <div>
-
-      <p class="pri">Prix:</p>
-      &nbsp;&nbsp;&nbsp;&nbsp;<label class="label">Min</label>
-      <input type="number" class="prix" name="min" min="0" [value]="this.restaurantService.recherche.prix_min" (input)="restaurantService.recherche.prix_min=getNumber($event)">
-      <label class="label">Max</label>
-      <input type="number" class="prix" name="max"  [value]="this.restaurantService.recherche.prix_max" (input)="restaurantService.recherche.prix_max=getNumber($event)">
-    </div>
-
-    <div>
-
-      <select [value]="this.restaurantService.recherche.categorie" (input)="restaurantService.recherche.categorie=getValue($event)">
-        <option></option>
-        <option value="pizza">Pizza</option>
-        <option value="fastFood">Fast food</option>
-        <option>Catégorie</option>
-      </select><br>
-
-    </div>
-
-    <div class="notation">
-
-      <p>Notation:</p>
-      <div class="stars">
-        <input type="radio" name="rating" value="1"/>
-        <input type="radio" name="rating" value="2"/>
-        <input type="radio" name="rating" value="3"/>
-        <input type="radio" name="rating" value="4"/>
-        <input type="radio" name="rating" value="5"/>
-        <i></i>
-      </div>
-    </div>
-    <div class="btn">
-
-      <button type="submit" (click)="restaurantService.getAllRestaurants()">Appliquer</button>
+<form>
+  <div class="distance">
+    <p class="inline">Distance:</p>
+    <input type="range" min="0" max="100" class="range" id="myRange" [value]="this.restaurantService.recherche.distance"
+           (input)="restaurantService.recherche.distance=getNumber($event)">
+  </div>
+  <div>
+    <p class="pri">Prix:</p>
+    <label class="label">Min</label>
+    <input type="number" class="prix" name="min" min="0" [value]="this.restaurantService.recherche.prix_min"
+           (input)="restaurantService.recherche.prix_min=getNumber($event)">
+    <label class="label">Max</label>
+    <input type="number" class="prix" name="max" [value]="this.restaurantService.recherche.prix_max"
+           (input)="restaurantService.recherche.prix_max=getNumber($event)">
+  </div>
+  <div>
+    <select [value]="this.restaurantService.recherche.categorie">
+      <option></option>
+      <option>Catégorie</option>
+      <option>Catégorie</option>
+      <option>Catégorie</option>
+    </select><br>
+  </div>
+  <div class="notation">
+    <p>Notation:</p>
+    <div class="stars">
+      <input type="radio" name="rating" value="1"/>
+      <input type="radio" name="rating" value="2"/>
+      <input type="radio" name="rating" value="3"/>
+      <input type="radio" name="rating" value="4"/>
+      <input type="radio" name="rating" value="5"/>
+      <i></i>
     </div>
   </div>
-</div>
+  <div class="btn">
+    <button (click)="restaurantService.getAllRestaurants()">Appliquer</button>
+  </div>
+</form>
+
