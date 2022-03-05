@@ -1,4 +1,4 @@
-main{
+main {
   margin: 0;
   width: 100%;
   height: calc(100% - 4em);
@@ -6,16 +6,34 @@ main{
   top: 4em;
   z-index: 0;
 }
-.sub_main{
+
+.sub_main {
   height: 100%;
   text-align: center;
-}
-.filter{
-  text-align: left;
+  width: 100%;
+  margin: 0;
 }
 
-@media screen and (max-width: 480px) {
-  .filter{
-    display:none;
+.filter {
+  text-align: left;
+  padding: 0;
+}
+
+.selector{
+  padding: 0;
+}
+
+@media screen and (orientation: portrait) {
+  .filter {
+    display: none;
   }
+
+}
+
+@media screen and (orientation: landscape) {
+  .selector {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+
 }

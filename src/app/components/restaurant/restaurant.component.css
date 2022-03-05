@@ -27,22 +27,22 @@
 
   }
 
-  .commentaire{
+  .commentary{
     padding-bottom: 10px;
     /*border-right: 1px solid lightgrey;*/
 
   }
 
-  @media screen and (max-width: 480px) {
-    .commentaire{
+  @media screen and (orientation: portrait) {
+    .commentary{
       display:none;
     }
 
   }
-  .commentaire h4{
+  .commentary h4{
     font-size: 20px;
   }
-  .commentaire h4 span{
+  .commentary h4 span{
   color:orange;
   height: 2.5em;
   width: 2.5em;
@@ -121,7 +121,7 @@
  .checked {
   color: orange;
 }
-.Nchecked {
+.unchecked {
   color: lightgrey;
 }
   img{
