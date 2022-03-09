@@ -5,7 +5,6 @@ deploy-functions:
   stage: deploy
   script:
     - npm install
-    - cd ..
     - firebase deploy --only functions --token $FIREBASE_TOKEN
   only:
     refs:
