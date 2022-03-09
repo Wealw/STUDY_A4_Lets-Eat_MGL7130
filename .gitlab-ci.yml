@@ -8,5 +8,3 @@ deploy-functions:
   only:
     refs:
       - main
-    changes:
-      - functions/**/*
