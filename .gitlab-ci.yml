@@ -1,0 +1,13 @@
+image: node:16-alpine3.14
+before_script:
+  - npm i -g firebase-tools
+  - npm install -g @angular/cli
+deploy-functions:
+  stage: deploy
+  script:
+    - npm install
+    - ng build
+    - firebase deploy --token $FIREBASE_TOKEN
+  only:
+    refs:
+      - main
