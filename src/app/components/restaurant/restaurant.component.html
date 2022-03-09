@@ -72,7 +72,7 @@
           <div class="col-md-6 col-12">
             <div class="row" *ngFor="let article of restaurant.menu.articles">
               <div class="col-md-4 col-4"><img [src]="article.photo" class="image" alt=""></div>
-              <div class="col-md-8 col-8"><p class="name">{{article.nom}} <br><span
+              <div class="col-md-6 col-8"><p class="name">{{article.nom}} <br><span
                 class="price">{{article.taillePrix[0].prix + ' $'}}</span> <br>
                 <span class="detail">{{article.description}}</span></p>
               </div>

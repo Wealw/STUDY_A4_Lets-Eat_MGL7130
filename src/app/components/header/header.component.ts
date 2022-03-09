@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit {
   searchEnabledRoute = ["/accueil"]
 
   constructor(private router: Router, public restaurantService : RestaurantService) {
-    console.log(this.router.url)
     this.updateSearchBarDisplay()
     // noinspection JSIgnoredPromiseFromCall
     router.events.forEach((): void => {
@@ -37,6 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   updateSearchBarDisplay() {
+    console.log(this.router.url)
     this.isSearchBarEnable = this.searchEnabledRoute.includes(this.router.url);
   }
 
