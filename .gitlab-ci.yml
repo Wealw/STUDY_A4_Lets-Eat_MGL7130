@@ -7,6 +7,6 @@ deploy-functions:
     - firebase deploy --only functions --token $FIREBASE_TOKEN
   only:
     refs:
-      - master
+      - main
     changes:
       - functions/**/*
