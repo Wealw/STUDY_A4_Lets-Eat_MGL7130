@@ -4,11 +4,12 @@
       <app-filter></app-filter>
     </div>
     <div class="col-12 selector">
-      <google-map height="100%" width="100%" [options]="mapOptions">
+      <google-map [options]="mapOptions" height="100%" width="100%">
         <span *ngFor="let res of this.restaurantService.restaurants">
-      <map-marker [position]="{lat: res.geoPoint.latitude, lng: res.geoPoint.longitude}"
-                  [icon]='"assets/icons/icon-72x72.png"' (mapClick)="goMenu(res.id)"></map-marker>
-    </span>
+          <map-marker (mapClick)="goMenu(res.id)"
+                      [icon]='"assets/icons/icon-72x72.png"'
+                      [position]="{lat: res.geoPoint.latitude, lng: res.geoPoint.longitude}"></map-marker>
+        </span>
       </google-map>
     </div>
   </div>
