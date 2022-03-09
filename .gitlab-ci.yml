@@ -1,6 +1,7 @@
 image: node:12.13.0-alpine
 before_script:
   - npm i -g firebase-tools
+  - npm install -g @angular/cli
 deploy-functions:
   stage: deploy
   script:
