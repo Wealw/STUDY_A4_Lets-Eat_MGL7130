@@ -4,7 +4,6 @@ before_script:
 deploy-functions:
   stage: deploy
   script:
-    - cd functions
     - npm install
     - cd ..
     - firebase deploy --only functions --token $FIREBASE_TOKEN
