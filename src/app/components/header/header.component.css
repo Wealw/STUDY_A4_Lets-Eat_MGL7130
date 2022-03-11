@@ -35,12 +35,7 @@ header {
   align-items: center;
 }
 
-@media screen and (orientation: landscape) {
-  .filter{
-    display:none;
-  }
 
-}
 
 fa-icon{
   color: #fff;
@@ -58,7 +53,6 @@ input {
   border-style: solid;
 }
 
-
 .formulaire > fa-icon {
   color: lightgray;
   position: absolute;
@@ -73,6 +67,12 @@ input {
   color: #222;
   width: 100%;
   height: 100%;
-
   /*box-shadow: 3px 3px 9px 2px rgba(0,0,0,0.35);*/
+}
+
+/* Cache le menu quand l'application est en mode landscape */
+@media screen and (orientation: landscape) {
+  .filter{
+    display:none;
+  }
 }

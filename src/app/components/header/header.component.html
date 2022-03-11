@@ -1,23 +1,29 @@
+<!--Change les propriété d'affichage du menu de navigation en accord avec l'état du composant-->
 <header [ngStyle]="{'grid-template-columns' : (isSearchBarEnable) ? '1fr auto auto' : '1fr 1fr auto'}">
+  <!--Affiche un spacer dans le boutton de retour dans la barre de recherche est désactivée-->
   <div class="roundBox" style="grid-area: first" *ngIf="!isSearchBarEnable" (click)="navigateToHome()">
     <fa-icon [icon]="faArrowLeft"></fa-icon>
  </div>
+  <!--Affiche un spacer dans le menu quand la barre de recherche est désactivée-->
   <span  style="grid-area: second" *ngIf="!isSearchBarEnable">
   </span>
+  <!--Affiche la barre de recherche et bind -->
   <div class="formulaire" *ngIf="isSearchBarEnable">
-    <input placeholder="Recherche..." [value]="this.restaurantService.recherche.texte">
+    <input placeholder="Recherche..." [value]="this.restaurantService.recherche.texte" (input)="restaurantService.recherche.texte=getValue($event)">
     <fa-icon [icon]="this.faSearch" size="1x"></fa-icon>
   </div>
-
+  <!--Affiche le boutton des filtre quand la barre de recherche est affichée-->
   <div class="filter" style="grid-area: second" *ngIf="isSearchBarEnable" (click)="this.toggleFilter()">
     <fa-icon [icon]="faFilter" size="lg"></fa-icon>
   </div>
+  <!--Affiche un boutton permettant de déployer les options-->
   <div class="roundBox" style="grid-area: third" (click)="this.options.first.toggleOption()">
     <fa-icon [icon]="faEllipsisV" size="lg" ></fa-icon>
   </div>
-
 </header>
+<!--Instance des options-->
 <app-option></app-option>
+<!--Instance du filtre quand ils sont déployés-->
 <div class="filter-container" *ngIf="areFilterDisplayed">
 <app-filter></app-filter>
 </div>
