@@ -39,7 +39,6 @@ export class HeaderComponent implements OnInit {
 
   // Met à jour l'état de la barre de recherche en fonction de la route
   updateSearchBarDisplay() {
-    console.log(this.router.url)
     this.isSearchBarEnable = this.searchEnabledRoute.includes(this.router.url);
   }
 
