@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
+import {Recherche} from "../../models/Recherche";
 
 @Component({
   selector: 'app-filter',
@@ -7,21 +8,26 @@ import {RestaurantService} from "../../services/restaurant/restaurant.service";
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
+  restaurantRecherche: Recherche;
+  categories: any[] = [{name: 'Pizzeria', value: 'pizzeria'}, {name: 'Fast Food', value: 'fastfood'}, {
+    name: 'Coffee',
+    value: 'coffee'
+  }]
 
-
-  constructor( public restaurantService : RestaurantService) { }
+  constructor(public restaurantService: RestaurantService,
+  ) {
+    this.restaurantRecherche = restaurantService.recherche;
+  }
 
   ngOnInit(): void {
+    this.restaurantRecherche.distance = 20;
+    // this.initForm()
+
   }
 
-
-
-  getValue(event: Event): string {
-    return (event.target as HTMLInputElement).value;
+  formatLabel(value: number) {
+    return value;
   }
 
-  getNumber(event: Event) : number {
-    return Number((event.target as HTMLInputElement).value);
-  }
 
 }

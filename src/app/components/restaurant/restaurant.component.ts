@@ -1,6 +1,16 @@
 
 import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
-import { faEllipsisV, faBackward, faBackspace, faFastBackward, faHeart, faClock, faPhone, faLocationArrow } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEllipsisV,
+  faBackward,
+  faBackspace,
+  faFastBackward,
+  faHeart,
+  faClock,
+  faPhone,
+  faLocationArrow,
+  faPhoneSquare
+} from '@fortawesome/free-solid-svg-icons';
 import {OptionComponent} from "../option/option.component";
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -23,7 +33,7 @@ export class RestaurantComponent implements OnInit {
   faClock =faClock
   faPhone =faPhone
   faLocationArrow = faLocationArrow
-
+  col : any;
 
   option: OptionComponent | undefined;
   restaurant: Restaurant;
@@ -35,11 +45,18 @@ export class RestaurantComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.col = (window.screen.width <= 667) ? 1 : 2;
+
     let id = this.route.snapshot.paramMap.get('id');
     this.restaurantService.getOneRestaurant(id).subscribe(res => {
       this.restaurant = res;
       console.log('restaurant -->', res)
     })
+  }
+  onResize(event : any){
+    this.col = (window.screen.width <= 667) ? 1 : 2;
+
+
   }
 
 }
