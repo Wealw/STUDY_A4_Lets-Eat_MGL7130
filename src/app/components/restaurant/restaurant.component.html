@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container" xmlns="http://www.w3.org/1999/html">
   <div class="row sub_container">
     <div class="col-sm-3 commentary">
       <h4>Commentaires <span>8</span></h4>
@@ -46,7 +46,7 @@
       </div>
       <div class="pad" *ngIf="restaurant.calendrier">
         <fa-icon [icon]="faClock" size="lg" class="icon"></fa-icon>&nbsp;&nbsp;
-        <p class="sous_titre">Ouvert jusqu'A {{restaurant.calendrier[0].heureFermeture + 'h'}}</p>
+        <p class="sous_titre">Ouvert jusqu'A {{restaurant.calendrier[0].heureFermeture + 'H'}}</p>
 
       </div>
       <div class="pad">
@@ -68,17 +68,30 @@
         <span class="fa fa-star unchecked"></span>
       </div>
       <div class="section2">
-        <div class="row">
-          <div class="col-md-6 col-12">
-            <div class="row" *ngFor="let article of restaurant.menu.articles">
-              <div class="col-md-4 col-4"><img [src]="article.photo" class="image" alt=""></div>
-              <div class="col-md-8 col-8"><p class="name">{{article.nom}} <br><span
-                class="price">{{article.taillePrix[0].prix + ' $'}}</span> <br>
-                <span class="detail">{{article.description}}</span></p>
+        <mat-grid-list [cols]="col" rowHeight="2:1" (window:resize)="onResize($event)">
+          <ng-container *ngFor="let article of restaurant.menu.articles" >
+            <mat-grid-tile>
+              <div class='grid-tile' >
+                <mat-grid-list cols="2" rowHeight="2:1">
+                  <mat-grid-tile [colspan]="col" ><img [src]="article.photo" class="image" alt=""></mat-grid-tile>
+                  <mat-grid-tile style="text-align: center"  [colspan]="col" > <div class="text-container">{{article.nom}} <br>{{article.taillePrix[0].taille +': '+article.taillePrix[0].prix+' $'}}<br> {{article.description}}</div></mat-grid-tile>
+
+                </mat-grid-list>
               </div>
-            </div>
-          </div>
-        </div>
+            </mat-grid-tile>
+          </ng-container>
+        </mat-grid-list>
+<!--        <div class="row">-->
+<!--          <div class="col-md-6 col-12">-->
+<!--            <div class="row" *ngFor="let article of restaurant.menu.articles">-->
+<!--              <div class="col-md-4 col-4"><img [src]="article.photo" class="image" alt=""></div>-->
+<!--              <div class="col-md-8 col-8"><p class="name">{{article.nom}} <br><span-->
+<!--                class="price">{{article.taillePrix[0].prix + ' $'}}</span> <br>-->
+<!--                <span class="detail">{{article.description}}</span></p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
       </div>
     </div>
   </div>

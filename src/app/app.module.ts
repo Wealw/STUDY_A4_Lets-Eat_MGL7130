@@ -19,6 +19,15 @@ import {RestaurantComponent} from './components/restaurant/restaurant.component'
 import {RestaurantDetailsComponent} from "./components/restaurant-details/restaurant-details.component";
 import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restaurant-reviews.component";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatSliderModule} from "@angular/material/slider";
+import {MatButtonModule} from "@angular/material/button";
+import {NgxStarRatingModule} from "ngx-star-rating";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -46,7 +55,17 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
     AngularFirestoreModule,
     AngularFireStorageModule,
     FontAwesomeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    MatSliderModule,
+    MatButtonModule,
+    NgxStarRatingModule,
+    MatListModule,
+    ReactiveFormsModule
   ],
   providers:
     [

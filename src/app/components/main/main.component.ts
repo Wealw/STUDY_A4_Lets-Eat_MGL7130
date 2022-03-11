@@ -10,10 +10,8 @@ import {FilterComponent} from "../filter/filter.component";
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-  restaurants : Restaurant[]
-
+  restaurants: Restaurant[]
   filter: FilterComponent | undefined
-  //Google maps option instance : will be used in the future point display system
   mapOptions: google.maps.MapOptions = {
     center: {lat: 45.505423, lng: -73.6594142},
     zoom: 11,
@@ -21,14 +19,14 @@ export class MainComponent implements OnInit {
   }
 
   constructor(public restaurantService: RestaurantService,
-              private router : Router) {
+              private router: Router) {
     restaurantService.getAllRestaurants()
   }
 
   ngOnInit(): void {
   }
 
-  goMenu(idRestaurant : string) {
+  goMenu(idRestaurant: string) {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`restaurant/${idRestaurant}`])
   }

@@ -4,8 +4,8 @@ import firebase from "firebase/compat/app";
 import {Observable} from "rxjs";
 
 import {Recherche} from "../../models/Recherche";
-import Query = firebase.firestore.Query;
 import {Restaurant} from "../../models/Restaurant";
+import Query = firebase.firestore.Query;
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class RestaurantService {
   }
 
   getAllRestaurants() {
-    console.log('recherche --->',this.recherche)
+    console.log('recherche --->', this.recherche)
     let temp: Restaurant[] = []
     let query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges();
     // noinspection JSIgnoredPromiseFromCall
@@ -38,10 +38,10 @@ export class RestaurantService {
     let temp = ref.orderBy("note")
     if (this.recherche.categorie != "" && this.recherche.categorie != undefined) temp = temp.where("categorie", "==", this.recherche.categorie)
     // TODO : Check if the attribute are available
-    if (this.recherche.notation != undefined) temp = temp.where('note', '>=', 3)
-    if (this.recherche.prix_min != undefined) temp = temp.where('menu.articles', 'array-contains', {nom : 'pizza nature'})
+    if (this.recherche.notation != undefined) temp = temp.where('note', '>=', this.recherche.notation)
+    if (this.recherche.prix_min != undefined) temp = temp.where('menu.articles', 'array-contains', {nom: 'pizza nature'})
     if (this.recherche.prix_max != undefined) temp = temp.where("categorie", "==", this.recherche.categorie)
-    console.log('temp --->',temp)
+    console.log('temp --->', temp)
     return temp
   }
 
