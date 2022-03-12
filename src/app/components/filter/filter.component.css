@@ -1,20 +1,21 @@
-form{
-  padding: 0 !important;
-  box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.35);
+form {
+  padding: 10px !important;
+  box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.35);
   width: 100%;
   background-color: #fff;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   z-index: 10000000000000000;
 }
 
-.distance{
+.distance {
   padding-top: 20px;
 }
+
 .range {
   -webkit-appearance: none;
-   height: 10px;
-   width:60%;
-   background:lightgray;
+  height: 10px;
+  width: 60%;
+  background: lightgray;
   outline: none;
   opacity: 0.7;
   -webkit-transition: .2s;
@@ -41,133 +42,200 @@ form{
   background: #f3780d;
   cursor: pointer;
 }
-.inline{
-  display:inline;
-  margin-left:22px;
+
+.inline {
+  display: inline;
+  margin-left: 22px;
   font-weight: 550;
   font-size: 14px;
 }
-.pri{
+
+.pri {
   margin: 10px 22px;
   font-weight: 550;
   font-size: 14px;
 }
-.prix{
-  width: 90px;
-  padding: 0 10px;
+
+mat-list-item {
+  /*width: 90px;*/
+  width: 100%;
+  padding: 0 0px;
 
 }
 
-select{
+select {
   margin: 18px 22px;
   width: 74%;
   height: 30px;
   font-size: 14px;
 }
-label{
+
+label {
   padding: 20px 10px;
   font-size: 14px;
 }
 
-.notation{
+.notation {
   color: black;
-  margin-left:22px
+  /*margin-left:22px*/
 }
 
-.notation p{
+.notation p {
   font-weight: 550;
   font-size: 14px;
 }
+
 .stars {
-  --s:35px;
-  position:relative;
-  display:inline-flex;
+  --s: 35px;
+  position: relative;
+  display: inline-flex;
 }
+
 .stars input {
-  width:var(--s);
-  height:var(--s);
-  margin:0;
-  opacity:0;
-  cursor:pointer;
+  width: var(--s);
+  height: var(--s);
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .stars i {
-  position:absolute;
-  inset:0 0 calc(var(--s)*0.1);
-  pointer-events:none;
-  --v1:transparent,#000 0.5deg 108deg,#0000 109deg;
-  --v2:transparent,#000 0.5deg  36deg,#0000  37deg;
-  -webkit-mask:
-    conic-gradient(from 54deg  at calc(var(--s)*0.68) calc(var(--s)*0.57),var(--v1)),
-    conic-gradient(from 90deg  at calc(var(--s)*0.02) calc(var(--s)*0.35),var(--v2)),
-    conic-gradient(from 126deg at calc(var(--s)*0.5)  calc(var(--s)*0.7) ,var(--v1)),
-    conic-gradient(from 162deg at calc(var(--s)*0.5)  0                  ,var(--v2));
+  position: absolute;
+  inset: 0 0 calc(var(--s) * 0.1);
+  pointer-events: none;
+  --v1: transparent, #000 0.5deg 108deg, #0000 109deg;
+  --v2: transparent, #000 0.5deg 36deg, #0000 37deg;
+  -webkit-mask: conic-gradient(from 54deg at calc(var(--s) * 0.68) calc(var(--s) * 0.57), var(--v1)),
+  conic-gradient(from 90deg at calc(var(--s) * 0.02) calc(var(--s) * 0.35), var(--v2)),
+  conic-gradient(from 126deg at calc(var(--s) * 0.5) calc(var(--s) * 0.7), var(--v1)),
+  conic-gradient(from 162deg at calc(var(--s) * 0.5) 0, var(--v2));
   -webkit-mask-size: var(--s) var(--s);
-  -webkit-mask-composite: xor,destination-over;
-  mask-composite: exclude,add;
-  background-size:calc(var(--l,0)*var(--s)) 100%,calc(var(--p,0)*var(--s)) 100%;
-  background: linear-gradient( 0.25turn,#ccc, orange ) no-repeat;
+  -webkit-mask-composite: xor, destination-over;
+  mask-composite: exclude, add;
+  background-size: calc(var(--l, 0) * var(--s)) 100%, calc(var(--p, 0) * var(--s)) 100%;
+  background: linear-gradient(0.25turn, #ccc, orange) no-repeat;
   border: 2px solid #fff;
 }
 
 .stars:focus-within {
-  outline:1px solid #fff;
+  outline: 1px solid #fff;
 
 }
 
-input:active ~ i{--o:1}
+input:active ~ i {
+  --o: 1
+}
 
-input:nth-of-type(1):checked ~ i {--p:1}
-input:nth-of-type(2):checked ~ i {--p:2}
-input:nth-of-type(3):checked ~ i {--p:3}
-input:nth-of-type(4):checked ~ i {--p:4}
-input:nth-of-type(5):checked ~ i {--p:5}
-input:nth-of-type(6):checked ~ i {--p:6}
-input:nth-of-type(7):checked ~ i {--p:7}
-input:nth-of-type(8):checked ~ i {--p:8}
-input:nth-of-type(9):checked ~ i {--p:9}
-input:nth-of-type(10):checked ~ i {--p:10}
+input:nth-of-type(1):checked ~ i {
+  --p: 1
+}
+
+input:nth-of-type(2):checked ~ i {
+  --p: 2
+}
+
+input:nth-of-type(3):checked ~ i {
+  --p: 3
+}
+
+input:nth-of-type(4):checked ~ i {
+  --p: 4
+}
+
+input:nth-of-type(5):checked ~ i {
+  --p: 5
+}
+
+input:nth-of-type(6):checked ~ i {
+  --p: 6
+}
+
+input:nth-of-type(7):checked ~ i {
+  --p: 7
+}
+
+input:nth-of-type(8):checked ~ i {
+  --p: 8
+}
+
+input:nth-of-type(9):checked ~ i {
+  --p: 9
+}
+
+input:nth-of-type(10):checked ~ i {
+  --p: 10
+}
+
 /*input:nth-of-type(N):checked ~ i {--p:N}*/
 
-input:nth-of-type(1):hover ~ i {--l:1}
-input:nth-of-type(2):hover ~ i {--l:2}
-input:nth-of-type(3):hover ~ i {--l:3}
-input:nth-of-type(4):hover ~ i {--l:4}
-input:nth-of-type(5):hover ~ i {--l:5}
-input:nth-of-type(6):hover ~ i {--l:6}
-input:nth-of-type(7):hover ~ i {--l:7}
-input:nth-of-type(8):hover ~ i {--l:8}
-input:nth-of-type(9):hover ~ i {--l:9}
-input:nth-of-type(10):hover ~ i {--l:10}
+input:nth-of-type(1):hover ~ i {
+  --l: 1
+}
+
+input:nth-of-type(2):hover ~ i {
+  --l: 2
+}
+
+input:nth-of-type(3):hover ~ i {
+  --l: 3
+}
+
+input:nth-of-type(4):hover ~ i {
+  --l: 4
+}
+
+input:nth-of-type(5):hover ~ i {
+  --l: 5
+}
+
+input:nth-of-type(6):hover ~ i {
+  --l: 6
+}
+
+input:nth-of-type(7):hover ~ i {
+  --l: 7
+}
+
+input:nth-of-type(8):hover ~ i {
+  --l: 8
+}
+
+input:nth-of-type(9):hover ~ i {
+  --l: 9
+}
+
+input:nth-of-type(10):hover ~ i {
+  --l: 10
+}
+
 /*input:nth-of-type(N):hover ~ i {--l:N}*/
 
-.btn{
+.btn {
 
   text-align: center;
 
 }
-.btn .button{
+
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
-  color:#fff;
+  color: #fff;
   background-color: #f3780d;
-  border: #f3780d;
-  height: 35px;
-  width: 100px;
+  width: 100%;
   font-size: 16px;
   font-weight: 550;
   text-align: center;
-  margin:10px;
+
 
 }
 
-.btn .button:hover{
+.btn .button:hover {
   background-color: lightgray;
   color: #f3780d;
 }
 
-.closer{
+.closer {
   height: 100%;
   width: 100%;
 }
@@ -175,20 +243,21 @@ input:nth-of-type(10):hover ~ i {--l:10}
 
 @media screen and (orientation: landscape) {
 
-  form{
+  form {
     height: 100%;
-    box-shadow: none;
+    box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.35);
 
   }
 
-  .distance{
+  .distance {
     padding-top: 30px;
   }
+
   .range {
     -webkit-appearance: none;
-     height: 10px;
-     width:80%;
-     background:lightgray;
+    height: 10px;
+    width: 80%;
+    background: lightgray;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -198,21 +267,21 @@ input:nth-of-type(10):hover ~ i {--l:10}
 
   }
 
-  .pri{
+  .pri {
     margin: 10px 0 10px 20px;
     font-weight: 550;
     font-size: 14px;
     color: #222;
   }
 
-  label{
+  label {
     padding: 10px 5px;
     width: 100%;
     font-size: 14px;
     color: #222;
   }
 
-  select{
+  select {
     margin: 18px 22px;
     width: 74%;
     height: 30px;
@@ -220,23 +289,36 @@ input:nth-of-type(10):hover ~ i {--l:10}
     color: #222;
   }
 
-  .notation{
+  .notation {
     color: black;
-    margin-left:22px
+    /*margin-left:22px*/
   }
 
-  .notation p{
+  .notation p {
     font-weight: 550;
     font-size: 14px;
   }
 
-  .btn button{
+  .btn button {
 
-    margin-top:10px;
+    margin-top: 10px;
 
   }
-  .prix{
-    width: 80px;
-    height: 28px;
-  }
+
+
+}
+
+
+div.stars {
+  width: 270px;
+  padding: 0 0px !important;
+  display: inline-block;
+}
+
+mat-slider {
+  width: auto;
+}
+
+mat-form-field {
+  width: 100%;
 }

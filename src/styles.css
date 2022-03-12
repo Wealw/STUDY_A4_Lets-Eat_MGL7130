@@ -1,6 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { padding: 0; margin: 0;}
+html, body {
+  padding: 0;
+  margin: 0;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+input.star:checked ~ label.star:before {
+  color: orange !important;
+
+}
+
+label.star:before {
+  font-size: 15px;
+  padding: 0 !important;
+
+}
+
+div.stars {
+  width: auto !important;
+  padding: 0 !important;
+
+}
+
+.mat-slider-thumb {
+  background-color: orange !important;
+}
+
+.mat-slider-thumb-label {
+  background-color: orange !important;
+}
+
+.mat-slider-track-fill {
+  background-color: orange !important;
+}
