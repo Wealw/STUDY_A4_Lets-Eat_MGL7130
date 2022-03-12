@@ -22,6 +22,7 @@ export class MainComponent implements OnInit {
     scaledSize: new google.maps.Size(50,50)
   }
 
+
   constructor(public restaurantService: RestaurantService,
               private router: Router) {
     restaurantService.getAllRestaurants()
@@ -34,4 +35,5 @@ export class MainComponent implements OnInit {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`restaurant/${idRestaurant}`])
   }
+
 }
