@@ -84,14 +84,11 @@
       <div class="stars">
         <ngx-star-rating name="rating" [(ngModel)]="restaurantRecherche.notation"></ngx-star-rating>
       </div>
-
     </mat-list-item>
     <mat-list-item>
       <button style="align-content: end" class="button" mat-raised-button
-              (click)="restaurantService.getAllRestaurants()">Appliquer
+              (click)="handleForm()">Appliquer
       </button>
-
     </mat-list-item>
   </mat-list>
-
 </form>

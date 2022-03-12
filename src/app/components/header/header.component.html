@@ -25,6 +25,6 @@
 <app-option></app-option>
 <!--Instance du filtre quand ils sont déployés-->
 <div class="filter-container" *ngIf="areFilterDisplayed" >
-<app-filter></app-filter>
+<app-filter [delegate]="this"></app-filter>
   <div class="filter-close" (click)="toggleFilter()"></div>
 </div>

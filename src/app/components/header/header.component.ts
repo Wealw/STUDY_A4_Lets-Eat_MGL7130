@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
 
   // Permet de basculer l'état d'affichage des filtres
   toggleFilter(){
-    this.areFilterDisplayed = ! this.areFilterDisplayed
+    this.areFilterDisplayed = !this.areFilterDisplayed;
   }
 
   // Récupère la valeur d'un champ de texte pour réaliser un two-way binding

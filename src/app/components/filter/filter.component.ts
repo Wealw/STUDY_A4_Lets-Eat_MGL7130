@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
 import {Recherche} from "../../models/Recherche";
+import {HeaderComponent} from "../header/header.component";
 
 @Component({
   selector: 'app-filter',
@@ -13,6 +14,8 @@ export class FilterComponent implements OnInit {
     name: 'Coffee',
     value: 'coffee'
   }]
+
+  @Input() delegate : HeaderComponent;
 
   constructor(public restaurantService: RestaurantService,
   ) {
@@ -27,6 +30,13 @@ export class FilterComponent implements OnInit {
 
   formatLabel(value: number) {
     return value;
+  }
+
+  handleForm(){
+    this.restaurantService.getAllRestaurants()
+    if (this.delegate != undefined){
+      this.delegate.toggleFilter()
+    }
   }
 
 
