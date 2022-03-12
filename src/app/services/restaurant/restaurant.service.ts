@@ -57,11 +57,12 @@ export class RestaurantService {
 
   filter(tempRestaurantList: Restaurant[]) {
     let counter = tempRestaurantList.length - 1
-    while (counter > 0) {
-      let areDishesMatch =false
+    console.log("NUMBER")
+    console.log(tempRestaurantList.length)
+    while (counter >= 0) {
+      console.log(tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.nom.includes(this.recherche.texte)))
       if (!tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.nom.includes(this.recherche.texte))) {
         tempRestaurantList.splice(counter, 1)
-        counter--
       }
       counter--
     }
