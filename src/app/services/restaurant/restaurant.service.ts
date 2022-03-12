@@ -7,6 +7,7 @@ import {Recherche} from "../../models/Recherche";
 import Query = firebase.firestore.Query;
 import {Restaurant} from "../../models/Restaurant";
 import {Article} from "../../models/Article";
+import {TaillePrix} from "../../models/TaillePrix";
 
 @Injectable({
   providedIn: 'root'
@@ -49,19 +50,25 @@ export class RestaurantService {
     let temp = ref.orderBy("note")
     if (this.recherche.categorie != "" && this.recherche.categorie != undefined) temp = temp.where("categorie", "==", this.recherche.categorie)
     if (this.recherche.notation != undefined) temp = temp.where('note', '>=', this.recherche.notation)
-    // TODO : Check if the attribute are available
-    if (this.recherche.prix_min != undefined) temp = temp.where('menu.articles', 'array-contains', {nom: 'pizza nature'})
-    if (this.recherche.prix_max != undefined) temp = temp.where("categorie", "==", this.recherche.categorie)
+
     return temp
   }
 
   filter(tempRestaurantList: Restaurant[]) {
     let counter = tempRestaurantList.length - 1
-    console.log("NUMBER")
-    console.log(tempRestaurantList.length)
     while (counter >= 0) {
       console.log(tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.nom.includes(this.recherche.texte)))
+      //Test if a restaurant have at leaste one article containing the search term
       if (!tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.nom.includes(this.recherche.texte))) {
+        tempRestaurantList.splice(counter, 1)
+
+      }
+      //Test if a restaurant fullfill the condition of minimum price
+      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => obj1.prix<this.recherche.prix_min))) {
+        tempRestaurantList.splice(counter, 1)
+      }
+      //Test if a restaurant fullfill the condition of maximum price
+      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => obj1.prix>this.recherche.prix_max))) {
         tempRestaurantList.splice(counter, 1)
       }
       counter--
