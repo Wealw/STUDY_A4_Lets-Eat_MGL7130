@@ -124,8 +124,7 @@
   color: lightgrey;
 }
   img{
-    width: 100px;
-    height:80px;
+    height: 100%;
     float: left;
   }
   .name{
@@ -142,6 +141,7 @@
 
 .grid-tile{
   min-width:100%;
+  min-height:100%;
   padding: 20px;
 }
 

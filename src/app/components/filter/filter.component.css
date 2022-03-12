@@ -221,7 +221,7 @@ input:nth-of-type(10):hover ~ i {
   justify-content: center;
   align-items: center;
   color: #fff;
-  background-color: #f3780d;
+  background-color: orange;
   width: 100%;
   font-size: 16px;
   font-weight: 550;
@@ -319,6 +319,8 @@ mat-slider {
   width: auto;
 }
 
-mat-form-field {
+
+
+mat-slider {
   width: 100%;
 }
