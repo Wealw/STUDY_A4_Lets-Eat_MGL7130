@@ -35,4 +35,9 @@ export class OptionComponent implements OnInit {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`sign-up`])
   }
+
+  navigateToAbout() {
+    // noinspection JSIgnoredPromiseFromCall
+    this.router.navigate([`about`])
+  }
 }
