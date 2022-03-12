@@ -245,7 +245,7 @@ input:nth-of-type(10):hover ~ i {
 
   form {
     height: 100%;
-    box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.35);
+    box-shadow: none
 
   }
 
