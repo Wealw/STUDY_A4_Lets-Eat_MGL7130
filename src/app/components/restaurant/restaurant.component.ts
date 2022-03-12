@@ -8,8 +8,7 @@ import {
   faHeart,
   faClock,
   faPhone,
-  faLocationArrow,
-  faPhoneSquare
+  faLocationArrow
 } from '@fortawesome/free-solid-svg-icons';
 import {OptionComponent} from "../option/option.component";
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
@@ -46,7 +45,6 @@ export class RestaurantComponent implements OnInit {
 
   ngOnInit(): void {
     this.col = (window.screen.width <= 667) ? 1 : 2;
-
     let id = this.route.snapshot.paramMap.get('id');
     this.restaurantService.getOneRestaurant(id).subscribe(res => {
       this.restaurant = res;
@@ -55,8 +53,6 @@ export class RestaurantComponent implements OnInit {
   }
   onResize(event : any){
     this.col = (window.screen.width <= 667) ? 1 : 2;
-
-
   }
 
 }

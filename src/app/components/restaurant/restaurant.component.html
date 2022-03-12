@@ -1,4 +1,4 @@
-<section class="container" xmlns="http://www.w3.org/1999/html">
+<section class="container" xmlns="http://www.w3.org/1999/html" *ngIf="this.restaurant">
   <div class="row sub_container">
     <div class="col-sm-3 commentary">
       <h4>Commentaires <span>8</span></h4>
@@ -81,17 +81,17 @@
             </mat-grid-tile>
           </ng-container>
         </mat-grid-list>
-<!--        <div class="row">-->
-<!--          <div class="col-md-6 col-12">-->
-<!--            <div class="row" *ngFor="let article of restaurant.menu.articles">-->
-<!--              <div class="col-md-4 col-4"><img [src]="article.photo" class="image" alt=""></div>-->
-<!--              <div class="col-md-8 col-8"><p class="name">{{article.nom}} <br><span-->
-<!--                class="price">{{article.taillePrix[0].prix + ' $'}}</span> <br>-->
-<!--                <span class="detail">{{article.description}}</span></p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+        <!--        <div class="row">-->
+        <!--          <div class="col-md-6 col-12">-->
+        <!--            <div class="row" *ngFor="let article of restaurant.menu.articles">-->
+        <!--              <div class="col-md-4 col-4"><img [src]="article.photo" class="image" alt=""></div>-->
+        <!--              <div class="col-md-8 col-8"><p class="name">{{article.nom}} <br><span-->
+        <!--                class="price">{{article.taillePrix[0].prix + ' $'}}</span> <br>-->
+        <!--                <span class="detail">{{article.description}}</span></p>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
       </div>
     </div>
   </div>
