@@ -38,6 +38,10 @@ export class HeaderComponent implements OnInit {
       event.preventDefault()
       if (event.keyCode === 13) {
         this.restaurantService.getAllRestaurants()
+        let searchBar = document.getElementById('search')
+        if (searchBar){
+          searchBar.blur()
+        }
       }
     })    // @ts-ignore
   }
