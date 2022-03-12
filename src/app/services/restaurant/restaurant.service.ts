@@ -18,11 +18,15 @@ export class RestaurantService {
   dishes: String[]
   categories: String[]
   recherche: Recherche
+  position: GeolocationCoordinates
 
   constructor(private angularFirestore: AngularFirestore) {
     this.recherche = Recherche.getInstance();
     this.getAllCategory();
     this.getAllDishes()
+    navigator.geolocation.watchPosition(position => {
+      this.position = position.coords
+    })
   }
 
   getAllRestaurants() {
@@ -103,7 +107,11 @@ export class RestaurantService {
       else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => obj1.prix > this.recherche.prix_max))) {
         tempRestaurantList.splice(counter, 1)
       }
-      counter--
+      // Test if the restaurant is in range
+      else if (this.calcultateDistance(this.position.latitude, this.position.longitude, tempRestaurantList[counter].geoPoint.latitude, tempRestaurantList[counter].geoPoint.longitude) > this.recherche.distance){
+        tempRestaurantList.splice(counter, 1)
+      }
+        counter--
     }
     return tempRestaurantList
   }
@@ -111,6 +119,23 @@ export class RestaurantService {
   getOneRestaurant(id: any) {
     this.restaurant = this.angularFirestore.collection('restaurant').doc(id).valueChanges({idField: 'id'})
     return this.restaurant;
+  }
+
+  // Distance calculation : https://www.movable-type.co.uk/scripts/latlong.html
+  calcultateDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
+    const R = 6371e3; // metres
+    const φ1 = lat1 * Math.PI / 180; // φ, λ in radians
+    const φ2 = lat2 * Math.PI / 180;
+    const Δφ = (lat2 - lat1) * Math.PI / 180;
+    const Δλ = (lon2 - lon1) * Math.PI / 180;
+
+    const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+      Math.cos(φ1) * Math.cos(φ2) *
+      Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    const d = R * c; // in metres
+    return d / 1000
   }
 
   // addRestaurant() {
