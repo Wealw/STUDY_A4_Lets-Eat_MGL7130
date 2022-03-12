@@ -15,11 +15,13 @@ import {TaillePrix} from "../../models/TaillePrix";
 export class RestaurantService {
   restaurants: Restaurant[] = [];
   restaurant: Observable<any> = new Observable<any>();
-  dishes: String[] = [];
+  dishes: String[]
+  categories: String[]
   recherche: Recherche
 
   constructor(private angularFirestore: AngularFirestore) {
     this.recherche = Recherche.getInstance();
+    this.getAllCategory();
   }
 
   getAllRestaurants() {
@@ -35,15 +37,38 @@ export class RestaurantService {
   }
 
   getAllDishes() {
-    let temp: String[] = []
-    this.restaurants.forEach(res => {
-      res.menu.articles.forEach(art => {
-        temp.push(art.nom)
+    if (!this.dishes) {
+      const query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges();
+      let temp: String[] = []
+      this.restaurants.forEach(res => {
+        res.menu.articles.forEach(art => {
+          temp.push(art.nom)
+        })
       })
-    })
-    this.dishes = temp
+      this.dishes = temp
+    }
     return this.dishes
-    //temp[counter].menu.articles.find((obj: Article) => {console.log(obj.nom)})
+  }
+
+  getAllCategory() {
+    if (!this.categories) {
+      const query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges();
+      let temp: String[] = [""]
+      // noinspection JSIgnoredPromiseFromCall
+      query.forEach(async results => {
+        let result = results as Restaurant[]
+        result.forEach(res => {
+          if (!this.categories.includes(res.categorie)) {
+            this.categories.push(res.categorie)
+          }
+        })
+      })
+      this.categories = temp
+      console.log(this.categories)
+      return this.categories
+    } else {
+      return this.categories
+    }
   }
 
   private chainedQuery(ref: CollectionReference): Query {
@@ -57,18 +82,16 @@ export class RestaurantService {
   filter(tempRestaurantList: Restaurant[]) {
     let counter = tempRestaurantList.length - 1
     while (counter >= 0) {
-      console.log(tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.nom.includes(this.recherche.texte)))
       //Test if a restaurant have at leaste one article containing the search term
       if (!tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.nom.includes(this.recherche.texte))) {
         tempRestaurantList.splice(counter, 1)
-
       }
       //Test if a restaurant fullfill the condition of minimum price
-      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => obj1.prix<this.recherche.prix_min))) {
+      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => obj1.prix < this.recherche.prix_min))) {
         tempRestaurantList.splice(counter, 1)
       }
       //Test if a restaurant fullfill the condition of maximum price
-      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => obj1.prix>this.recherche.prix_max))) {
+      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => obj1.prix > this.recherche.prix_max))) {
         tempRestaurantList.splice(counter, 1)
       }
       counter--

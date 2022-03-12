@@ -10,10 +10,6 @@ import {HeaderComponent} from "../header/header.component";
 })
 export class FilterComponent implements OnInit {
   restaurantRecherche: Recherche;
-  categories: any[] = [{name: 'Pizzeria', value: 'pizzeria'}, {name: 'Fast Food', value: 'fastfood'}, {
-    name: 'Coffee',
-    value: 'coffee'
-  }]
 
   @Input() delegate : HeaderComponent;
 
