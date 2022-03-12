@@ -64,7 +64,6 @@ export class RestaurantService {
         })
       })
       this.categories = temp
-      console.log(this.categories)
       return this.categories
     } else {
       return this.categories

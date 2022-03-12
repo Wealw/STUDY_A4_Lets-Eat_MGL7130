@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {faSignInAlt, faUser, faUtensilSpoon} from '@fortawesome/free-solid-svg-icons';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-option',
@@ -14,15 +15,24 @@ export class OptionComponent implements OnInit {
 
   areOptionOpened = false
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
-
-
   toggleOption() {
     this.areOptionOpened = !this.areOptionOpened
+  }
+
+  // Permet de revenir à l'écran d'accueil
+  navigateToSignIn() {
+    // noinspection JSIgnoredPromiseFromCall
+    this.router.navigate([`sign-in`])
+  }
+
+  navigateToSignUp() {
+    // noinspection JSIgnoredPromiseFromCall
+    this.router.navigate([`sign-up`])
   }
 }
