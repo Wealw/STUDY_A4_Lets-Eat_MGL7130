@@ -22,6 +22,7 @@ export class RestaurantService {
   constructor(private angularFirestore: AngularFirestore) {
     this.recherche = Recherche.getInstance();
     this.getAllCategory();
+    this.getAllDishes()
   }
 
   getAllRestaurants() {
@@ -40,14 +41,23 @@ export class RestaurantService {
     if (!this.dishes) {
       const query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges();
       let temp: String[] = []
-      this.restaurants.forEach(res => {
-        res.menu.articles.forEach(art => {
-          temp.push(art.nom)
+      // noinspection JSIgnoredPromiseFromCall
+      query.forEach(async results => {
+        let result = results as Restaurant[]
+        result.forEach(res => {
+          res.menu.articles.forEach(article => {
+            if (!temp.includes(article.nom)) {
+              temp.push(article.nom)
+            }
+          })
         })
       })
       this.dishes = temp
+      return this.dishes
+    } else {
+      return this.dishes
     }
-    return this.dishes
+
   }
 
   getAllCategory() {
@@ -58,8 +68,8 @@ export class RestaurantService {
       query.forEach(async results => {
         let result = results as Restaurant[]
         result.forEach(res => {
-          if (!this.categories.includes(res.categorie)) {
-            this.categories.push(res.categorie)
+          if (!temp.includes(res.categorie)) {
+            temp.push(res.categorie)
           }
         })
       })
