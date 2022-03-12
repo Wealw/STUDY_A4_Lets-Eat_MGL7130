@@ -1,62 +1,26 @@
-<!--<form>-->
-<!--  <div class="distance">-->
-<!--    <mat-label>Distance:</mat-label>-->
-<!--    <mat-slider-->
-<!--      name="slider"-->
-<!--      thumbLabel-->
-<!--      [displayWith]="formatLabel"-->
-<!--      [(ngModel)]="restaurantRecherche.distance"-->
-<!--      step="1"-->
-<!--      min="0"-->
-<!--      max="100"-->
-<!--      aria-label="units"></mat-slider>-->
-<!--    {{restaurantRecherche.distance + 'KM'}}-->
-<!--  </div>-->
-<!--  <div>-->
-<!--    <mat-form-field class="prix">-->
-<!--      <mat-label>Prix Min</mat-label>-->
-<!--      <input matInput type="number" name="min" min="0" [(ngModel)]="this.restaurantService.recherche.prix_min">-->
-<!--    </mat-form-field>-->
-<!--    <mat-form-field class="prix">-->
-<!--      <mat-label>Prix Max</mat-label>-->
-<!--      <input matInput type="number" name="max" [(ngModel)]="this.restaurantService.recherche.prix_max">-->
-<!--    </mat-form-field>-->
-<!--  </div>-->
-<!--  <div>-->
-<!--    <mat-form-field class="prix">-->
-<!--      <mat-label>Catégorie</mat-label>-->
-<!--      <mat-select [(value)]="this.restaurantService.recherche.categorie">-->
-<!--        <mat-option [value]="categorie.value" *ngFor="let categorie of categories">{{categorie.name}}</mat-option>-->
-<!--      </mat-select>-->
-<!--    </mat-form-field>-->
-<!--  </div>-->
-<!--  <div class="notation">-->
-<!--    &lt;!&ndash;    <mat-form-field>&ndash;&gt;-->
-<!--    <span>Notation</span>-->
-<!--    <ngx-star-rating style="position: center" name="rating"-->
-<!--                     [(ngModel)]="restaurantRecherche.notation"></ngx-star-rating>-->
-<!--    &lt;!&ndash;    </mat-form-field>&ndash;&gt;-->
-<!--  </div>-->
-<!--  <div class="btn">-->
-<!--    <button class="button" mat-raised-button (click)="restaurantService.getAllRestaurants()">Appliquer</button>-->
-<!--  </div>-->
-<!--</form>-->
-
 <form>
+
   <mat-list>
-    <mat-list-item class="cont">
-      <mat-label>Distance:</mat-label>
-      <mat-slider
-        name="slider"
-        thumbLabel
-        [displayWith]="formatLabel"
-        [(ngModel)]="restaurantRecherche.distance"
-        step="1"
-        min="0"
-        max="100"
-        aria-label="units"></mat-slider>
-      {{restaurantRecherche.distance + 'KM'}}
-    </mat-list-item>
+    <mat-grid-list [cols]="11" rowHeight="90px">
+      <mat-grid-tile [colspan]="3">
+        Distance:
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="6">
+        <mat-slider
+          name="slider"
+          thumbLabel
+          [displayWith]="formatLabel"
+          [(ngModel)]="restaurantRecherche.distance"
+          step="1"
+          min="0"
+          max="100"
+          aria-label="units"></mat-slider>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2">
+        {{restaurantRecherche.distance + 'KM'}}
+      </mat-grid-tile>
+
+    </mat-grid-list>
     <mat-list-item>
       <mat-form-field class="prix">
         <mat-label>Catégorie</mat-label>

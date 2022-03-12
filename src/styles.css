@@ -42,3 +42,27 @@ div.stars {
 .mat-slider-track-fill {
   background-color: orange !important;
 }
+.mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: orange !important;
+}
+
+.mat-select-arrow{
+  /*change color of underline*/
+  color: orange !important;
+}
+
+.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: orange !important;;
+}
+mat-form-field {
+  width: 90%;
+}
+textarea{
+  height: 100% ;
+}
+/*mat-grid-tile{*/
+/*  border: 1px solid black;*/
+/*}*/
+
