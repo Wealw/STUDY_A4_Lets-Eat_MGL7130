@@ -28,6 +28,9 @@ import {MatSliderModule} from "@angular/material/slider";
 import {MatButtonModule} from "@angular/material/button";
 import {NgxStarRatingModule} from "ngx-star-rating";
 import {MatListModule} from "@angular/material/list";
+import { ArticleComponent } from './components/article/article.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {AutosizeModule} from "ngx-autosize";
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import {MatListModule} from "@angular/material/list";
     FilterComponent,
     RestaurantComponent,
     RestaurantDetailsComponent,
-    RestaurantReviewsComponent
+    RestaurantReviewsComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,9 @@ import {MatListModule} from "@angular/material/list";
     MatButtonModule,
     NgxStarRatingModule,
     MatListModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    AutosizeModule
   ],
   providers:
     [
