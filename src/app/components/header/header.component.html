@@ -9,7 +9,7 @@
   </span>
   <!--Affiche la barre de recherche et bind -->
   <div class="formulaire" *ngIf="isSearchBarEnable">
-    <input placeholder="Recherche..." [value]="this.restaurantService.recherche.texte" (input)="restaurantService.recherche.texte=getValue($event)">
+    <input id="search" placeholder="Recherche..." [value]="this.restaurantService.recherche.texte" (input)="restaurantService.recherche.texte=getValue($event)">
     <fa-icon [icon]="this.faSearch" size="1x"></fa-icon>
   </div>
   <!--Affiche le boutton des filtre quand la barre de recherche est affichée-->

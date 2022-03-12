@@ -25,7 +25,8 @@
       <mat-form-field class="prix">
         <mat-label>Catégorie</mat-label>
         <mat-select [(value)]="this.restaurantService.recherche.categorie">
-          <mat-option [value]="categorie.value" *ngFor="let categorie of categories">{{categorie.name}}</mat-option>
+          <mat-option *ngFor="let categorie of this.restaurantService.categories"
+                      [value]="categorie">{{categorie}}</mat-option>
         </mat-select>
       </mat-form-field>
     </mat-list-item>

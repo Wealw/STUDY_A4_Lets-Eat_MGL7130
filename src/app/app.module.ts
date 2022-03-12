@@ -31,6 +31,9 @@ import {MatListModule} from "@angular/material/list";
 import { ArticleComponent } from './components/article/article.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {AutosizeModule} from "ngx-autosize";
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import {AutosizeModule} from "ngx-autosize";
     RestaurantComponent,
     RestaurantDetailsComponent,
     RestaurantReviewsComponent,
-    ArticleComponent
+    ArticleComponent,
+    SignInComponent,
+    SignUpComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

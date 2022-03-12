@@ -1,13 +1,14 @@
+
 import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {
-  faBackspace,
-  faBackward,
-  faClock,
   faEllipsisV,
+  faBackward,
+  faBackspace,
   faFastBackward,
   faHeart,
-  faLocationArrow,
-  faPhone
+  faClock,
+  faPhone,
+  faLocationArrow
 } from '@fortawesome/free-solid-svg-icons';
 import {OptionComponent} from "../option/option.component";
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
@@ -67,4 +68,5 @@ export class RestaurantComponent implements OnInit {
     const dialogref = this.dialog.open(ArticleComponent, {data: {article: article},maxHeight: 'calc(100vh - 20px)', height : 'auto', width: '80%'});
 
   }
+
 }

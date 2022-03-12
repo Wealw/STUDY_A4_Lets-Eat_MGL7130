@@ -46,7 +46,7 @@
       </div>
       <div class="pad" *ngIf="restaurant.calendrier">
         <fa-icon [icon]="faClock" size="lg" class="icon"></fa-icon>&nbsp;&nbsp;
-        <p class="sous_titre">Ouvert jusqu'A {{restaurant.calendrier[today.getDay() - 1].heureFermeture + 'h'}}</p>
+        <p class="sous_titre">Ouvert jusqu'A {{restaurant.calendrier[0].heureFermeture + 'h'}}</p>
 
       </div>
       <div class="pad">

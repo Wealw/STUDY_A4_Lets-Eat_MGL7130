@@ -17,6 +17,11 @@ export class MainComponent implements OnInit {
     zoom: 11,
     disableDefaultUI: true,
   }
+  icon = {
+    url: "assets/icons/icon.svg",
+    scaledSize: new google.maps.Size(50,50)
+  }
+
 
   constructor(public restaurantService: RestaurantService,
               private router: Router) {
@@ -30,4 +35,5 @@ export class MainComponent implements OnInit {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`restaurant/${idRestaurant}`])
   }
+
 }

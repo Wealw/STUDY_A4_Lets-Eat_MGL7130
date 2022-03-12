@@ -7,6 +7,7 @@ import {Recherche} from "../../models/Recherche";
 import Query = firebase.firestore.Query;
 import {Restaurant} from "../../models/Restaurant";
 import {Article} from "../../models/Article";
+import {TaillePrix} from "../../models/TaillePrix";
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,14 @@ import {Article} from "../../models/Article";
 export class RestaurantService {
   restaurants: Restaurant[] = [];
   restaurant: Observable<any> = new Observable<any>();
-  dishes: String[] = [];
+  dishes: String[]
+  categories: String[]
   recherche: Recherche
 
   constructor(private angularFirestore: AngularFirestore) {
     this.recherche = Recherche.getInstance();
+    this.getAllCategory();
+    this.getAllDishes()
   }
 
   getAllRestaurants() {
@@ -34,34 +38,70 @@ export class RestaurantService {
   }
 
   getAllDishes() {
-    let temp: String[] = []
-    this.restaurants.forEach(res => {
-      res.menu.articles.forEach(art => {
-        temp.push(art.nom)
+    if (!this.dishes) {
+      const query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges();
+      let temp: String[] = []
+      // noinspection JSIgnoredPromiseFromCall
+      query.forEach(async results => {
+        let result = results as Restaurant[]
+        result.forEach(res => {
+          res.menu.articles.forEach(article => {
+            if (!temp.includes(article.nom)) {
+              temp.push(article.nom)
+            }
+          })
+        })
       })
-    })
-    this.dishes = temp
-    return this.dishes
-    //temp[counter].menu.articles.find((obj: Article) => {console.log(obj.nom)})
+      this.dishes = temp
+      return this.dishes
+    } else {
+      return this.dishes
+    }
+
+  }
+
+  getAllCategory() {
+    if (!this.categories) {
+      const query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges();
+      let temp: String[] = [""]
+      // noinspection JSIgnoredPromiseFromCall
+      query.forEach(async results => {
+        let result = results as Restaurant[]
+        result.forEach(res => {
+          if (!temp.includes(res.categorie)) {
+            temp.push(res.categorie)
+          }
+        })
+      })
+      this.categories = temp
+      return this.categories
+    } else {
+      return this.categories
+    }
   }
 
   private chainedQuery(ref: CollectionReference): Query {
     let temp = ref.orderBy("note")
     if (this.recherche.categorie != "" && this.recherche.categorie != undefined) temp = temp.where("categorie", "==", this.recherche.categorie)
     if (this.recherche.notation != undefined) temp = temp.where('note', '>=', this.recherche.notation)
-    // TODO : Check if the attribute are available
-    if (this.recherche.prix_min != undefined) temp = temp.where('menu.articles', 'array-contains', {nom: 'pizza nature'})
-    if (this.recherche.prix_max != undefined) temp = temp.where("categorie", "==", this.recherche.categorie)
+
     return temp
   }
 
   filter(tempRestaurantList: Restaurant[]) {
     let counter = tempRestaurantList.length - 1
-    while (counter > 0) {
-      let areDishesMatch =false
+    while (counter >= 0) {
+      //Test if a restaurant have at leaste one article containing the search term
       if (!tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.nom.includes(this.recherche.texte))) {
         tempRestaurantList.splice(counter, 1)
-        counter--
+      }
+      //Test if a restaurant fullfill the condition of minimum price
+      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => obj1.prix < this.recherche.prix_min))) {
+        tempRestaurantList.splice(counter, 1)
+      }
+      //Test if a restaurant fullfill the condition of maximum price
+      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => obj1.prix > this.recherche.prix_max))) {
+        tempRestaurantList.splice(counter, 1)
       }
       counter--
     }

@@ -1,4 +1,4 @@
-import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {Component, ElementRef, OnInit, QueryList, ViewChildren, AfterViewInit} from '@angular/core';
 import {faEllipsisV, faFilter, faSearch, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import {OptionComponent} from "../option/option.component";
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
@@ -26,15 +26,20 @@ export class HeaderComponent implements OnInit {
   faSearch = faSearch
   faArrowLeft = faArrowLeft
 
-  constructor(private router: Router, public restaurantService : RestaurantService) {
+  constructor(private router: Router, public restaurantService: RestaurantService,private elementRef:ElementRef) {
     this.updateSearchBarDisplay()
     // noinspection JSIgnoredPromiseFromCall
     router.events.forEach((): void => {
       this.updateSearchBarDisplay()
-    }) ;
+    });
   }
-
   ngOnInit(): void {
+    this.elementRef.nativeElement.addEventListener("keyup", (event: { preventDefault: () => void; keyCode: any; }) => {
+      event.preventDefault()
+      if (event.keyCode === 13) {
+        this.restaurantService.getAllRestaurants()
+      }
+    })    // @ts-ignore
   }
 
   // Met à jour l'état de la barre de recherche en fonction de la route
@@ -49,7 +54,7 @@ export class HeaderComponent implements OnInit {
   }
 
   // Permet de basculer l'état d'affichage des filtres
-  toggleFilter(){
+  toggleFilter() {
     this.areFilterDisplayed = !this.areFilterDisplayed;
   }
 
