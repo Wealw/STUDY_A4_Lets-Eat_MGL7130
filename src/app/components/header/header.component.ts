@@ -42,6 +42,7 @@ export class HeaderComponent implements OnInit {
         if (searchBar){
           searchBar.blur()
         }
+        this.areFilterDisplayed = false
       }
     })    // @ts-ignore
   }
