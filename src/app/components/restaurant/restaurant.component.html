@@ -1,10 +1,10 @@
 <section class="container" xmlns="http://www.w3.org/1999/html">
 
-  <mat-grid-list cols="4"  style="padding-top: 50px;">
+  <mat-grid-list cols="4" *ngIf="restaurant" style="padding-top: 50px;" rowHeight="1000px">
+<div></div>
+    <mat-grid-tile  [colspan]="smallCol" ><div style="position:absolute; top: 10px;">
 
-    <mat-grid-tile  colspan="1" style="background-color: red;"><div style="position:absolute; top: 10;">
-    
-      <div class=" commentary">
+      <div >
         <h4>Commentaires <span>8</span></h4>
         <div class="sub_commentaire">
           <div>
@@ -14,7 +14,7 @@
           <p class="sub_commentaire_text">svbvjv jfbvjv jfvbjvf sfvbjfvf jvbvjvbvb vjvbvb vsvbivbv vbvivb vvbvivv vbvirbr
             vbivwv</p>
         </div>
-  
+
         <div class="sub_commentaire">
           <div>
             <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
@@ -23,7 +23,7 @@
           <p class="sub_commentaire_text">svbvjv jfbvjv jfvbjvf sfvbjfvf jvbvjvbvb vjvbvb vsvbivbv vbvivb vvbvivv vbvirbr
             vbivwv</p>
         </div>
-  
+
         <div class="sub_commentaire">
           <div>
             <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
@@ -32,7 +32,7 @@
           <p class="sub_commentaire_text">svbvjv jfbvjv jfvbjvf sfvbjfvf jvbvjvbvb vjvbvb vsvbivbv vbvivb vvbvivv vbvirbr
             vbivwv</p>
         </div>
-  
+
         <div class="sub_commentaire">
           <div>
             <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
@@ -43,8 +43,8 @@
         </div>
       </div>
     </div></mat-grid-tile>
-      <mat-grid-tile colspan="3" style="background-color: blue;">
-        <div style="position: absolute; top: 10px; left: 10px;">
+      <mat-grid-tile [colspan]="bigCol" >
+        <div style="position: absolute; top: 10px; left: 10px; right: 10px">
           <div>
             <p class="titre">{{restaurant.nom}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             <fa-icon [icon]="faHeart" size="lg" class="heart"></fa-icon>
@@ -52,18 +52,18 @@
           <div class="pad" *ngIf="restaurant.calendrier">
             <fa-icon [icon]="faClock" size="lg" class="icon"></fa-icon>&nbsp;&nbsp;
             <p class="sous_titre">Ouvert jusqu'A {{restaurant.calendrier[0].heureFermeture + 'h'}}</p>
-    
+
           </div>
           <div class="pad">
             <fa-icon [icon]="faLocationArrow" size="lg" class="icon"></fa-icon>&nbsp;&nbsp;
             <p
               class="sous_titre">{{restaurant.adresse.numeroDeRue + ' ' + restaurant.adresse.rue + ' ' + restaurant.adresse.ville + ' ' + restaurant.adresse.codePostal + ' ' + restaurant.adresse.ville}}</p>
-    
+
           </div>
           <div class="pad">
             <fa-icon [icon]="faPhone" size="lg" class="icon"></fa-icon>&nbsp;&nbsp;
             <p class="sous_titre">{{restaurant.numeroTelephone}}</p>
-    
+
           </div>
           <div class="pad" style="margin-left: 25px;">
             <span class="fa fa-star checked"></span>
@@ -72,7 +72,7 @@
             <span class="fa fa-star unchecked"></span>
             <span class="fa fa-star unchecked"></span>
           </div>
-          <div class="section2">
+          <div>
             <mat-grid-list [cols]="col" rowHeight="2:1" (window:resize)="onResize($event)">
               <ng-container *ngFor="let article of restaurant.menu.articles">
                 <mat-grid-tile>
@@ -86,7 +86,7 @@
                           {{article.taillePrix[0].taille + ': ' + article.taillePrix[0].prix + ' $'}}
                         </div>
                       </mat-grid-tile>
-    
+
                     </mat-grid-list>
                   </div>
                 </mat-grid-tile>
@@ -107,108 +107,6 @@
         </div>
       </mat-grid-tile>
   </mat-grid-list>
-  
-  <div class="row sub_container" *ngIf="restaurant">
-    <div class="col-sm-3 commentary">
-      <h4>Commentaires <span>8</span></h4>
-      <div class="sub_commentaire">
-        <div>
-          <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
-          <h5 class="nom">Nathan Kina</h5>
-        </div>
-        <p class="sub_commentaire_text">svbvjv jfbvjv jfvbjvf sfvbjfvf jvbvjvbvb vjvbvb vsvbivbv vbvivb vvbvivv vbvirbr
-          vbivwv</p>
-      </div>
 
-      <div class="sub_commentaire">
-        <div>
-          <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
-          <h5 class="nom">Nathan Kina</h5>
-        </div>
-        <p class="sub_commentaire_text">svbvjv jfbvjv jfvbjvf sfvbjfvf jvbvjvbvb vjvbvb vsvbivbv vbvivb vvbvivv vbvirbr
-          vbivwv</p>
-      </div>
-
-      <div class="sub_commentaire">
-        <div>
-          <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
-          <h5 class="nom">Nathan Kina</h5>
-        </div>
-        <p class="sub_commentaire_text">svbvjv jfbvjv jfvbjvf sfvbjfvf jvbvjvbvb vjvbvb vsvbivbv vbvivb vvbvivv vbvirbr
-          vbivwv</p>
-      </div>
-
-      <div class="sub_commentaire">
-        <div>
-          <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
-          <h5 class="nom">Nathan Kina</h5>
-        </div>
-        <p class="sub_commentaire_text">svbvjv jfbvjv jfvbjvf sfvbjfvf jvbvjvbvb vjvbvb vsvbivbv vbvivb vvbvivv vbvirbr
-          vbivwv</p>
-      </div>
-    </div>
-
-    <div class="col-sm-8 col-12">
-      <div>
-        <p class="titre">{{restaurant.nom}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        <fa-icon [icon]="faHeart" size="lg" class="heart"></fa-icon>
-      </div>
-      <div class="pad" *ngIf="restaurant.calendrier">
-        <fa-icon [icon]="faClock" size="lg" class="icon"></fa-icon>&nbsp;&nbsp;
-        <p class="sous_titre">Ouvert jusqu'A {{restaurant.calendrier[0].heureFermeture + 'h'}}</p>
-
-      </div>
-      <div class="pad">
-        <fa-icon [icon]="faLocationArrow" size="lg" class="icon"></fa-icon>&nbsp;&nbsp;
-        <p
-          class="sous_titre">{{restaurant.adresse.numeroDeRue + ' ' + restaurant.adresse.rue + ' ' + restaurant.adresse.ville + ' ' + restaurant.adresse.codePostal + ' ' + restaurant.adresse.ville}}</p>
-
-      </div>
-      <div class="pad">
-        <fa-icon [icon]="faPhone" size="lg" class="icon"></fa-icon>&nbsp;&nbsp;
-        <p class="sous_titre">{{restaurant.numeroTelephone}}</p>
-
-      </div>
-      <div class="pad" style="margin-left: 25px;">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star unchecked"></span>
-        <span class="fa fa-star unchecked"></span>
-      </div>
-      <div class="section2">
-        <mat-grid-list [cols]="col" rowHeight="2:1" (window:resize)="onResize($event)">
-          <ng-container *ngFor="let article of restaurant.menu.articles">
-            <mat-grid-tile>
-              <div class='grid-tile'>
-                <mat-grid-list cols="2" rowHeight="2:1">
-                  <mat-grid-tile [colspan]="col">
-                    <img (click)="toArticle(article)" [src]="article.photo" class="image" alt="">
-                  </mat-grid-tile>
-                  <mat-grid-tile style="text-align: center" [colspan]="col">
-                    <div class="text-container">{{article.nom}} <br>
-                      {{article.taillePrix[0].taille + ': ' + article.taillePrix[0].prix + ' $'}}
-                    </div>
-                  </mat-grid-tile>
-
-                </mat-grid-list>
-              </div>
-            </mat-grid-tile>
-          </ng-container>
-        </mat-grid-list>
-        <!--        <div class="row">-->
-        <!--          <div class="col-md-6 col-12">-->
-        <!--            <div class="row" *ngFor="let article of restaurant.menu.articles">-->
-        <!--              <div class="col-md-4 col-4"><img [src]="article.photo" class="image" alt=""></div>-->
-        <!--              <div class="col-md-8 col-8"><p class="name">{{article.nom}} <br><span-->
-        <!--                class="price">{{article.taillePrix[0].prix + ' $'}}</span> <br>-->
-        <!--                <span class="detail">{{article.description}}</span></p>-->
-        <!--              </div>-->
-        <!--            </div>-->
-        <!--          </div>-->
-        <!--        </div>-->
-      </div>
-    </div>
-  </div>
 </section>
 <app-option></app-option>
