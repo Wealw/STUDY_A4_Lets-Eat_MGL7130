@@ -63,8 +63,8 @@ export class RestaurantComponent implements OnInit {
 
   onResize(event: any) {
     this.col = (window.screen.width <= 667) ? 1 : 2;
-    this.smallCol = (window.screen.width <= 667) ? 0 : 1;
-    this.bigCol = (window.screen.width <= 667) ? 4 : 3;
+    this.smallCol = (window.screen.width <= 430) ? 0 : 1;
+    this.bigCol = (window.screen.width <= 430) ? 4 : 3;
   }
 
   toArticle(article: Article) {
