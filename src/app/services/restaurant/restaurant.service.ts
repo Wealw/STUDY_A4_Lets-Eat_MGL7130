@@ -19,14 +19,21 @@ export class RestaurantService {
   categories: String[]
   recherche: Recherche
   position: GeolocationCoordinates
+  isGeolocalisationEnable: boolean
 
   constructor(private angularFirestore: AngularFirestore) {
     this.recherche = Recherche.getInstance();
     this.getAllCategory();
     this.getAllDishes()
-    navigator.geolocation.watchPosition(position => {
-      this.position = position.coords
-    })
+    this.isGeolocalisationEnable = false
+    navigator.geolocation.watchPosition(
+      position => {
+        this.position = position.coords
+        this.isGeolocalisationEnable = true
+      },
+      () => {
+        this.isGeolocalisationEnable = false
+      })
   }
 
   getAllRestaurants() {
@@ -108,10 +115,10 @@ export class RestaurantService {
         tempRestaurantList.splice(counter, 1)
       }
       // Test if the restaurant is in range
-      else if (this.calcultateDistance(this.position.latitude, this.position.longitude, tempRestaurantList[counter].geoPoint.latitude, tempRestaurantList[counter].geoPoint.longitude) > this.recherche.distance){
+      else if (this.isGeolocalisationEnable && this.calcultateDistance(this.position.latitude, this.position.longitude, tempRestaurantList[counter].geoPoint.latitude, tempRestaurantList[counter].geoPoint.longitude) > this.recherche.distance) {
         tempRestaurantList.splice(counter, 1)
       }
-        counter--
+      counter--
     }
     return tempRestaurantList
   }

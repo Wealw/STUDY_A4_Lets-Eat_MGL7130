@@ -8,11 +8,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./option.component.css']
 })
 export class OptionComponent implements OnInit {
-
   faSignInAlt =faSignInAlt ;
   faUser = faUser;
   faUtensilSpoon = faUtensilSpoon;
-
   areOptionOpened = false
 
   constructor(private router: Router) {
@@ -21,6 +19,7 @@ export class OptionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Bascule l'état d'affichage du menu d'option
   toggleOption() {
     this.areOptionOpened = !this.areOptionOpened
   }
