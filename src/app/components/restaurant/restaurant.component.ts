@@ -1,14 +1,13 @@
-
 import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {
-  faEllipsisV,
-  faBackward,
   faBackspace,
+  faBackward,
+  faClock,
+  faEllipsisV,
   faFastBackward,
   faHeart,
-  faClock,
-  faPhone,
-  faLocationArrow
+  faLocationArrow,
+  faPhone
 } from '@fortawesome/free-solid-svg-icons';
 import {OptionComponent} from "../option/option.component";
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
@@ -36,7 +35,8 @@ export class RestaurantComponent implements OnInit {
   faPhone = faPhone
   faLocationArrow = faLocationArrow
   col: any;
-
+  smallCol: any;
+  bigCol: any;
   option: OptionComponent | undefined;
   restaurant: Restaurant;
   today: Date;
@@ -50,6 +50,8 @@ export class RestaurantComponent implements OnInit {
 
   ngOnInit(): void {
     this.col = (window.screen.width <= 667) ? 1 : 2;
+    this.smallCol = (window.screen.width <= 667) ? 0 : 1;
+    this.bigCol = (window.screen.width <= 667) ? 4 : 3;
 
     let id = this.route.snapshot.paramMap.get('id');
     this.restaurantService.getOneRestaurant(id).subscribe(res => {
@@ -61,11 +63,18 @@ export class RestaurantComponent implements OnInit {
 
   onResize(event: any) {
     this.col = (window.screen.width <= 667) ? 1 : 2;
+    this.smallCol = (window.screen.width <= 667) ? 0 : 1;
+    this.bigCol = (window.screen.width <= 667) ? 4 : 3;
   }
 
   toArticle(article: Article) {
     console.log('toArticle called')
-    const dialogref = this.dialog.open(ArticleComponent, {data: {article: article},maxHeight: 'calc(100vh - 20px)', height : 'auto', width: '80%'});
+    const dialogref = this.dialog.open(ArticleComponent, {
+      data: {article: article},
+      maxHeight: 'calc(100vh - 20px)',
+      height: 'auto',
+      width: '80%'
+    });
 
   }
 
