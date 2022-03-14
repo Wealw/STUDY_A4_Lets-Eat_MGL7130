@@ -1,16 +1,18 @@
 <main>
   <div class="row sub_main">
+    <!--Affiche les filtres-->
     <div class="col-0 col-sm-3 filter">
       <app-filter></app-filter>
     </div>
     <div class="col-12 selector">
+      <!--Affiche une carte google maps-->
       <google-map [options]="mapOptions" height="100%" width="100%">
-        <span *ngFor="let res of this.restaurantService.restaurants">
+        <!-- Affiche un marqueur pour chaque restaurant -->
           <map-marker (mapClick)="goMenu(res.id)"
-                      [icon]= icon
-                      [label]= "res.nom"
-                      [position]="{lat: res.geoPoint.latitude, lng: res.geoPoint.longitude}"></map-marker>
-        </span>
+                      [icon]=icon
+                      [label]="res.nom"
+                      [position]="{lat: res.geoPoint.latitude, lng: res.geoPoint.longitude}"
+                      *ngFor="let res of this.restaurantService.restaurants"></map-marker>
       </google-map>
     </div>
   </div>
