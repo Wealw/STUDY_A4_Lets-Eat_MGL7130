@@ -29,7 +29,9 @@ export class RestaurantService {
     navigator.geolocation.watchPosition(
       position => {
         this.position = position.coords
-        this.isGeolocalisationEnable = true
+        this.isGeolocalisationEnable = false
+        // TODO: Reanable for version 2
+        // this.isGeolocalisationEnable = true
       },
       () => {
         this.isGeolocalisationEnable = false

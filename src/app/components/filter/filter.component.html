@@ -1,7 +1,7 @@
 <form>
 
   <mat-list>
-    <mat-grid-list [cols]="11" rowHeight="90px">
+    <mat-grid-list [cols]="11" rowHeight="90px" *ngIf="restaurantService.isGeolocalisationEnable">
       <mat-grid-tile [colspan]="3">
         Distance:
       </mat-grid-tile>
