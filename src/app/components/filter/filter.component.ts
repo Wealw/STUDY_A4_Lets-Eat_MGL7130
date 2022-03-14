@@ -13,15 +13,14 @@ export class FilterComponent implements OnInit {
 
   @Input() delegate : HeaderComponent;
 
-  constructor(public restaurantService: RestaurantService,
-  ) {
+  constructor(public restaurantService: RestaurantService)
+  {
     this.restaurantRecherche = restaurantService.recherche;
   }
 
   ngOnInit(): void {
     this.restaurantRecherche.distance = 20;
     // this.initForm()
-
   }
 
   formatLabel(value: number) {
