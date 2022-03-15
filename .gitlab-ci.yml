@@ -16,6 +16,6 @@ deploy-production:
 deploy-preview:
   stage: deploy
   script:
-    - firebase deploy --token $FIREBASE_TOKEN preview
+    - firebase hosting:channel:deploy --token $FIREBASE_TOKEN preview
   only:
     - dev
