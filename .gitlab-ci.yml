@@ -3,19 +3,17 @@ before_script:
   - npm i -g firebase-tools
   - npm install -g @angular/cli
   - npm install
-build:
-  stage: build
-  script:
-    - ng build
 deploy-production:
   stage: deploy
   script:
+    - ng build
     - firebase deploy --token $FIREBASE_TOKEN
   only:
     - main
 deploy-preview:
   stage: deploy
   script:
+    - ng build
     - firebase hosting:channel:deploy --token $FIREBASE_TOKEN preview
   only:
     - dev
