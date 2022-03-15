@@ -8,13 +8,13 @@ build:
   script:
     - ng build
 deploy-production:
-  stage: deploy-production
+  stage: deploy
   script:
     - firebase deploy --token $FIREBASE_TOKEN
   only:
     - main
 deploy-preview:
-  stage: deploy-preview
+  stage: deploy
   script:
     - firebase deploy --token $FIREBASE_TOKEN preview
   only:
