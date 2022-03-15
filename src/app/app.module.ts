@@ -15,7 +15,6 @@ import {RestaurantService} from "./services/restaurant/restaurant.service";
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {RestaurantComponent} from './components/restaurant/restaurant.component';
-import {RestaurantDetailsComponent} from "./components/restaurant-details/restaurant-details.component";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatOptionModule} from "@angular/material/core";
@@ -35,11 +34,13 @@ import {AboutComponent} from './components/about/about.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
+import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restaurant-reviews.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    RestaurantReviewsComponent,
     HeaderComponent,
     MainComponent,
     FilterComponent,
@@ -47,7 +48,6 @@ import {MatMenuModule} from "@angular/material/menu";
     RestaurantComponent,
     FilterComponent,
     RestaurantComponent,
-    RestaurantDetailsComponent,
     ArticleComponent,
     SignInComponent,
     SignUpComponent,
