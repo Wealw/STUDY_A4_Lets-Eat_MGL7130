@@ -17,7 +17,6 @@ import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {RestaurantComponent} from './components/restaurant/restaurant.component';
 import {RestaurantDetailsComponent} from "./components/restaurant-details/restaurant-details.component";
-import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restaurant-reviews.component";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatOptionModule} from "@angular/material/core";
@@ -49,7 +48,6 @@ import {MatBadgeModule} from "@angular/material/badge";
     FilterComponent,
     RestaurantComponent,
     RestaurantDetailsComponent,
-    RestaurantReviewsComponent,
     ArticleComponent,
     SignInComponent,
     SignUpComponent,
