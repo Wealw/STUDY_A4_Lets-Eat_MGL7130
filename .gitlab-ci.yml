@@ -3,6 +3,10 @@ before_script:
   - npm i -g firebase-tools
   - npm install -g @angular/cli
   - npm install
+test:
+  stage: test
+  script:
+    - echo "Which test ?"
 deploy-production:
   stage: deploy
   script:
