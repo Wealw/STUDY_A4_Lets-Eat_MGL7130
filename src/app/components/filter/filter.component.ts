@@ -11,10 +11,9 @@ import {HeaderComponent} from "../header/header.component";
 export class FilterComponent implements OnInit {
   restaurantRecherche: Recherche;
 
-  @Input() delegate : HeaderComponent;
+  @Input() delegate: HeaderComponent;
 
-  constructor(public restaurantService: RestaurantService)
-  {
+  constructor(public restaurantService: RestaurantService) {
     this.restaurantRecherche = restaurantService.recherche;
   }
 
@@ -26,9 +25,9 @@ export class FilterComponent implements OnInit {
     return value;
   }
 
-  handleForm(){
+  handleForm() {
     this.restaurantService.getAllRestaurants()
-    if (this.delegate != undefined){
+    if (this.delegate != undefined) {
       this.delegate.toggleFilter()
     }
   }

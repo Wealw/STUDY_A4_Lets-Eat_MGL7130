@@ -14,7 +14,7 @@ export class Restaurant {
   calendrier: JoursHeures[]
   menu: Menu
   note: number
-  photo : string
+  photo: string
 
   constructor(
     id: any,
@@ -26,7 +26,7 @@ export class Restaurant {
     calendrier: JoursHeures[],
     menu: Menu,
     note: number,
-    photo : string
+    photo: string
   ) {
     this.id = id;
     this.nom = nom;

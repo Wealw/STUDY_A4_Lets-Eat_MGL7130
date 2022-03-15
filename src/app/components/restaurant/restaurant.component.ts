@@ -9,7 +9,6 @@ import {
   faLocationArrow,
   faPhone
 } from '@fortawesome/free-solid-svg-icons';
-import {OptionComponent} from "../option/option.component";
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Restaurant} from "../../models/Restaurant";
@@ -23,13 +22,8 @@ import {Article} from "../../models/Article";
   styleUrls: ['./restaurant.component.css']
 })
 export class RestaurantComponent implements OnInit {
-  @ViewChildren(OptionComponent) options: QueryList<OptionComponent>
 
   displayBackButton = false
-  faEllipsisV = faEllipsisV
-  faBackward = faBackward
-  faBackspace = faBackspace
-  faFastBackward = faFastBackward
   faHeart = faHeart
   faClock = faClock
   faPhone = faPhone
@@ -38,14 +32,7 @@ export class RestaurantComponent implements OnInit {
   row: any;
   smallCol: any;
   bigCol: any;
-  option: OptionComponent | undefined;
   restaurant: Restaurant;
-  today: Date;
-  hidden = false;
-
-  toggleBadgeVisibility() {
-    this.hidden = !this.hidden;
-  }
 
   constructor(private restaurantService: RestaurantService,
               private router: Router,
@@ -55,6 +42,7 @@ export class RestaurantComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // adapter la taille des grid en fonction de la taille de l'ecran
     this.col = (window.screen.width <= 770) ? 1 : 2;
     this.row = (window.screen.width <= 770) ? 1 : 2;
     this.smallCol = (window.screen.width <= 770) ? 0 : 1;
@@ -63,11 +51,11 @@ export class RestaurantComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
     this.restaurantService.getOneRestaurant(id).subscribe(res => {
       this.restaurant = res;
-      this.today = new Date;
     })
 
   }
 
+  // adapter la taille des grid en fonction de la taille de l'ecran
   onResize(event: any) {
     this.col = (window.screen.width <= 770) ? 1 : 2;
     this.row = (window.screen.width <= 770) ? 1 : 2;
@@ -75,6 +63,7 @@ export class RestaurantComponent implements OnInit {
     this.bigCol = (window.screen.width <= 770) ? 4 : 3;
   }
 
+// Permet de naviguer vers les details d'un article
   toArticle(article: Article) {
     console.log('toArticle called')
     const dialogref = this.dialog.open(ArticleComponent, {

@@ -19,7 +19,7 @@ export class MainComponent implements OnInit {
   }
   icon = {
     url: "assets/icons/icon.svg",
-    scaledSize: new google.maps.Size(50,50)
+    scaledSize: new google.maps.Size(50, 50)
   }
 
   constructor(public restaurantService: RestaurantService,
@@ -32,7 +32,6 @@ export class MainComponent implements OnInit {
 
   // Permet de naviguer jusqu'à restaurant donné
   goMenu(idRestaurant: string) {
-    // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`restaurant/${idRestaurant}`])
   }
 
