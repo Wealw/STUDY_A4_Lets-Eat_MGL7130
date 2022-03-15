@@ -1,15 +1,16 @@
 
 <div style="background: url(../assets/images/5352.jpg); background-size: cover; width: 100%; height: 6em; background-position: cover; border-radius: 0 0 10px 10px;"></div>
-<section class="container-full" xmlns="http://www.w3.org/1999/html">
- 
-  <mat-grid-list  cols="4" *ngIf="restaurant" rowHeight="1000px">
- 
+<!--<section class="container-full" xmlns="http://www.w3.org/1999/html">-->
+
+  <mat-grid-list   cols="4" *ngIf="restaurant" rowHeight="100%">
+
     <!-- Debut de la Section commentaire-->
-    <mat-grid-tile  [colspan]="smallCol" ><div style="position:absolute; top: 10px;">
+    <mat-grid-tile class="scroll" [colspan]="smallCol" ><div style="position:absolute; top: 10px;">
 
         <h5>
           <span matBadge="4" matBadgeOverlap="false">Commentaires</span>
         </h5><br>
+
         <div class="commentaire">
           <div>
             <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
@@ -45,7 +46,7 @@
     <!-- Fin de la Section commentaire-->
 
     <!-- Debut de la Section menu-->
-      <mat-grid-tile [colspan]="bigCol" >
+      <mat-grid-tile class="scroll" [colspan]="bigCol" >
         <div style="position: absolute; top: 10px; left: 10px; right: 10px; bottom:10px">
           <!-- Details du restaurant-->
           <div>
@@ -69,27 +70,23 @@
 
           </div>
           <!-- Section notation-->
-          <div class="pad" style="margin-left: 25px;">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star unchecked"></span>
-            <span class="fa fa-star unchecked"></span>
+          <div class="stars">
+            <ngx-star-rating  [(ngModel)]="restaurant.note" [disabled]="true"></ngx-star-rating>
+
           </div>
            <!-- Fin de la Section notation-->
-          <div>
             <!-- Fin de Details du restaurant-->
             <!-- Debut de Details du menu-->
-            <mat-grid-list [cols]="col" rowHeight="2:1" (window:resize)="onResize($event)">
+            <mat-grid-list [cols]="col" rowHeight="100" (window:resize)="onResize($event)">
               <ng-container *ngFor="let article of restaurant.menu.articles">
-                <mat-grid-tile>
-                  <div class='grid-tile'>
-                    <mat-grid-list cols="2" rowHeight="2:1">
-                      <mat-grid-tile [colspan]="col" style="position: absolute; left: 10px; right: 10px">
-                         
-                        <img (click)="toArticle(article)" [src]="article.photo" style="width:auto;" class="image" alt="">
+                <mat-grid-tile (click)="toArticle(article)" [rowspan]="row">
+                  <div class='picture_text'>
+                    <mat-grid-list cols="2" rowHeight="100">
+                      <mat-grid-tile [colspan]="col" rowspan="1" style="position: absolute; left: 10px; right: 10px">
+
+                        <img  type="button" (click)="toArticle(article)" [src]="article.photo" style="width:auto;" class="image" alt="">
                       </mat-grid-tile>
-                      <mat-grid-tile style="text-align: center;"  [colspan]="col">
+                      <mat-grid-tile rowspan="1" style="text-align: center;"  [colspan]="col">
                         <div class="text-container">{{article.nom}} <br>
                           {{article.taillePrix[0].taille + ': ' + article.taillePrix[0].prix + ' $'}}
                         </div>
@@ -102,10 +99,9 @@
             </mat-grid-list>
             <!-- fin de Details du menu-->
           </div>
-        </div>
       </mat-grid-tile>
       <!-- Fin de la Section menu-->
   </mat-grid-list>
 
-</section>
+<!--</section>-->
 <app-option></app-option>

@@ -35,6 +35,7 @@ export class RestaurantComponent implements OnInit {
   faPhone = faPhone
   faLocationArrow = faLocationArrow
   col: any;
+  row: any;
   smallCol: any;
   bigCol: any;
   option: OptionComponent | undefined;
@@ -54,9 +55,10 @@ export class RestaurantComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.col = (window.screen.width <= 667) ? 1 : 2;
-    this.smallCol = (window.screen.width <= 667) ? 0 : 1;
-    this.bigCol = (window.screen.width <= 667) ? 4 : 3;
+    this.col = (window.screen.width <= 770) ? 1 : 2;
+    this.row = (window.screen.width <= 770) ? 1 : 2;
+    this.smallCol = (window.screen.width <= 770) ? 0 : 1;
+    this.bigCol = (window.screen.width <= 770) ? 4 : 3;
 
     let id = this.route.snapshot.paramMap.get('id');
     this.restaurantService.getOneRestaurant(id).subscribe(res => {
@@ -67,9 +69,10 @@ export class RestaurantComponent implements OnInit {
   }
 
   onResize(event: any) {
-    this.col = (window.screen.width <= 667) ? 1 : 2;
-    this.smallCol = (window.screen.width <= 430) ? 0 : 1;
-    this.bigCol = (window.screen.width <= 430) ? 4 : 3;
+    this.col = (window.screen.width <= 770) ? 1 : 2;
+    this.row = (window.screen.width <= 770) ? 1 : 2;
+    this.smallCol = (window.screen.width <= 770) ? 0 : 1;
+    this.bigCol = (window.screen.width <= 770) ? 4 : 3;
   }
 
   toArticle(article: Article) {
