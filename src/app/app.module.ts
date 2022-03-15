@@ -34,6 +34,8 @@ import {AutosizeModule} from "ngx-autosize";
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AboutComponent } from './components/about/about.component';
+import {MatBadgeModule} from "@angular/material/badge";
+
 
 @NgModule({
   declarations: [
@@ -77,7 +79,8 @@ import { AboutComponent } from './components/about/about.component';
     MatListModule,
     ReactiveFormsModule,
     MatDialogModule,
-    AutosizeModule
+    AutosizeModule,
+    MatBadgeModule
   ],
   providers:
     [

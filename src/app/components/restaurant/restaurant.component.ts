@@ -40,6 +40,11 @@ export class RestaurantComponent implements OnInit {
   option: OptionComponent | undefined;
   restaurant: Restaurant;
   today: Date;
+  hidden = false;
+
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
+  }
 
   constructor(private restaurantService: RestaurantService,
               private router: Router,

@@ -1,12 +1,15 @@
 
-<div style="background: url(../assets/images/5352.jpg); background-size: cover; width: 100%; height: 6em; background-position: center; border-radius: 0 0 10px 10px"></div>
-<section class="container" xmlns="http://www.w3.org/1999/html">
-
+<div style="background: url(../assets/images/5352.jpg); background-size: cover; width: 100%; height: 6em; background-position: cover; border-radius: 0 0 10px 10px;"></div>
+<section class="container-full" xmlns="http://www.w3.org/1999/html">
+ 
   <mat-grid-list  cols="4" *ngIf="restaurant" rowHeight="1000px">
-
+ 
+    <!-- Debut de la Section commentaire-->
     <mat-grid-tile  [colspan]="smallCol" ><div style="position:absolute; top: 10px;">
 
-        <h4>Commentaires <span>8</span></h4>
+        <h5>
+          <span matBadge="4" matBadgeOverlap="false">Commentaires</span>
+        </h5><br>
         <div class="commentaire">
           <div>
             <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
@@ -18,7 +21,7 @@
         <div class="commentaire">
           <div>
             <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
-            <h5 class="nom">Nathan Kina</h5>
+            <h5 class="nom">Azziz Zemouri</h5>
           </div>
           <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant à tous ceux qui souhaitent goûter les meilleurs plats</p>
         </div>
@@ -26,7 +29,7 @@
         <div class="commentaire">
           <div>
             <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
-            <h5 class="nom">Nathan Kina</h5>
+            <h5 class="nom">Theo</h5>
           </div>
           <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant à tous ceux qui souhaitent goûter les meilleurs plats</p>
         </div>
@@ -34,13 +37,17 @@
         <div class="commentaire">
           <div>
             <img src="../assets/images/user.png" class="sub_commentaire_img" alt="">
-            <h5 class="nom">Nathan Kina</h5>
+            <h5 class="nom">Mohamed</h5>
           </div>
           <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant à tous ceux qui souhaitent goûter les meilleurs plats</p>
         </div>
     </div></mat-grid-tile>
+    <!-- Fin de la Section commentaire-->
+
+    <!-- Debut de la Section menu-->
       <mat-grid-tile [colspan]="bigCol" >
-        <div style="position: absolute; top: 10px; left: 10px; right: 10px">
+        <div style="position: absolute; top: 10px; left: 10px; right: 10px; bottom:10px">
+          <!-- Details du restaurant-->
           <div>
             <p class="titre">{{restaurant.nom}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             <fa-icon [icon]="faHeart" size="lg" class="heart"></fa-icon>
@@ -61,6 +68,7 @@
             <p class="sous_titre">{{restaurant.numeroTelephone}}</p>
 
           </div>
+          <!-- Section notation-->
           <div class="pad" style="margin-left: 25px;">
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -68,16 +76,20 @@
             <span class="fa fa-star unchecked"></span>
             <span class="fa fa-star unchecked"></span>
           </div>
+           <!-- Fin de la Section notation-->
           <div>
+            <!-- Fin de Details du restaurant-->
+            <!-- Debut de Details du menu-->
             <mat-grid-list [cols]="col" rowHeight="2:1" (window:resize)="onResize($event)">
               <ng-container *ngFor="let article of restaurant.menu.articles">
                 <mat-grid-tile>
                   <div class='grid-tile'>
                     <mat-grid-list cols="2" rowHeight="2:1">
-                      <mat-grid-tile [colspan]="col">
-                        <img (click)="toArticle(article)" [src]="article.photo" class="image" alt="">
+                      <mat-grid-tile [colspan]="col" style="position: absolute; left: 10px; right: 10px">
+                         
+                        <img (click)="toArticle(article)" [src]="article.photo" style="width:auto;" class="image" alt="">
                       </mat-grid-tile>
-                      <mat-grid-tile style="text-align: center" [colspan]="col">
+                      <mat-grid-tile style="text-align: center;"  [colspan]="col">
                         <div class="text-container">{{article.nom}} <br>
                           {{article.taillePrix[0].taille + ': ' + article.taillePrix[0].prix + ' $'}}
                         </div>
@@ -88,20 +100,11 @@
                 </mat-grid-tile>
               </ng-container>
             </mat-grid-list>
-            <!--        <div class="row">-->
-            <!--          <div class="col-md-6 col-12">-->
-            <!--            <div class="row" *ngFor="let article of restaurant.menu.articles">-->
-            <!--              <div class="col-md-4 col-4"><img [src]="article.photo" class="image" alt=""></div>-->
-            <!--              <div class="col-md-8 col-8"><p class="name">{{article.nom}} <br><span-->
-            <!--                class="price">{{article.taillePrix[0].prix + ' $'}}</span> <br>-->
-            <!--                <span class="detail">{{article.description}}</span></p>-->
-            <!--              </div>-->
-            <!--            </div>-->
-            <!--          </div>-->
-            <!--        </div>-->
+            <!-- fin de Details du menu-->
           </div>
         </div>
       </mat-grid-tile>
+      <!-- Fin de la Section menu-->
   </mat-grid-list>
 
 </section>
