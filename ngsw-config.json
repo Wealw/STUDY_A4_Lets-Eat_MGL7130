@@ -10,8 +10,8 @@
           "/favicon.ico",
           "/index.html",
           "/manifest.webmanifest",
-          "/*.css",
-          "/*.js"
+          "https://letseat-bc283.web.app/*.css",
+          "https://letseat-bc283.web.app/*.js"
         ]
       }
     },
