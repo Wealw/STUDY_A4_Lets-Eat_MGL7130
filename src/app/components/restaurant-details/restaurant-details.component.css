@@ -2,9 +2,11 @@
   display: inline-block;
   text-align: center;
 }
-.nav-tabs .nav-link{
+
+.nav-tabs .nav-link {
   transition: .3s;
 }
+
 .nav-tabs .nav-link.active {
   background: #c0392b;
   color: #fff;
@@ -12,23 +14,28 @@
   border: 1px solid #c0392b;
   text-transform: capitalize;
 }
+
 .nav-tabs .nav-link:hover {
   background: #c0392b;
   color: #fff;
   border: 1px solid #c0392b;
 }
+
 /*Menu starts*/
 .menu_tab {
   margin: 0 auto;
   justify-content: center;
 }
+
 .nav-item {
   display: inline-block;
   text-align: center;
 }
-.nav-tabs .nav-link{
+
+.nav-tabs .nav-link {
   transition: .3s;
 }
+
 .nav-tabs .nav-link.active {
   background: #c0392b;
   color: #fff;
@@ -36,14 +43,17 @@
   border: 1px solid #c0392b;
   text-transform: capitalize;
 }
+
 .nav-link {
   color: #000;
 }
+
 .nav-tabs .nav-link:hover {
   background: #c0392b;
   color: #fff;
   border: 1px solid #c0392b;
 }
+
 .single_menu {
   position: relative;
   margin-bottom: 75px;
@@ -58,21 +68,25 @@
   border: 1px solid #ddd;
   border-radius: 5px;
 }
+
 .menu_content {
   padding-left: 45%;
 }
+
 .menu_content h4 {
   font-size: 25px;
   font-weight: 300;
   line-height: 2;
   text-transform: capitalize;
 }
+
 .menu_content span {
   font-size: 25px;
   font-weight: 800;
   font-style: italic;
   color: #c0392b;
 }
+
 .menu_content p {
   font-weight: 200;
   font-size: 16px;
@@ -86,6 +100,7 @@
   display: block;
   width: 140px;
 }
+
 .btn.btn-danger {
   background: #c0392b;
   border: 1px solid #c0392b;
@@ -97,6 +112,7 @@
   overflow: hidden;
   padding: 15px 25px;
 }
+
 .btn.btn-danger::before {
   position: absolute;
   content: '';
@@ -108,7 +124,8 @@
   transition: .3s;
   z-index: -1;
 }
-.btn.btn-danger:hover:before{
+
+.btn.btn-danger:hover:before {
   top: 0;
   left: 0;
 }

@@ -11,25 +11,23 @@ import {HeaderComponent} from "../header/header.component";
 export class FilterComponent implements OnInit {
   restaurantRecherche: Recherche;
 
-  @Input() delegate : HeaderComponent;
+  @Input() delegate: HeaderComponent;
 
-  constructor(public restaurantService: RestaurantService)
-  {
+  constructor(public restaurantService: RestaurantService) {
     this.restaurantRecherche = restaurantService.recherche;
   }
 
   ngOnInit(): void {
     this.restaurantRecherche.distance = 20;
-    // this.initForm()
   }
 
   formatLabel(value: number) {
     return value;
   }
 
-  handleForm(){
+  handleForm() {
     this.restaurantService.getAllRestaurants()
-    if (this.delegate != undefined){
+    if (this.delegate != undefined) {
       this.delegate.toggleFilter()
     }
   }

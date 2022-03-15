@@ -1,4 +1,5 @@
 export class Recherche {
+  private static instance: Recherche
   public texte: string
   public distance: number
   public prix_min: number
@@ -6,13 +7,11 @@ export class Recherche {
   public categorie: string
   public notation: number
 
-  private static instance : Recherche
-
   private constructor() {
     this.texte = ""
   }
 
-  static getInstance(){
+  static getInstance() {
     if (Recherche.instance == undefined) Recherche.instance = new Recherche()
     return Recherche.instance
   }

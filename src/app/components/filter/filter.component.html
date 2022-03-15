@@ -1,20 +1,20 @@
 <form>
 
   <mat-list>
-    <mat-grid-list [cols]="11" rowHeight="90px" *ngIf="restaurantService.isGeolocalisationEnable">
+    <mat-grid-list *ngIf="restaurantService.isGeolocalisationEnable" [cols]="11" rowHeight="90px">
       <mat-grid-tile [colspan]="3">
         Distance:
       </mat-grid-tile>
       <mat-grid-tile [colspan]="6">
         <mat-slider
-          name="slider"
-          thumbLabel
-          [displayWith]="formatLabel"
           [(ngModel)]="restaurantRecherche.distance"
-          step="1"
-          min="0"
+          [displayWith]="formatLabel"
+          aria-label="units"
           max="100"
-          aria-label="units"></mat-slider>
+          min="0"
+          name="slider"
+          step="1"
+          thumbLabel></mat-slider>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="2">
         {{restaurantRecherche.distance + 'KM'}}
@@ -33,26 +33,26 @@
     <mat-list-item>
       <mat-form-field>
         <mat-label>Prix Min</mat-label>
-        <input matInput type="number" min="0" name="prix_min"
-               [(ngModel)]="this.restaurantService.recherche.prix_min">
+        <input [(ngModel)]="this.restaurantService.recherche.prix_min" matInput min="0" name="prix_min"
+               type="number">
       </mat-form-field>
     </mat-list-item>
     <mat-list-item>
       <mat-form-field>
         <mat-label>Prix Max</mat-label>
-        <input matInput type="number" min="0" name="prix_max"
-               [(ngModel)]="this.restaurantService.recherche.prix_max">
+        <input [(ngModel)]="this.restaurantService.recherche.prix_max" matInput min="0" name="prix_max"
+               type="number">
       </mat-form-field>
     </mat-list-item>
 
     <mat-list-item class="cont">
       <div class="stars">
-        <ngx-star-rating name="rating" [(ngModel)]="restaurantRecherche.notation"></ngx-star-rating>
+        <ngx-star-rating [(ngModel)]="restaurantRecherche.notation" name="rating"></ngx-star-rating>
       </div>
     </mat-list-item>
     <mat-list-item>
-      <button style="align-content: end" class="button" mat-raised-button
-              (click)="handleForm()">Appliquer
+      <button (click)="handleForm()" class="button" mat-raised-button
+              style="align-content: end">Appliquer
       </button>
     </mat-list-item>
   </mat-list>

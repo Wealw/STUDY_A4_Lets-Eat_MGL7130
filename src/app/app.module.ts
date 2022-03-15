@@ -10,7 +10,6 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {GoogleMapsModule} from '@angular/google-maps';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MainComponent} from './components/main/main.component';
-import {OptionComponent} from './components/option/option.component';
 import {FilterComponent} from './components/filter/filter.component'
 import {RestaurantService} from "./services/restaurant/restaurant.service";
 import {AngularFireModule} from '@angular/fire/compat';
@@ -28,13 +27,15 @@ import {MatSliderModule} from "@angular/material/slider";
 import {MatButtonModule} from "@angular/material/button";
 import {NgxStarRatingModule} from "ngx-star-rating";
 import {MatListModule} from "@angular/material/list";
-import { ArticleComponent } from './components/article/article.component';
+import {ArticleComponent} from './components/article/article.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {AutosizeModule} from "ngx-autosize";
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { AboutComponent } from './components/about/about.component';
+import {SignInComponent} from './components/sign-in/sign-in.component';
+import {SignUpComponent} from './components/sign-up/sign-up.component';
+import {AboutComponent} from './components/about/about.component';
 import {MatBadgeModule} from "@angular/material/badge";
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
@@ -42,7 +43,6 @@ import {MatBadgeModule} from "@angular/material/badge";
     AppComponent,
     HeaderComponent,
     MainComponent,
-    OptionComponent,
     FilterComponent,
     AppComponent,
     RestaurantComponent,
@@ -80,7 +80,9 @@ import {MatBadgeModule} from "@angular/material/badge";
     ReactiveFormsModule,
     MatDialogModule,
     AutosizeModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers:
     [

@@ -19,14 +19,14 @@ export class ArticleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // recuperation de l'article
+    // Récupération de l'article
     this.article = this.data.article;
     this.col = (window.screen.width <= 800) ? 1 : 2;
     this.rowHeight = (window.screen.height <= 600) ? 70 : 120;
 
   }
 
-  // redimentionner la vue en fonction de l'ecran
+  // Redimentionner la vue en fonction de l'écran
   onResize(event: any) {
     this.col = (window.screen.width <= 800) ? 1 : 2;
     this.rowHeight = (window.screen.height <= 600) ? 75 : 100;

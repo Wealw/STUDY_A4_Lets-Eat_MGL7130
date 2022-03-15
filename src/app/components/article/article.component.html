@@ -1,33 +1,41 @@
-<h1 style="text-align: center" mat-dialog-title>{{article.nom}}</h1>
-<mat-grid-list (window:resize)="onResize($event)" [cols]="2*col" [rowHeight]="rowHeight" >
+<!--titre du dialog-->
+<h1 mat-dialog-title style="text-align: center">{{article.nom}}</h1>
+<mat-grid-list (window:resize)="onResize($event)" [cols]="2*col" [rowHeight]="rowHeight">
 
-  <mat-grid-tile colspan="2" [rowspan]="2*col">
-    <img  [src]="article.photo" class="image" alt="">
+  <!--grid pour l'image-->
+  <mat-grid-tile [rowspan]="2*col" colspan="2">
+    <img [src]="article.photo" alt="" class="image">
   </mat-grid-tile>
-  <mat-grid-tile  [colspan]="col" rowspan="1">
+
+  <!--  grid pour le choix de taille-->
+  <mat-grid-tile [colspan]="col" rowspan="1">
     <mat-form-field>
       <mat-label>Taille</mat-label>
       <mat-select [(value)]="selectedSize">
-        <mat-option [value]="i" *ngFor="let taille of article.taillePrix, let i = index">
+        <mat-option *ngFor="let taille of article.taillePrix, let i = index" [value]="i">
           {{taille.taille}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   </mat-grid-tile>
+
+  <!--  grid pour pour afficher le prix associé à la taille-->
   <mat-grid-tile [colspan]="col" rowspan="1">
     <mat-form-field>
       <mat-label>Prix</mat-label>
-      <input matInput disabled [value]="article.taillePrix[selectedSize].prix + '$'">
+      <input [value]="article.taillePrix[selectedSize].prix + '$'" disabled matInput>
 
     </mat-form-field>
 
 
   </mat-grid-tile>
-  <mat-grid-tile  colspan="2" rowspan="3" >
+
+  <!--  grid pour pour afficher la description de l'article-->
+  <mat-grid-tile colspan="2" rowspan="3">
     <mat-form-field class="description">
       <mat-label>Description</mat-label>
-      <textarea *ngIf="article.description" autosize matInput disabled  [(ngModel)]="article.description"></textarea>
-      <textarea *ngIf="!article.description" autosize matInput disabled>Descritpion non disponible</textarea>
+      <textarea *ngIf="article.description" [(ngModel)]="article.description" autosize disabled matInput></textarea>
+      <textarea *ngIf="!article.description" autosize disabled matInput>Descritpion non disponible</textarea>
     </mat-form-field>
   </mat-grid-tile>
 </mat-grid-list>
