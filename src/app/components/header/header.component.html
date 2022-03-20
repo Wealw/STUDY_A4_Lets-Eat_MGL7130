@@ -12,9 +12,12 @@
 
   <!--Affiche la barre de recherche et bind -->
   <div *ngIf="isSearchBarEnable" class="formulaire">
+    <fa-icon [icon]="this.faSearch" size="1x"></fa-icon>
     <input (input)="restaurantService.recherche.texte=getValue($event)" [value]="this.restaurantService.recherche.texte" id="search"
            placeholder="Recherche...">
-    <fa-icon [icon]="this.faSearch" size="1x"></fa-icon>
+    <ul id="suggestion">
+      <li *ngFor="let item of this.restaurantService.getBestDishes(this.restaurantService.recherche.texte)" (click)="selectItem(item)">{{item}}</li>
+    </ul>
   </div>
 
   <!--Affiche le boutton des filtre quand la barre de recherche est affichée-->

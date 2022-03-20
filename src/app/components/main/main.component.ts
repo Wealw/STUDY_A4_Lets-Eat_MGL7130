@@ -13,7 +13,7 @@ export class MainComponent implements OnInit {
   restaurants: Restaurant[]
   filter: FilterComponent | undefined
   mapOptions: google.maps.MapOptions = {
-    center: {lat: 45.505423, lng: -73.6594142},
+    center: {lat: 0, lng: -0},
     zoom: 11,
     disableDefaultUI: true,
   }
@@ -25,6 +25,17 @@ export class MainComponent implements OnInit {
   constructor(public restaurantService: RestaurantService,
               private router: Router) {
     restaurantService.getAllRestaurants()
+    restaurantService.isGeolocalisationEnable.asObservable().subscribe(value => {
+      if(restaurantService.isGeolocalisationEnable){
+        restaurantService.position.asObservable().subscribe((value1 => {
+          this.mapOptions = {
+            center: {lat: value1.latitude, lng: value1.longitude},
+            zoom: 11,
+            disableDefaultUI: true,
+          }
+        }))
+      }
+    })
   }
 
   ngOnInit(): void {
