@@ -15,7 +15,6 @@ import {RestaurantService} from "./services/restaurant/restaurant.service";
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {RestaurantComponent} from './components/restaurant/restaurant.component';
-import {RestaurantDetailsComponent} from "./components/restaurant-details/restaurant-details.component";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatOptionModule} from "@angular/material/core";
@@ -47,7 +46,6 @@ import {MatMenuModule} from "@angular/material/menu";
     RestaurantComponent,
     FilterComponent,
     RestaurantComponent,
-    RestaurantDetailsComponent,
     ArticleComponent,
     SignInComponent,
     SignUpComponent,
