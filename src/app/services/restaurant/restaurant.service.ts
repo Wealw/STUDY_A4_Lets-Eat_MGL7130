@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore, CollectionReference} from "@angular/fire/compat/firestore";
 import firebase from "firebase/compat/app";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
+import random from 'random-seedable';
 
 import {Recherche} from "../../models/Recherche";
 import {Restaurant} from "../../models/Restaurant";
@@ -15,26 +16,32 @@ import Query = firebase.firestore.Query;
 export class RestaurantService {
   restaurants: Restaurant[] = [];
   restaurant: Observable<any> = new Observable<any>();
-  dishes: String[]
-  categories: String[]
+  dishes: string[]
+  categories: string[]
   recherche: Recherche
-  position: GeolocationCoordinates
-  isGeolocalisationEnable: boolean
+  position: BehaviorSubject<GeolocationCoordinates>
+  isGeolocalisationEnable: BehaviorSubject<boolean>;
 
   constructor(private angularFirestore: AngularFirestore) {
     this.recherche = Recherche.getInstance();
     this.getAllCategory();
     this.getAllDishes()
-    this.isGeolocalisationEnable = false
+    this.isGeolocalisationEnable = new BehaviorSubject<boolean>(false)
+    this.position = new BehaviorSubject<GeolocationCoordinates>({
+      accuracy: 0,
+      altitude: 0,
+      altitudeAccuracy: 0,
+      heading: 0,
+      latitude: 0,
+      longitude: 0,
+      speed: 0,})
     navigator.geolocation.watchPosition(
       position => {
-        this.position = position.coords
-        this.isGeolocalisationEnable = false
-        // TODO: Reanable for version 2
-        // this.isGeolocalisationEnable = true
+        this.position.next(position.coords)
+        this.isGeolocalisationEnable.next(true)
       },
       () => {
-        this.isGeolocalisationEnable = false
+        this.isGeolocalisationEnable.next(false)
       })
   }
 
@@ -55,7 +62,7 @@ export class RestaurantService {
   getAllDishes() {
     if (!this.dishes) {
       const query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges();
-      let temp: String[] = []
+      let temp: string[] = []
       // noinspection JSIgnoredPromiseFromCall
       query.forEach(async results => {
         let result = results as Restaurant[]
@@ -72,14 +79,22 @@ export class RestaurantService {
     } else {
       return this.dishes
     }
+  }
 
+  getBestDishes(search: string){
+    let temp : string[] =  this.dishes
+    temp = temp.filter(value => value.toUpperCase().includes(search.toUpperCase()))
+    temp = temp.slice(0,5)
+    random.seed = 4269
+    temp = random.shuffle(temp)
+    return temp
   }
 
 // permet de recuperer toutes les categories des differents restaurants
   getAllCategory() {
     if (!this.categories) {
       const query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges();
-      let temp: String[] = [""]
+      let temp: string[] = [""]
       // noinspection JSIgnoredPromiseFromCall
       query.forEach(async results => {
         let result = results as Restaurant[]
@@ -112,7 +127,7 @@ export class RestaurantService {
         tempRestaurantList.splice(counter, 1)
       }
       // Testez si le restaurant est à portée
-      else if (this.isGeolocalisationEnable && this.calcultateDistance(this.position.latitude, this.position.longitude, tempRestaurantList[counter].geoPoint.latitude, tempRestaurantList[counter].geoPoint.longitude) > this.recherche.distance) {
+      else if (this.isGeolocalisationEnable && this.calcultateDistance(this.position.getValue().latitude, this.position.getValue().longitude, tempRestaurantList[counter].geoPoint.latitude, tempRestaurantList[counter].geoPoint.longitude) > this.recherche.distance) {
         tempRestaurantList.splice(counter, 1)
       }
       counter--
