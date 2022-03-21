@@ -31,6 +31,7 @@
     "firebase": "^9.4.0",
     "ngx-autosize": "^1.8.7",
     "ngx-star-rating": "^2.1.0",
+    "random-seedable": "^1.0.8",
     "rxfire": "^6.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

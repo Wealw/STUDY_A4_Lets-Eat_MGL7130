@@ -30,11 +30,7 @@ export class HeaderComponent implements OnInit {
     this.elementRef.nativeElement.addEventListener("keyup", (event: { preventDefault: () => void; keyCode: any; }) => {
       event.preventDefault()
       if (event.keyCode === 13) {
-        this.restaurantService.getAllRestaurants()
-        let searchBar = document.getElementById('search')
-        if (searchBar) {
-          searchBar.blur()
-        }
+        this.blurSearchBar()
         this.areFilterDisplayed = false
       }
     })    // @ts-ignore
@@ -75,5 +71,26 @@ export class HeaderComponent implements OnInit {
   navigateToAbout() {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`about`])
+  }
+
+  blurSearchBar() {
+    let searchBar = document.getElementById('search')
+    if (searchBar) {
+      searchBar.blur()
+    }
+  }
+
+  blurSuggestion() {
+    let searchBar = document.getElementById('suggestion')
+    if (searchBar) {
+      searchBar.blur()
+    }
+  }
+
+  selectItem(search : string){
+    this.restaurantService.recherche.texte = search
+    this.restaurantService.getAllRestaurants()
+    this.blurSearchBar();
+    this.blurSuggestion()
   }
 }

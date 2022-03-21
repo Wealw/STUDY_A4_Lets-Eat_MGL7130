@@ -74,6 +74,33 @@ input {
   height: 100%;
 }
 
+#suggestion{
+  padding: 0;
+  position: absolute;
+  float: top;
+  list-style: none  ;
+  background-color: white;
+  box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  display: none;
+}
+
+#suggestion li{
+  padding: 1em ;
+}
+
+#suggestion li:hover{
+  background-color: #dfdfdf;
+}
+
+#suggestion:active{
+  display: block;
+}
+
+#search:focus + #suggestion{
+  display: block;
+}
+
 /* Cache le menu quand l'application est en mode landscape */
 @media screen and (orientation: landscape) {
   .filter {
