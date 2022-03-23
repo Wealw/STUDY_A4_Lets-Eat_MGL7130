@@ -31,6 +31,11 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: 'accueil'
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'accueil'
   }
 ];
 

@@ -3,12 +3,19 @@ img {
   max-height: 100%;
   display: block;
 }
-
 .description {
   position: absolute;
   top: 0;
+  height: 100%;
+}
+h1{
+  padding-top: 10px;
+  text-align: center;
 }
 .image{
   position: absolute;
   top: 0;
+}
+mat-label, textarea, input{
+  color: black !important;
 }

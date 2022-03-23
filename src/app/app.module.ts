@@ -35,6 +35,7 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restaurant-reviews.component";
+import { ErrorComponent } from './components/error/error.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restau
     ArticleComponent,
     SignInComponent,
     SignUpComponent,
-    AboutComponent
+    AboutComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

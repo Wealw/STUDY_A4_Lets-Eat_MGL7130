@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
 import {Recherche} from "../../models/Recherche";
 import {HeaderComponent} from "../header/header.component";
+import {MainComponent} from "../main/main.component";
 
 @Component({
   selector: 'app-filter',
@@ -13,7 +14,7 @@ export class FilterComponent implements OnInit {
 
   @Input() delegate: HeaderComponent;
 
-  constructor(public restaurantService: RestaurantService) {
+  constructor(public restaurantService: RestaurantService, private main : MainComponent) {
     this.restaurantRecherche = restaurantService.recherche;
   }
 
@@ -26,6 +27,7 @@ export class FilterComponent implements OnInit {
   }
 
   handleForm() {
+    this.main.chechInternet()
     this.restaurantService.getAllRestaurants()
     if (this.delegate != undefined) {
       this.delegate.toggleFilter()

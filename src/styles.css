@@ -66,3 +66,16 @@ mat-grid-tile{
   /*border: 1px solid black;*/
 }
 
+.close.mat-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 10px;
+  line-height: 14px;
+  min-width: auto;
+}
+.cdk-overlay-pane.my-dialog mat-dialog-container {
+  position: relative!important;
+  color: black !important;
+  padding: 0px;
+}
