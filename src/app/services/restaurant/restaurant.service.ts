@@ -137,7 +137,7 @@ export class RestaurantService {
 
   // permet de recuperer un restaurant en fonction de son ID
   getOneRestaurant(id: any) {
-    this.restaurant = this.angularFirestore.collection('restaurant').doc(id).valueChanges({idField: 'id'})
+    this.restaurant = this.angularFirestore.collection('restaurant').doc(id).valueChanges()
     return this.restaurant;
   }
 

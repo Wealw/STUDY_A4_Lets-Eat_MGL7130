@@ -30,6 +30,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "firebase": "^9.4.0",
     "ngx-autosize": "^1.8.7",
+    "ngx-online-status": "^1.0.1",
     "ngx-star-rating": "^2.1.0",
     "random-seedable": "^1.0.8",
     "rxfire": "^6.0.0",

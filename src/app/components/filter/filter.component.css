@@ -50,12 +50,6 @@ form {
   font-size: 14px;
 }
 
-.pri {
-  margin: 10px 22px;
-  font-weight: 550;
-  font-size: 14px;
-}
-
 mat-list-item {
   /*width: 90px;*/
   width: 100%;
@@ -265,13 +259,6 @@ input:nth-of-type(10):hover ~ i {
     display: inline;
     margin-left: 20px;
 
-  }
-
-  .pri {
-    margin: 10px 0 10px 20px;
-    font-weight: 550;
-    font-size: 14px;
-    color: #222;
   }
 
   label {
