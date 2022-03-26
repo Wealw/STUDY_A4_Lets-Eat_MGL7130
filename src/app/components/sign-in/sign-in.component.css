@@ -1,6 +1,6 @@
 .container {
   position: absolute;
-  top: 4em;
+  top: 10em;
   padding-top: 1em;
 }
 
@@ -26,4 +26,44 @@
 .btn .button:hover {
   background-color: lightgray;
   color: #f3780d;
+}
+
+h6 {
+  display: flex;
+  flex-direction: row;
+  
+}
+h6:before, h6:after{
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid lightgrey;
+  margin: auto;
+  margin-left: 50px ;
+  margin-right: 50px ;
+}
+h6:before {
+  margin-right: 10px
+}
+h6:after {
+  margin-left: 10px
+}
+
+#bottom{
+  position: fixed;
+  bottom: 10px;
+  width: 90%;
+
+}
+
+.button_bottom {
+ background-color: lightgray;
+ border-color: 1px solid lightgray;
+ color: #f3780d;
+ width: 100%;
+}
+
+.button_bottom:hover{
+  background-color: lightgray;
+  border-color: 1px solid lightgray;
+
 }

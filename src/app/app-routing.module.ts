@@ -27,8 +27,7 @@ const routes: Routes = [
     path: 'about',
     component: AboutComponent
   },
-  {
-    path: '',
+  { 
     pathMatch: 'full',
     redirectTo: 'accueil'
   },
