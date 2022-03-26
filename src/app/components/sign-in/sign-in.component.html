@@ -6,20 +6,20 @@
  
 <form [formGroup]="signinForm" style="text-align: center;">
   <mat-form-field appearance="fill">
-    <mat-label>Adresse email*</mat-label>
+    <mat-label>Adresse email</mat-label>
     <input matInput formControlName="email">
-    <mat-error *ngIf="email?.errors?.['required']">
-      Vous devez rendre une adresse couriel
+    <mat-error *ngIf="email?.errors?.['required']"  style="color:black">
+      Vous devez entrer une adresse couriel
     </mat-error>
     
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Mot de passe*</mat-label>
+    <mat-label>Mot de passe</mat-label>
     <input matInput formControlName="password" type="password">
-    <mat-error *ngIf="password?.errors?.['required']">
-      Vous devez rendre un mot de passe
-    </mat-error>
+    <mat-error *ngIf="password?.errors?.['required']" style="color:black">
+      Vous devez entrer un mot de passe
+    </mat-error><br>
   </mat-form-field>
   
   <button  class="button " mat-raised-button

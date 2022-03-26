@@ -3,31 +3,47 @@
 </div>
 <div class="container">
  
-<form style="text-align: center;">
+<form [formGroup]='signupForm' style="text-align: center;">
   <mat-form-field appearance="fill">
-    <mat-label>Prenom*</mat-label>
-    <input matInput>
+    <mat-label>Prenom</mat-label>
+    <input matInput formControlName='prenom'>
+    <mat-error *ngIf="prenom?.errors?.['required']"  style="color:black">
+      Vous devez entrer un prenom
+    </mat-error>
+    
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Nom</mat-label>
-    <input matInput>
+    <mat-label >Nom</mat-label>
+    <input matInput formControlName='nom'>
+    <mat-error *ngIf="nom?.errors?.['required']"  style="color:black">
+      Vous devez entrer un prenom
+    </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Adresse email*</mat-label>
-    <input matInput>
+    <mat-label >Adresse email</mat-label>
+    <input matInput formControlName='email'>
+    <mat-error *ngIf="email?.errors?.['required']"  style="color:black">
+      Vous devez entrer un prenom
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Mot de passe*</mat-label>
-    <input matInput>
+    <mat-label >Mot de passe</mat-label>
+    <input matInput formControlName='password'>
+    <mat-error *ngIf="password?.errors?.['required']"  style="color:black">
+      Vous devez entrer un prenom
+    </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Confirmer le Mot de passe*</mat-label>
-    <input matInput>
+    <mat-label >Confirmer le Mot de passe</mat-label>
+    <input matInput formControlName='confirmPasword'>
+    <mat-error *ngIf="confirmPasword?.errors?.['required']"  style="color:black">
+      Vous devez entrer un prenom
+    </mat-error>
   </mat-form-field>
   
   <button  class="button " mat-raised-button
-  style="align-content: end">Inscrivez-vous
+  style="align-content: end" type='submit'>Inscrivez-vous
 </button><br>
 <p style="font-size: 14px; color: black; text-decoration: none;">Vous avez déjà un compte? <a href="#" style="color:orange; text-decoration:none; font-weight:550">Connectez-vous</a></p>
   </form>
