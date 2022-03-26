@@ -1,0 +1,11 @@
+<div class="header">
+  <mat-icon *ngIf="codeError == 0" class="error-icon" inline="true">cloud_off</mat-icon>
+  <mat-icon *ngIf="codeError == 1" class="error-icon" inline="true">sentiment_very_dissatisfied</mat-icon>
+</div>
+
+<div>
+  <h1 class="text">Ooops!</h1>
+  <p class="text">{{errorMessage}}</p>
+  <button mat-dialog-close="true" mat-raised-button>Réessayer</button>
+</div>
+

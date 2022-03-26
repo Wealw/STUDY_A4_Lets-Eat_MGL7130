@@ -1,0 +1,19 @@
+.header{
+  height: 50%;
+  width: 100%;
+  background-color: #e85e6c;
+  text-align: center;
+
+}
+.error-icon{
+  color: white;
+  font-size: 130px;
+}
+div{
+  padding: 10px;
+  text-align: center;
+}
+button{
+  background-color: orange;
+  color: white
+}

@@ -1,5 +1,10 @@
 <!--titre du dialog-->
-<h1 mat-dialog-title style="text-align: center">{{article.nom}}</h1>
+
+<div>
+  <button class="close"  mat-button [mat-dialog-close]="true">X</button>
+</div>
+<br>
+<h1 mat-dialog-title>{{article.nom}}</h1>
 <mat-grid-list (window:resize)="onResize($event)" [cols]="2*col" [rowHeight]="rowHeight">
 
   <!--grid pour l'image-->
@@ -9,7 +14,7 @@
 
   <!--  grid pour le choix de taille-->
   <mat-grid-tile [colspan]="col" rowspan="1">
-    <mat-form-field>
+    <mat-form-field >
       <mat-label>Taille</mat-label>
       <mat-select [(value)]="selectedSize">
         <mat-option *ngFor="let taille of article.taillePrix, let i = index" [value]="i">
@@ -21,9 +26,9 @@
 
   <!--  grid pour pour afficher le prix associé à la taille-->
   <mat-grid-tile [colspan]="col" rowspan="1">
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Prix</mat-label>
-      <input [value]="article.taillePrix[selectedSize].prix + '$'" disabled matInput>
+      <input  [value]="article.taillePrix[selectedSize].prix + '$'" disabled matInput>
 
     </mat-form-field>
 
@@ -31,11 +36,15 @@
   </mat-grid-tile>
 
   <!--  grid pour pour afficher la description de l'article-->
-  <mat-grid-tile colspan="2" rowspan="3">
-    <mat-form-field class="description">
+  <mat-grid-tile colspan="2" [rowspan]="rowDescription">
+    <mat-form-field class="description" appearance="fill">
       <mat-label>Description</mat-label>
-      <textarea *ngIf="article.description" [(ngModel)]="article.description" autosize disabled matInput></textarea>
-      <textarea *ngIf="!article.description" autosize disabled matInput>Descritpion non disponible</textarea>
+      <textarea matInput
+                cdkTextareaAutosize [(ngModel)]="article.description"
+                #autosize="cdkTextareaAutosize"
+                disabled
+                cdkAutosizeMinRows="1"
+                [cdkAutosizeMaxRows]="rowDescription+1"></textarea>
     </mat-form-field>
   </mat-grid-tile>
 </mat-grid-list>
