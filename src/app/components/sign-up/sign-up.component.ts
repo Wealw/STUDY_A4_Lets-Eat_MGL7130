@@ -9,11 +9,12 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 export class SignUpComponent implements OnInit {
 
   signupForm = new FormGroup({
+    prenom: new FormControl('', Validators.required),
+    nom: new FormControl('', Validators.required),
     email: new FormControl('',[Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
     confirmPasword: new FormControl('', Validators.required),
-    prenom: new FormControl('', Validators.required),
-    nom: new FormControl('', Validators.required)  
+   
   })
 
   constructor() {
