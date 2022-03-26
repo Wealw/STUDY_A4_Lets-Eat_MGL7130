@@ -28,11 +28,12 @@ const routes: Routes = [
     component: AboutComponent
   },
   { 
+    path: '**',
     pathMatch: 'full',
     redirectTo: 'accueil'
   },
   {
-    path: '**',
+    path: '',
     pathMatch: 'full',
     redirectTo: 'accueil'
   }

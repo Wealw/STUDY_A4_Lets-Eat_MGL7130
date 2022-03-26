@@ -13,11 +13,24 @@ export  class  MyMaterialModule { }
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
+
+
+  signinForm = new FormGroup({
+    email: new FormControl('',[Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required)
+  })
   
 
   constructor() {
   }
 
+  get email(){
+    return this.signinForm.get('email');
+  }
+
+  get password(){
+    return this.signinForm.get('password');
+  }
   ngOnInit(): void {
   }
   // navigateToSignUp() {

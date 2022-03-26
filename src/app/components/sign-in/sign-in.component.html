@@ -4,19 +4,26 @@
 
 <div class="container">
  
-<form style="text-align: center;">
+<form [formGroup]="signinForm" style="text-align: center;">
   <mat-form-field appearance="fill">
     <mat-label>Adresse email*</mat-label>
-    <input matInput FormControlName="email">
+    <input matInput formControlName="email">
+    <mat-error *ngIf="email?.errors?.['required']">
+      Vous devez rendre une adresse couriel
+    </mat-error>
+    
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Mot de passe*</mat-label>
-    <input matInput FormControlName="password" type="password">
+    <input matInput formControlName="password" type="password">
+    <mat-error *ngIf="password?.errors?.['required']">
+      Vous devez rendre un mot de passe
+    </mat-error>
   </mat-form-field>
   
   <button  class="button " mat-raised-button
-  style="align-content: end">Connectez-vous
+  style="align-content: end" type="submit">Connectez-vous
 </button><br>
 <p style="font-size: 14px; color: black; text-decoration: none;"><a href="#" style="color:black; text-decoration:none; font-weight:550">Mot de passe oublié?</a></p>
   </form>
@@ -24,7 +31,7 @@
 
 <div id="bottom" >
   <h6>ou</h6>
-  <button  class="button_bottom" mat-raised-button 
+  <button  class="button_bottom" mat-raised-button routerLink="sign-up" 
   >Créez un compte</button>
 </div>
 </div>
