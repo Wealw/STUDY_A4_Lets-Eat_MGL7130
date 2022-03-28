@@ -13,25 +13,30 @@ export class InternetService {
     this.isOnline = new BehaviorSubject<boolean>(true)
   }
 
-  checkInternet(){
+  async checkInternet(){
     if (!navigator.onLine) {
+      console.debug('Navigator is offline !')
       this.isOnline.next(false)
       return
     }
     // Honteusement volé : https://thewebdev.info/2022/02/09/how-to-check-if-server-is-online-with-javascript/
-    (async () => {
-      const url = 'https://letseat-bc283.web.app/'
-      const controller = new AbortController();
-      const signal = controller.signal;
-      const options : RequestInit = {
-        mode: 'no-cors',
-        signal
-      };
-      await fetch(url, options).then(()=> {this.isOnline.next(false)})
-      setTimeout(() => {
-        controller.abort()
-      }, 3000)
-    })()
+    const url = 'https://letseat-bc283.web.app/'
+    const options : RequestInit = {
+      mode: 'no-cors',
+    };
+    try {
+      const response = await fetch(url, options)
+      if (response.status != 0){
+        console.debug('Server is offline !');
+        this.isOnline.next(false);
+        return
+      }
+    } catch (e) {
+      console.debug('Status fetch has failed !');
+      this.isOnline.next(false);
+      return
+    }
+    console.debug('Internet : OK !')
     this.isOnline.next(true)
   }
 }
