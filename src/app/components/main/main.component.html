@@ -8,8 +8,7 @@
     <div class="col-12 selector">
 
       <!--Affiche une carte google maps-->
-      <google-map [options]="mapOptions" height="100%" width="100%" *ngIf="internet.isOnline">
-
+      <google-map [options]="mapOptions" height="100%" width="100%" *ngIf="isOnline__copy">
         <!-- Affiche un marqueur pour chaque restaurant -->
         <map-marker (mapClick)="goMenu(res.id)"
                     *ngFor="let res of this.restaurantService.restaurants"

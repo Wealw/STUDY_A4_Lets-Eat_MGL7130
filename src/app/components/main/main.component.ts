@@ -24,6 +24,7 @@ export class MainComponent implements OnInit {
     url: "assets/icons/icon.svg",
     scaledSize: new google.maps.Size(50, 50)
   }
+  isOnline__copy = true;
 
   constructor(public restaurantService: RestaurantService,
               private router: Router,
@@ -44,6 +45,7 @@ export class MainComponent implements OnInit {
     });
     internet.isOnline.asObservable().subscribe(()=>{
       {
+        this.isOnline__copy = this.internet.isOnline.getValue()
         if (!this.internet.isOnline.getValue()){
           console.debug("ERROR WINDOWS CALLED !")
           const dialogref = this.dialog.open(ErrorComponent, {

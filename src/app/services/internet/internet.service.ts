@@ -15,7 +15,7 @@ export class InternetService {
 
   async checkInternet(){
     if (!navigator.onLine) {
-      console.debug('Navigator is offline !')
+      //console.debug('Navigator is offline !')
       this.isOnline.next(false)
       return
     }
@@ -27,16 +27,16 @@ export class InternetService {
     try {
       const response = await fetch(url, options)
       if (response.status != 0){
-        console.debug('Server is offline !');
+        //console.debug('Server is offline !');
         this.isOnline.next(false);
         return
       }
     } catch (e) {
-      console.debug('Status fetch has failed !');
+      //console.debug('Status fetch has failed !');
       this.isOnline.next(false);
       return
     }
-    console.debug('Internet : OK !')
+    //console.debug('Internet : OK !')
     this.isOnline.next(true)
   }
 }
