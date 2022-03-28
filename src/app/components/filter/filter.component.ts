@@ -3,6 +3,7 @@ import {RestaurantService} from "../../services/restaurant/restaurant.service";
 import {Recherche} from "../../models/Recherche";
 import {HeaderComponent} from "../header/header.component";
 import {MainComponent} from "../main/main.component";
+import {InternetService} from "../../services/internet/internet.service";
 
 @Component({
   selector: 'app-filter',
@@ -14,7 +15,7 @@ export class FilterComponent implements OnInit {
 
   @Input() delegate: HeaderComponent;
 
-  constructor(public restaurantService: RestaurantService, private main : MainComponent) {
+  constructor(public restaurantService: RestaurantService, private internet : InternetService) {
     this.restaurantRecherche = restaurantService.recherche;
   }
 
@@ -27,7 +28,7 @@ export class FilterComponent implements OnInit {
   }
 
   handleForm() {
-    this.main.chechInternet()
+    this.internet.checkInternet()
     this.restaurantService.getAllRestaurants()
     if (this.delegate != undefined) {
       this.delegate.toggleFilter()

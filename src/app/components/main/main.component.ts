@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {FilterComponent} from "../filter/filter.component";
 import {MatDialog} from "@angular/material/dialog";
 import {ErrorComponent} from "../error/error.component";
+import {InternetService} from "../../services/internet/internet.service";
 
 @Component({
   selector: 'app-main',
@@ -26,7 +27,8 @@ export class MainComponent implements OnInit {
 
   constructor(public restaurantService: RestaurantService,
               private router: Router,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private  internet : InternetService) {
     restaurantService.getAllRestaurants()
     console.log('restauranyt service --->',restaurantService.restaurants)
     restaurantService.isGeolocalisationEnable.asObservable().subscribe(value => {
@@ -39,31 +41,29 @@ export class MainComponent implements OnInit {
           }
         }))
       }
+    });
+    internet.isOnline.asObservable().subscribe(()=>{
+      {
+        if (!internet.isOnline){
+          const dialogref = this.dialog.open(ErrorComponent, {
+            data: {errorMessage: 'S\'il vous plait, vérifiez votre connexion internet!',codeError : 0},
+            height: '400px',
+            width: '80%',
+            panelClass: 'my-dialog',
+          }).afterClosed().subscribe(res => {
+            window.location.reload();
+          });
+        }
+      }
     })
   }
 
   ngOnInit(): void {
-    this.chechInternet()
+    this.internet.checkInternet()
   }
 
   // Permet de naviguer jusqu'à restaurant donné
   goMenu(idRestaurant: string) {
     this.router.navigate([`restaurant/${idRestaurant}`])
   }
-
-  // Fonction verifiant la disponibilité de la connection internet
-  chechInternet() {
-    if (!navigator.onLine) {
-      const dialogref = this.dialog.open(ErrorComponent, {
-        data: {errorMessage: 'S\'il vous plait, vérifiez votre connexion internet!',codeError : 0},
-        height: '400px',
-        width: '80%',
-        panelClass: 'my-dialog',
-      }).afterClosed().subscribe(res => {
-        window.location.reload();
-      });
-    }
-
-  }
-
 }
