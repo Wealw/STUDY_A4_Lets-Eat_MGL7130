@@ -1,13 +1,12 @@
 import {Restaurant} from "./Restaurant";
 
 export class Client {
-  id: string;
+  id?: string;
   nom: string;
   prenom: string;
   visitedRestaurents: Restaurant[];
   favoritRestaurents: Restaurant[];
   email: string;
-  password: string;
 
   constructor(
     id: string,
@@ -16,7 +15,6 @@ export class Client {
     visitedRestaurents: Restaurant[],
     favoritRestaurents: Restaurant[],
     email: string,
-    password: string
   ) {
     this.id = id;
     this.nom = nom;
@@ -24,7 +22,6 @@ export class Client {
     this.visitedRestaurents = visitedRestaurents;
     this.favoritRestaurents = favoritRestaurents;
     this.email = email;
-    this.password = password;
 
   }
 }

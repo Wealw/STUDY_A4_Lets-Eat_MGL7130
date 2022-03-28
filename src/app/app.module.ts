@@ -36,6 +36,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restaurant-reviews.component";
 import { ErrorComponent } from './components/error/error.component';
+import {AuthGuardService} from "./services/Authentification/auth-guard.service";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -82,11 +84,13 @@ import { ErrorComponent } from './components/error/error.component';
     AutosizeModule,
     MatBadgeModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule
   ],
   providers:
     [
-      RestaurantService
+      RestaurantService,
+      AuthGuardService
     ],
   bootstrap: [AppComponent]
 })

@@ -23,12 +23,12 @@ export class MainComponent implements OnInit {
     url: "assets/icons/icon.svg",
     scaledSize: new google.maps.Size(50, 50)
   }
+  tab : number[] = new Array(5);
 
   constructor(public restaurantService: RestaurantService,
               private router: Router,
               private dialog: MatDialog) {
     restaurantService.getAllRestaurants()
-    console.log('restauranyt service --->',restaurantService.restaurants)
     restaurantService.isGeolocalisationEnable.asObservable().subscribe(value => {
       if (restaurantService.isGeolocalisationEnable) {
         restaurantService.position.asObservable().subscribe((value1 => {
