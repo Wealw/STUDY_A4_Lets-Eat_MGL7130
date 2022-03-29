@@ -8,14 +8,20 @@
     <mat-label>Prenom</mat-label>
     <input matInput formControlName="prenom">
     <mat-error *ngIf="signupForm.get('prenom')?.hasError('required')">
-      Prénom non valide
+      Le prénom est requis
+    </mat-error>
+    <mat-error *ngIf="signupForm.get('prenom')?.hasError('pattern')">
+      Ce prénom est non valide
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Nom</mat-label>
     <input matInput formControlName="nom">
     <mat-error *ngIf="signupForm.get('nom')?.hasError('required')">
-      Nom non valide
+      Le nom est requis
+    </mat-error>
+    <mat-error *ngIf="signupForm.get('nom')?.hasError('pattern')">
+      Ce nom est non valide
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
@@ -50,7 +56,7 @@
   <button  class="button " mat-raised-button (click)="onSubmit()" [disabled]="signupForm.invalid"
   style="align-content: end">Inscrivez-vous
 </button><br>
-<p style="font-size: 14px; color: black; text-decoration: none;">Vous avez déjà un compte? <a href="#" style="color:orange; text-decoration:none; font-weight:550">Connectez-vous</a></p>
+<p style="font-size: 14px; color: black; text-decoration: none;">Vous avez déjà un compte? <a (click)="router.navigate(['sign-in'])" style="color:orange; text-decoration:none; font-weight:550">Connectez-vous</a></p>
   </form>
 </div>
 

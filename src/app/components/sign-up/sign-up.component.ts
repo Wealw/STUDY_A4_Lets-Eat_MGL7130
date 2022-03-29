@@ -25,12 +25,12 @@ export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
   matcher = new MyErrorStateMatcher();
 
-  constructor(private router: Router,
+  constructor(public router: Router,
               private _snackBar: MatSnackBar,
               private authService : AuthGuardService) {
     this.signupForm = new FormGroup({
-      nom: new FormControl('', Validators.required),
-      prenom: new FormControl('', Validators.required),
+      nom: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]{2,32}')]),
+      prenom: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]{2,32}')] ),
       email: new FormControl('', [Validators.required, Validators.email]),
       motdepasse: new FormControl('', [Validators.required, Validators.minLength(8)]),
       motdepasse2: new FormControl('', Validators.required)
@@ -58,8 +58,9 @@ export class SignUpComponent implements OnInit {
             horizontalPosition: 'center'
           });
           this.router.navigate(['acceuil']);
-        }).catch(() => {
-          this._snackBar.open("Une erreur s\'est produite!", '', {
+        }).catch((err) => {
+          let error = this.authService.getError(err['code'])
+          this._snackBar.open(error, '', {
             duration: 3000,
             panelClass: 'orange-snackbar',
             horizontalPosition: 'center'

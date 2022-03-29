@@ -12,6 +12,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class AuthGuardService implements CanActivate {
   public isConnected: boolean;
   public currentUser: any;
+  public errorMessage: string;
 
   constructor(public router: Router,
               private angularFirestore: AngularFirestore,
@@ -36,12 +37,9 @@ export class AuthGuardService implements CanActivate {
   checkAuthentification() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        console.log('user connected --->', user.email)
         this.isConnected = true;
         this.currentUser = user
       } else {
-        console.log('user not connected --->', user)
-
         this.isConnected = false;
         this.currentUser = user
 
@@ -64,5 +62,48 @@ export class AuthGuardService implements CanActivate {
 
   signout() {
     return this.angularFireAuth.signOut()
+  }
+
+  getError(errorCode: string) {
+
+    let message: string;
+
+    switch (errorCode) {
+      case 'auth/wrong-password':
+        message = 'Authentification invalide.';
+        break;
+      case 'auth/network-request-failed':
+        message = 'S\'il vous plait, vérifiez votre connexion internet';
+        break;
+      case 'auth/too-many-requests':
+        message =
+          'Nous avons détecté trop de demandes provenant de votre appareil. Faites une pause s\'il vous plait !';
+        break;
+      case 'auth/user-disabled':
+        message =
+          'Votre compte a été désactivé ou supprimé. Veuillez contacter l\'administrateur système.';
+        break;
+      case 'auth/requires-recent-login':
+        message = 'Veuillez vous reconnecter et réessayer!';
+        break;
+      case 'auth/email-already-in-use':
+        message = 'L\'adresse e-mail est déjà utilisée par un utilisateur existant.';
+        break;
+      case 'auth/user-not-found':
+        message =
+          'Nous n\'avons pas trouvé de compte d\'utilisateur associé à l\'adresse e-mail.';
+        break;
+      case 'auth/invalid-email':
+        message = 'L\'adresse e-mail n\'est valide!';
+        break;
+        case 'auth/weak-password':
+        message = 'Ce mot de passe n\'est pas valide!';
+        break;
+      default:
+        message = 'Oups! Quelque chose s\'est mal passé. Réessayez plus tard.';
+        break;
+    }
+
+    return message;
   }
 }

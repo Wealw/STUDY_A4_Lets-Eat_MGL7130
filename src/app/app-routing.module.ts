@@ -7,6 +7,8 @@ import {SignUpComponent} from "./components/sign-up/sign-up.component";
 import {AboutComponent} from "./components/about/about.component";
 import {AuthGuard} from "@angular/fire/auth-guard";
 import {AuthGuardService} from "./services/Authentification/auth-guard.service";
+import {EmailComponent} from "./components/reset-password/email/email.component";
+import {ResetPasswordComponent} from "./components/reset-password/reset-password/reset-password.component";
 
 const routes: Routes = [
   {
@@ -31,10 +33,19 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
+    path: 'resetPassword',
+    component: EmailComponent,
+  },
+  {
+    path: 'auth/email/action',
+    component: ResetPasswordComponent,
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: 'accueil'
   },
+
   {
     path: '',
     pathMatch: 'full',

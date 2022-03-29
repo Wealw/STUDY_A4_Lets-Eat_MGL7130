@@ -38,6 +38,8 @@ import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restau
 import { ErrorComponent } from './components/error/error.component';
 import {AuthGuardService} from "./services/Authentification/auth-guard.service";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ResetPasswordComponent } from './components/reset-password/reset-password/reset-password.component';
+import { EmailComponent } from './components/reset-password/email/email.component';
 
 
 @NgModule({
@@ -55,7 +57,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     SignInComponent,
     SignUpComponent,
     AboutComponent,
-    ErrorComponent
+    ErrorComponent,
+    ResetPasswordComponent,
+    EmailComponent
   ],
   imports: [
     BrowserModule,
