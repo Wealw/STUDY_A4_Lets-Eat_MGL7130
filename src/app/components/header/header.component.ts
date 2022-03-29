@@ -1,7 +1,8 @@
-import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
-import {faArrowLeft, faEllipsisV, faFilter, faSearch} from '@fortawesome/free-solid-svg-icons'
+import {Component, ElementRef, OnInit} from '@angular/core';
+import {faSearch} from '@fortawesome/free-solid-svg-icons'
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
 import {Router} from '@angular/router';
+import {AuthGuardService} from "../../services/Authentification/auth-guard.service";
 
 
 @Component({
@@ -18,7 +19,10 @@ export class HeaderComponent implements OnInit {
   // Instancie les éléments graphique de FontAwesome
   faSearch = faSearch
 
-  constructor(private router: Router, public restaurantService: RestaurantService, private elementRef: ElementRef) {
+  constructor(private router: Router,
+              public restaurantService: RestaurantService,
+              private elementRef: ElementRef,
+              public authService: AuthGuardService) {
     this.updateSearchBarDisplay()
     // noinspection JSIgnoredPromiseFromCall
     router.events.forEach((): void => {
@@ -33,7 +37,8 @@ export class HeaderComponent implements OnInit {
         this.blurSearchBar()
         this.areFilterDisplayed = false
       }
-    })    // @ts-ignore
+    })
+
   }
 
   // Met à jour l'état de la barre de recherche en fonction de la route
@@ -61,6 +66,13 @@ export class HeaderComponent implements OnInit {
   navigateToSignIn() {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`sign-in`])
+  }
+
+  signOut() {
+    this.authService.signout().then(() => {
+      this.router.navigate(['sign-in']);
+    });
+
   }
 
   navigateToSignUp() {

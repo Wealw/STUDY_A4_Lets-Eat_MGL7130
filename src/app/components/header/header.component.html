@@ -34,14 +34,23 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button (click)="navigateToSignIn()" mat-menu-item>
-        <mat-icon>login</mat-icon>
-        <span>Se connecter</span>
-      </button>
-      <button (click)="navigateToSignUp()" mat-menu-item>
-        <mat-icon>person_add_alt</mat-icon>
-        <span> S'inscrire</span>
-      </button>
+      <ng-container *ngIf="!authService.isConnected">
+        <button (click)="navigateToSignIn()" mat-menu-item>
+          <mat-icon>login</mat-icon>
+          <span>Se connecter</span>
+        </button>
+        <button (click)="navigateToSignUp()" mat-menu-item>
+          <mat-icon>person_add_alt</mat-icon>
+          <span> S'inscrire</span>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="authService.isConnected">
+        <button (click)="signOut()" mat-menu-item>
+          <mat-icon>logout</mat-icon>
+          <span>Se déconnecter</span>
+        </button>
+      </ng-container>
+
       <button (click)="navigateToAbout()" mat-menu-item>
         <mat-icon>info_outline</mat-icon>
         <span>A propos de nous</span>

@@ -1,0 +1,25 @@
+<div
+  style="background: url('../assets/images/1.jpg'); background-size: cover; width: 100%; height: 10em; background-position: cover; border-radius: 0 0 10px 10px;">
+</div>
+<div class="container">
+
+  <form [formGroup]="emailForm" style="text-align: center;">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Adresse email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="emailForm.get('email')?.hasError('required')">
+        Vous devez entrer une adresse couriel
+      </mat-error>
+      <mat-error *ngIf="emailForm.get('email')?.hasError('email')">
+        Email non valide
+      </mat-error>
+    </mat-form-field>
+
+    <button  class="button " mat-raised-button (click)="onSubmit()" [disabled]="emailForm.invalid"
+             style="align-content: end">Envoyer
+    </button><br>
+  </form>
+</div>
+
+

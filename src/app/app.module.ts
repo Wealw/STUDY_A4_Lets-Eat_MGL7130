@@ -36,6 +36,10 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restaurant-reviews.component";
 import { ErrorComponent } from './components/error/error.component';
+import {AuthGuardService} from "./services/Authentification/auth-guard.service";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ResetPasswordComponent } from './components/reset-password/reset-password/reset-password.component';
+import { EmailComponent } from './components/reset-password/email/email.component';
 
 
 @NgModule({
@@ -53,7 +57,9 @@ import { ErrorComponent } from './components/error/error.component';
     SignInComponent,
     SignUpComponent,
     AboutComponent,
-    ErrorComponent
+    ErrorComponent,
+    ResetPasswordComponent,
+    EmailComponent
   ],
   imports: [
     BrowserModule,
@@ -82,11 +88,13 @@ import { ErrorComponent } from './components/error/error.component';
     AutosizeModule,
     MatBadgeModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule
   ],
   providers:
     [
-      RestaurantService
+      RestaurantService,
+      AuthGuardService
     ],
   bootstrap: [AppComponent]
 })

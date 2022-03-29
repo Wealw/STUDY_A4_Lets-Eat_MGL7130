@@ -12,6 +12,7 @@ import {InternetService} from "../../services/internet/internet.service";
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
 })
+
 export class MainComponent implements OnInit {
   restaurants: Restaurant[]
   filter: FilterComponent | undefined
@@ -25,13 +26,13 @@ export class MainComponent implements OnInit {
     scaledSize: new google.maps.Size(50, 50)
   }
   isOnline__copy = true;
+  tab : number[] = new Array(5);
 
   constructor(public restaurantService: RestaurantService,
               private router: Router,
               private dialog: MatDialog,
               public internet : InternetService) {
     restaurantService.getAllRestaurants()
-    console.log('restauranyt service --->',restaurantService.restaurants)
     restaurantService.isGeolocalisationEnable.asObservable().subscribe(value => {
       if (restaurantService.isGeolocalisationEnable) {
         restaurantService.position.asObservable().subscribe((value1 => {
