@@ -1,11 +1,12 @@
 <div
-  style="background: url('../assets/images/5352.jpg'); background-size: cover; width: 100%; height: 6em; background-position: cover; border-radius: 0 0 10px 10px;"></div>
+  style="background: url(../assets/images/5352.jpg); background-size: cover; width: 100%; height: 6em; background-position: cover; border-radius: 0 0 10px 10px;"></div>
 <!--debut de la section details restaurant-->
 <mat-grid-list *ngIf="restaurant" class="main_grid-list" cols="4" rowHeight="100%">
 
   <!-- Debut de la Section commentaire-->
-  <mat-grid-tile [colspan]="smallCol" class="scroll">
-    <div style="position:absolute; top: 10px;">
+  <!--#Activer le défilement des commentaires-->
+  <mat-grid-tile [colspan]="smallCol" class="scroll" class="bodyscroll">
+    <div style="position:absolute; top: 10px;" >
 
       <h5>
         <span matBadge="4" matBadgeOverlap="false">Commentaires</span>
@@ -46,6 +47,7 @@
         <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
           à tous ceux qui souhaitent goûter les meilleurs plats</p>
       </div>
+
     </div>
   </mat-grid-tile>
   <!-- Fin de la Section commentaire-->
@@ -89,10 +91,10 @@
               <mat-grid-list cols="2" rowHeight="100">
                 <mat-grid-tile [colspan]="col" rowspan="1" style="position: absolute; left: 10px; right: 10px">
 
-                  <img [src]="article.photo" alt="" class="image"
-                       style="width:auto;" type="button">
+                  <img (click)="toArticle(article)" [src]="article.photo" alt="" class="image"
+                       type="button">
                 </mat-grid-tile>
-                <mat-grid-tile [colspan]="col" rowspan="1" style="text-align: center;">
+                <mat-grid-tile [colspan]="col" rowspan="1" class="textcard" style="text-align: center;">
                   <div class="text-container">{{article.nom}} <br>
                     {{article.taillePrix[0].taille + ': ' + article.taillePrix[0].prix + ' $'}}
                   </div>
@@ -101,7 +103,57 @@
               </mat-grid-list>
             </div>
           </mat-grid-tile>
+          
         </ng-container>
+        <br>
+        <!--# bodyscroll1 Masquer/Afficher les commentaires sur les écrans mobiles-->
+        <div  class="scroll" class="bodyscroll1">
+          <div style="position:absolute; top: 100%;padding-top: 20px;" >
+      
+            <h5>
+              <span matBadge="4" matBadgeOverlap="false">Commentaires</span>
+            </h5><br>
+      <!--#Activer le défilement des commentaires-->
+      <div class="commentairescroll">
+            <div class="commentaire">
+              <div>
+                <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
+                <h5 class="nom">Nathan Kina</h5>
+              </div>
+              <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
+                à tous ceux qui souhaitent goûter les meilleurs plats</p>
+            </div>
+      
+            <div class="commentaire">
+              <div>
+                <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
+                <h5 class="nom">Azziz Zemouri</h5>
+              </div>
+              <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
+                à tous ceux qui souhaitent goûter les meilleurs plats</p>
+            </div>
+      
+            <div class="commentaire">
+              <div>
+                <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
+                <h5 class="nom">Theo</h5>
+              </div>
+              <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
+                à tous ceux qui souhaitent goûter les meilleurs plats</p>
+            </div>
+      
+            <div class="commentaire">
+              <div>
+                <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
+                <h5 class="nom">Mohamed</h5>
+              </div>
+              <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
+                à tous ceux qui souhaitent goûter les meilleurs plats</p>
+            </div>
+            </div>
+          </div>
+        </div>
+
       </mat-grid-list>
       <!-- fin de Details du menu-->
     </div>

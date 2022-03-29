@@ -1,3 +1,17 @@
+.header_img {
+  background-size: cover;
+  width: 100%;
+  height: 6em;
+  background-position: center;
+  border-radius: 0 0 10px 10px;
+}
+.back {
+  margin: 0.73em;
+  background-color: white;
+  float: left;
+  color: #222;
+  display: inline;
+}
 .roundBox {
   height: 2.5em;
   width: 2.5em;
@@ -10,15 +24,83 @@
   float: right;
   color: white;
 }
+.sub_container {
+  margin-top: 1.5em;
+}
 
+.image{
+ 
+}
+@media only screen and (max-width: 400px) {
+  .image { width: 125px;height: 100px;margin-left: -110px;}
+}
+@media only screen and (min-width: 400px) {
+  .image { width: 125px;height: 100px;margin-left: -110px;}
+}
+
+@media only screen and (min-width: 600px) {
+  .image { width: 125px;height: 100px;margin-left: -110px;}
+}
+
+@media only screen and (min-width: 768px) {
+  .image { width: 125px;height: 100px;margin-left: 30px;}
+} 
+
+@media only screen and (min-width: 992px) {
+  .image { width: 125px;height: 100px;margin-left: 30px;}
+} 
+
+@media only screen and (min-width: 1200px) {
+  .image { width: 125px;height: 100px;margin-left: 30px;}
+}
+@media only screen and (min-width: 1500px) {
+  .image { width: 125px;height: 100px;margin-left: 30px;}
+}
+@media only screen and (min-width: 1920px) {
+  .image { width: 125px;height: 100px;margin-left: 30px;}
+}
+@media only screen and (max-width: 400px) {
+  .textcard {margin-left: -3em;}
+}
+@media only screen and (min-width: 400px) {
+  .textcard {margin-left: -5em}
+}
+
+@media only screen and (min-width: 600px) {
+  .textcard {margin-left: -8em}
+}
+
+@media only screen and (min-width: 768px) {
+  .textcard {margin-left: 1em;}
+} 
+
+@media only screen and (min-width: 992px) {
+  .textcard {margin-left:1em;}
+} 
+
+@media only screen and (min-width: 1200px) {
+  .textcard {margin-left: 1em;}
+}
+@media only screen and (min-width: 1500px) {
+  .textcard {margin-left: 1em}
+}
+@media only screen and (min-width: 1920px) {
+  .textcard {margin-left: 1em}
+}
+.commentary {
+  padding-bottom: 10px;
+  box-shadow: 3px 3px 9px 2px rgba(0, 0, 0, 0.35);
+  float: left;
+}
 .text-container {
   position: absolute;
   width: 100%;
   top: 0px;
 }
-
-
 @media screen and (max-width: 770px) and (orientation: portrait) {
+  .commentary {
+    display: none;
+  }
 
   .text-container {
     position: absolute;
@@ -57,6 +139,59 @@
   padding-bottom: 10px;
 
 }
+.commentairescroll{
+  height: 300px;  
+  overflow: scroll;
+}
+@media only screen and (max-width: 600px) {
+  .bodyscroll {display: none;}
+}
+@media only screen and (min-width: 600px) {
+  .bodyscroll {display: none;}
+}
+
+@media only screen and (min-width: 768px) {
+  .bodyscroll {display: inline;}
+} 
+
+@media only screen and (min-width: 992px) {
+  .bodyscroll {display: inline;}
+} 
+
+@media only screen and (min-width: 1200px) {
+  .bodyscroll {display: inline;}
+}
+@media only screen and (min-width: 1500px) {
+  .bodyscroll {top: 10px;display: inline;}
+}
+@media only screen and (min-width: 1920px) {
+  .bodyscroll {display: inline;}
+}
+@media only screen and (max-width: 600px) {
+  .bodyscroll1 {display: block}
+}
+
+@media only screen and (min-width: 600px) {
+  .bodyscroll1 {display: block;}
+}
+
+@media only screen and (min-width: 768px) {
+  .bodyscroll1 {display: none;}
+} 
+@media only screen and (min-width: 992px) {
+  .bodyscroll1 {display: none;}
+} 
+@media only screen and (min-width: 1200px) {
+  .bodyscroll1 {display: none;}
+}
+@media only screen and (min-width: 1500px) {
+  .bodyscroll1 {top: 10px;display: none;}
+}
+@media only screen and (min-width: 1920px) {
+  .bodyscroll1 {display: none;}
+}
+
+
 
 .sub_commentaire div {
   display: inline;
