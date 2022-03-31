@@ -59,15 +59,8 @@ export class SignUpComponent implements OnInit {
           });
           this.router.navigate(['acceuil']);
         }).catch((err) => {
-          let error = this.authService.getError(err['code'])
-          this._snackBar.open(error, '', {
-            duration: 3000,
-            panelClass: 'orange-snackbar',
-            horizontalPosition: 'center'
-          })
+          this.authService.getError(err['code'])
         });
-
-
 
   }
 

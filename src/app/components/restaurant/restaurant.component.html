@@ -58,7 +58,7 @@
       <!-- Details du restaurant-->
       <div>
         <p class="titre">{{restaurant.nom}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        <fa-icon [icon]="faHeart" class="heart" size="lg"></fa-icon>
+        <fa-icon [icon]="faHeart" [ngClass]="{'favorite': isFavorite, 'notFavorite' : !isFavorite}" size="lg" (click)="addToFavorite()"></fa-icon>
       </div>
       <div *ngIf="restaurant.calendrier" class="pad">
         <fa-icon [icon]="faClock" class="icon" size="lg"></fa-icon>&nbsp;&nbsp;
@@ -73,7 +73,7 @@
       </div>
       <div class="pad">
         <fa-icon [icon]="faPhone" class="icon" size="lg"></fa-icon>&nbsp;&nbsp;
-        <p class="sous_titre">{{restaurant.numeroTelephone}}</p>
+        <a  href="tel:restaurant.numeroTelephone">{{restaurant.numeroTelephone}}</a>
 
       </div>
       <!-- Section notation-->
@@ -103,13 +103,13 @@
               </mat-grid-list>
             </div>
           </mat-grid-tile>
-          
+
         </ng-container>
         <br>
         <!--# bodyscroll1 Masquer/Afficher les commentaires sur les écrans mobiles-->
         <div  class="scroll" class="bodyscroll1">
           <div style="position:absolute; top: 100%;padding-top: 20px;" >
-      
+
             <h5>
               <span matBadge="4" matBadgeOverlap="false">Commentaires</span>
             </h5><br>
@@ -123,7 +123,7 @@
               <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
                 à tous ceux qui souhaitent goûter les meilleurs plats</p>
             </div>
-      
+
             <div class="commentaire">
               <div>
                 <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
@@ -132,7 +132,7 @@
               <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
                 à tous ceux qui souhaitent goûter les meilleurs plats</p>
             </div>
-      
+
             <div class="commentaire">
               <div>
                 <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
@@ -141,7 +141,7 @@
               <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
                 à tous ceux qui souhaitent goûter les meilleurs plats</p>
             </div>
-      
+
             <div class="commentaire">
               <div>
                 <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">

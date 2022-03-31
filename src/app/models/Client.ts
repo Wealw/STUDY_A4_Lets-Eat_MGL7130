@@ -1,7 +1,7 @@
 import {Restaurant} from "./Restaurant";
 
 export class Client {
-  id?: string;
+  id: string;
   nom: string;
   prenom: string;
   visitedRestaurents: Restaurant[];

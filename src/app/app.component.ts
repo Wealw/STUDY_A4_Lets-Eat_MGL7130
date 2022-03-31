@@ -15,7 +15,7 @@ import {AuthGuardService} from "./services/Authentification/auth-guard.service";
 export class AppComponent implements OnInit {
   title = 'Lets-Eat';
 
-  constructor(private router: Router, private auth : AuthGuardService) {
+  constructor(private router: Router, public auth : AuthGuardService) {
   }
 
   ngOnInit() {

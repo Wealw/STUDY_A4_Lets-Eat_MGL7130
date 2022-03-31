@@ -30,12 +30,8 @@ export class EmailComponent implements OnInit {
           horizontalPosition: 'center'
         })      }
     ).catch((err) => {
-      let error = this.authService.getError(err['code'])
-      this._snackBar.open(error, '', {
-        duration: 3000,
-        panelClass: 'orange-snackbar',
-        horizontalPosition: 'center'
-      })
+      this.authService.getError(err['code'])
+
   })
 }
 }
