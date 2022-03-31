@@ -13,11 +13,18 @@
       }
     ]
   },
-  "headers": [ {
-    "source": "*",
-    "headers": [ {
-      "key": "Access-Control-Allow-Origin",
-      "value": "*"
-    } ]
-  } ]
+  "functions": {
+    "source": "./function/"
+  },
+  "headers": [
+    {
+      "source": "*",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ]
 }
