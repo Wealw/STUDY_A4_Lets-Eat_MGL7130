@@ -9,6 +9,7 @@ import {Restaurant} from "../../models/Restaurant";
 import {Article} from "../../models/Article";
 import {TaillePrix} from "../../models/TaillePrix";
 import Query = firebase.firestore.Query;
+import {addDoc, collection} from "@angular/fire/firestore";
 
 @Injectable({
   providedIn: 'root'
