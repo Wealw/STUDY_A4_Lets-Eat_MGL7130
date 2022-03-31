@@ -5,6 +5,7 @@ before_script:
   - npm install
   - cd functions
   - npm install
+  - cd..
 test:
   stage: test
   script:
