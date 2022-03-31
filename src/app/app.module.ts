@@ -13,7 +13,7 @@ import {MainComponent} from './components/main/main.component';
 import {FilterComponent} from './components/filter/filter.component'
 import {RestaurantService} from "./services/restaurant/restaurant.service";
 import {AngularFireModule} from '@angular/fire/compat';
-import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {RestaurantComponent} from './components/restaurant/restaurant.component';
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {MatGridListModule} from "@angular/material/grid-list";
@@ -40,6 +40,7 @@ import {AuthGuardService} from "./services/Authentification/auth-guard.service";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ResetPasswordComponent } from './components/reset-password/reset-password/reset-password.component';
 import { EmailComponent } from './components/reset-password/email/email.component';
+import {MessagingService} from "./services/messaging/messaging.service";
 
 
 @NgModule({
@@ -69,6 +70,10 @@ import { EmailComponent } from './components/reset-password/email/email.componen
       enabled: environment.production,
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    ServiceWorkerModule.register('firebase-messaging-sw.js',
+      {
+        enabled: environment.production
+      }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
@@ -94,7 +99,9 @@ import { EmailComponent } from './components/reset-password/email/email.componen
   providers:
     [
       RestaurantService,
-      AuthGuardService
+      AuthGuardService,
+      MessagingService,
+      AngularFirestore
     ],
   bootstrap: [AppComponent]
 })
