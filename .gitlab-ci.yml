@@ -3,9 +3,9 @@ before_script:
   - npm i -g firebase-tools
   - npm install -g @angular/cli
   - npm install
-  - cd functions
+  - cd ./functions/
   - npm install
-  - cd..
+  - cd ..
 test:
   stage: test
   script:
