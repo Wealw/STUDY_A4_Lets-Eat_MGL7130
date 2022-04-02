@@ -41,6 +41,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ResetPasswordComponent } from './components/reset-password/reset-password/reset-password.component';
 import { EmailComponent } from './components/reset-password/email/email.component';
 import {MessagingService} from "./services/messaging/messaging.service";
+import { FavorisComponent } from './favoris/favoris.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import {MessagingService} from "./services/messaging/messaging.service";
     AboutComponent,
     ErrorComponent,
     ResetPasswordComponent,
-    EmailComponent
+    EmailComponent,
+    FavorisComponent
   ],
   imports: [
     BrowserModule,

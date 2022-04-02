@@ -45,6 +45,11 @@
         </button>
       </ng-container>
       <ng-container *ngIf="authService.isConnected">
+
+        <button (click)="navigateToFavoris()" mat-menu-item>
+          <mat-icon>person_add_alt</mat-icon>
+          <span>Mes favoris</span>
+        </button>
         <button (click)="signOut()" mat-menu-item>
           <mat-icon>logout</mat-icon>
           <span>Se déconnecter</span>

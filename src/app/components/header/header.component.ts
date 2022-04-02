@@ -79,6 +79,11 @@ export class HeaderComponent implements OnInit {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`sign-up`])
   }
+  // Permet de revenir à l'écran Favoris
+navigateToFavoris() {
+  // noinspection JSIgnoredPromiseFromCall
+  this.router.navigate([`favoris`])
+}
 
   navigateToAbout() {
     // noinspection JSIgnoredPromiseFromCall
