@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   title = 'Lets-Eat';
   message : BehaviorSubject<any>;
 
-  constructor(private router: Router, private auth : AuthGuardService, private messagingService: MessagingService) {
+  constructor(private router: Router, public auth : AuthGuardService, private messagingService: MessagingService) {
   }
 
   ngOnInit() {
