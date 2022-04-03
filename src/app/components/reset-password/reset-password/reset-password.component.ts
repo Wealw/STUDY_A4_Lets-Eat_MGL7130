@@ -38,12 +38,7 @@ export class ResetPasswordComponent implements OnInit {
       .then(() => this.router.navigate(['sign-in']))
       .catch((err) => {
         console.log(err)
-        let error = this.authService.getError(err['code'])
-        this._snackBar.open(error, '', {
-          duration: 3000,
-          panelClass: 'orange-snackbar',
-          horizontalPosition: 'center'
-        })
+        this.authService.getError(err['code'])
       })
   }
   checkPasswords: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {

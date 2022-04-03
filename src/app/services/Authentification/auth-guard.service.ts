@@ -13,6 +13,7 @@ export class AuthGuardService implements CanActivate {
   public isConnected: boolean;
   public currentUser: any;
   public errorMessage: string;
+  public charging: boolean = true;
 
   constructor(public router: Router,
               private angularFirestore: AngularFirestore,
@@ -30,19 +31,19 @@ export class AuthGuardService implements CanActivate {
       });
       return false;
     }
-    console.log('connected');
     return true;
   }
 
   checkAuthentification() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        console.log('viens de se connecter')
         this.isConnected = true;
-        this.currentUser = user
+        this.getCurrentUser(user.email)
       } else {
         this.isConnected = false;
         this.currentUser = user
-
+        this.charging = false;
       }
     });
   }
@@ -62,6 +63,26 @@ export class AuthGuardService implements CanActivate {
 
   signout() {
     return this.angularFireAuth.signOut()
+  }
+
+  getCurrentUser(email: string | null) {
+    if (this.isConnected)
+      this.angularFirestore.collection('client', ref => ref.where("email", "==", email)).snapshotChanges().subscribe(res => {
+          res.map(a => {
+            this.currentUser = a.payload.doc.data() as Client;
+            this.currentUser.id = a.payload.doc.id;
+            this.charging = false;
+
+          });
+        }, error => {
+          this.charging = false;
+          this.getError(error['code'])
+        }
+      );
+    else {
+      this.charging = false;
+      this.getError('notAuth')
+    }
   }
 
   getError(errorCode: string) {
@@ -96,14 +117,22 @@ export class AuthGuardService implements CanActivate {
       case 'auth/invalid-email':
         message = 'L\'adresse e-mail n\'est valide!';
         break;
-        case 'auth/weak-password':
+      case 'auth/weak-password':
         message = 'Ce mot de passe n\'est pas valide!';
+        break;
+      case 'notAuth':
+        message = 'Veuillez vous connecter pour avoir cette fonctionnalitée!';
         break;
       default:
         message = 'Oups! Quelque chose s\'est mal passé. Réessayez plus tard.';
         break;
     }
+    this._snackBar.open(message, '', {
+      duration: 3000,
+      panelClass: 'orange-snackbar',
+      horizontalPosition: 'center',
 
+    });
     return message;
   }
 }

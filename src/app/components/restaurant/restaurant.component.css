@@ -29,7 +29,7 @@
 }
 
 .image{
- 
+
 }
 @media only screen and (max-width: 400px) {
   .image { width: 125px;height: 100px;margin-left: -110px;}
@@ -44,11 +44,11 @@
 
 @media only screen and (min-width: 768px) {
   .image { width: 125px;height: 100px;margin-left: 30px;}
-} 
+}
 
 @media only screen and (min-width: 992px) {
   .image { width: 125px;height: 100px;margin-left: 30px;}
-} 
+}
 
 @media only screen and (min-width: 1200px) {
   .image { width: 125px;height: 100px;margin-left: 30px;}
@@ -72,11 +72,11 @@
 
 @media only screen and (min-width: 768px) {
   .textcard {margin-left: 1em;}
-} 
+}
 
 @media only screen and (min-width: 992px) {
   .textcard {margin-left:1em;}
-} 
+}
 
 @media only screen and (min-width: 1200px) {
   .textcard {margin-left: 1em;}
@@ -140,7 +140,7 @@
 
 }
 .commentairescroll{
-  height: 300px;  
+  height: 300px;
   overflow: scroll;
 }
 @media only screen and (max-width: 600px) {
@@ -152,11 +152,11 @@
 
 @media only screen and (min-width: 768px) {
   .bodyscroll {display: inline;}
-} 
+}
 
 @media only screen and (min-width: 992px) {
   .bodyscroll {display: inline;}
-} 
+}
 
 @media only screen and (min-width: 1200px) {
   .bodyscroll {display: inline;}
@@ -177,10 +177,10 @@
 
 @media only screen and (min-width: 768px) {
   .bodyscroll1 {display: none;}
-} 
+}
 @media only screen and (min-width: 992px) {
   .bodyscroll1 {display: none;}
-} 
+}
 @media only screen and (min-width: 1200px) {
   .bodyscroll1 {display: none;}
 }
@@ -233,15 +233,16 @@ section {
   display: inline;
 }
 
-.heart {
+.notFavorite {
   display: inline;
   color: lightgray;
   font-size: 20px;
 }
 
-.heart:hover {
+.favorite {
+  display: inline;
   color: orange;
-}
+  font-size: 20px;}
 
 .sous_titre {
   display: inline;

@@ -1,4 +1,5 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
-<!-- <app-favoris></app-favoris> -->
-<!--<app-restaurant></app-restaurant>-->
+<div *ngIf="auth.charging" id="pause" class="d-flex align-items-center justify-content-center">
+  <div id="spinner"></div>
+</div>
+<router-outlet *ngIf="!auth.charging"></router-outlet>
