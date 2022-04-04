@@ -20,7 +20,7 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.restaurantRecherche.distance = 20;
+    this.restaurantRecherche.distance = 100;
   }
 
   formatLabel(value: number) {
