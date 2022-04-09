@@ -15,6 +15,7 @@ h1{
 .image{
   position: absolute;
   top: 0;
+  border-radius: 10px;
 }
 mat-label, textarea, input{
   color: black !important;

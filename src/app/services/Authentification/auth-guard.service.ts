@@ -5,6 +5,7 @@ import {Client} from "../../models/Client";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import auth = firebase.auth;
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +38,6 @@ export class AuthGuardService implements CanActivate {
   checkAuthentification() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        console.log('viens de se connecter')
         this.isConnected = true;
         this.getCurrentUser(user.email)
       } else {
@@ -58,7 +58,10 @@ export class AuthGuardService implements CanActivate {
   }
 
   signin(email: string, password: string) {
+    this.angularFireAuth.setPersistence(auth.Auth.Persistence.LOCAL);
     return this.angularFireAuth.signInWithEmailAndPassword(email, password);
+
+
   }
 
   signout() {
