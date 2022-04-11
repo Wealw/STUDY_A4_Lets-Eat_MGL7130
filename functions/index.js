@@ -20,13 +20,13 @@ async function sendMessageToAll(payload) {
 }
 
 // Configured for 11am EST
-exports.sendMessageForMidday = functions.pubsub.schedule('45 9 * * *').onRun(async (context) => {
+exports.sendMessageForMidday = functions.pubsub.schedule('45 8 * * *').onRun(async (context) => {
   const payload = {notification: {title: "C'est l'heure de manger avec Lets Eat", body: "Choisissez dès maintenant votre restaurant pour ce midi !"}}
   return await sendMessageToAll(payload)
 });
 
 // Configured for 18am EST
-exports.sendMessageForEvening = functions.pubsub.schedule('45 16 * * *').onRun(async (context) => {
+exports.sendMessageForEvening = functions.pubsub.schedule('45 15 * * *').onRun(async (context) => {
   const payload = {notification: {title: "Déjà le soir ! Une petite faim ?", body: "Choisissez dès maintenant votre restaurant pour ce soir avec Lets-Eat !"}}
   return await sendMessageToAll(payload);
 });
