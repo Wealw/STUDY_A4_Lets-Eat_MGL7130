@@ -1,64 +1,16 @@
 <div
   style="background: url(../assets/images/5352.jpg); background-size: cover; width: 100%; height: 6em; background-position: cover; border-radius: 0 0 10px 10px;"></div>
 <!--debut de la section details restaurant-->
-<mat-grid-list *ngIf="restaurant" class="main_grid-list" cols="4" rowHeight="100%">
-
-  <!-- Debut de la Section commentaire-->
-  <!--#Activer le défilement des commentaires-->
-  <mat-grid-tile [colspan]="smallCol" class="scroll" class="bodyscroll">
-    <div style="position:absolute; top: 10px;" >
-
-      <h5>
-        <span matBadge="4" matBadgeOverlap="false">Commentaires</span>
-      </h5><br>
-
-      <div class="commentaire">
-        <div>
-          <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
-          <h5 class="nom">Nathan Kina</h5>
-        </div>
-        <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
-          à tous ceux qui souhaitent goûter les meilleurs plats</p>
-      </div>
-
-      <div class="commentaire">
-        <div>
-          <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
-          <h5 class="nom">Azziz Zemouri</h5>
-        </div>
-        <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
-          à tous ceux qui souhaitent goûter les meilleurs plats</p>
-      </div>
-
-      <div class="commentaire">
-        <div>
-          <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
-          <h5 class="nom">Theo</h5>
-        </div>
-        <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
-          à tous ceux qui souhaitent goûter les meilleurs plats</p>
-      </div>
-
-      <div class="commentaire">
-        <div>
-          <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
-          <h5 class="nom">Mohamed</h5>
-        </div>
-        <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
-          à tous ceux qui souhaitent goûter les meilleurs plats</p>
-      </div>
-
-    </div>
-  </mat-grid-tile>
-  <!-- Fin de la Section commentaire-->
+<mat-grid-list (window:resize)="onResize($event)" *ngIf="restaurant" class="main_grid-list" cols="6" rowHeight="100%">
 
   <!-- Debut de la Section menu-->
-  <mat-grid-tile [colspan]="bigCol" class="scroll">
-    <div style="position: absolute; top: 10px; left: 10px; right: 10px; bottom:10px">
+  <mat-grid-tile *ngIf="showMenu" [colspan]="bigCol" class="scroll" rowHeight="100%">
+    <div style="position: absolute; top: 10px; left: 10px; right: 10px">
       <!-- Details du restaurant-->
       <div>
         <p class="titre">{{restaurant.nom}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        <fa-icon [icon]="faHeart" [ngClass]="{'favorite': isFavorite, 'notFavorite' : !isFavorite}" size="lg" (click)="addToFavorite()"></fa-icon>
+        <fa-icon [icon]="faHeart" [ngClass]="{'favorite': isFavorite, 'notFavorite' : !isFavorite}" size="lg"
+                 (click)="addToFavorite()"></fa-icon>
       </div>
       <div *ngIf="restaurant.calendrier" class="pad">
         <fa-icon [icon]="faClock" class="icon" size="lg"></fa-icon>&nbsp;&nbsp;
@@ -73,28 +25,28 @@
       </div>
       <div class="pad">
         <fa-icon [icon]="faPhone" class="icon" size="lg"></fa-icon>&nbsp;&nbsp;
-        <a  href="tel:restaurant.numeroTelephone">{{restaurant.numeroTelephone}}</a>
+        <a href="tel:restaurant.numeroTelephone">{{restaurant.numeroTelephone}}</a>
 
       </div>
       <!-- Section notation-->
       <div class="stars">
-        <ngx-star-rating [(ngModel)]="restaurant.note" [disabled]="true"></ngx-star-rating>
+        <ngx-star-rating [id]="'1'" [(ngModel)]="restaurant.note" [disabled]="true"></ngx-star-rating>
 
       </div>
       <!-- Fin de la Section notation-->
       <!-- Fin de Details du restaurant-->
       <!-- Debut de Details du menu-->
-      <mat-grid-list (window:resize)="onResize($event)" [cols]="col" rowHeight="100">
+      <mat-grid-list [cols]="col" rowHeight="120">
         <ng-container *ngFor="let article of restaurant.menu.articles">
           <mat-grid-tile (click)="toArticle(article)" [rowspan]="row">
             <div class='picture_text'>
-              <mat-grid-list cols="2" rowHeight="100">
+              <mat-grid-list cols="2" rowHeight="120">
                 <mat-grid-tile [colspan]="col" rowspan="1" style="position: absolute; left: 10px; right: 10px">
 
-                  <img (click)="toArticle(article)" [src]="article.photo" alt="" class="image"
+                  <img [src]="article.photo" alt="" class="image"
                        type="button">
                 </mat-grid-tile>
-                <mat-grid-tile [colspan]="col" rowspan="1" class="textcard" style="text-align: center;">
+                <mat-grid-tile [colspan]="col" rowspan="1" style="text-align: center;">
                   <div class="text-container">{{article.nom}} <br>
                     {{article.taillePrix[0].taille + ': ' + article.taillePrix[0].prix + ' $'}}
                   </div>
@@ -106,58 +58,73 @@
 
         </ng-container>
         <br>
-        <!--# bodyscroll1 Masquer/Afficher les commentaires sur les écrans mobiles-->
-        <div  class="scroll" class="bodyscroll1">
-          <div style="position:absolute; top: 100%;padding-top: 20px;" >
-
-            <h5>
-              <span matBadge="4" matBadgeOverlap="false">Commentaires</span>
-            </h5><br>
-      <!--#Activer le défilement des commentaires-->
-      <div class="commentairescroll">
-            <div class="commentaire">
-              <div>
-                <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
-                <h5 class="nom">Nathan Kina</h5>
-              </div>
-              <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
-                à tous ceux qui souhaitent goûter les meilleurs plats</p>
-            </div>
-
-            <div class="commentaire">
-              <div>
-                <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
-                <h5 class="nom">Azziz Zemouri</h5>
-              </div>
-              <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
-                à tous ceux qui souhaitent goûter les meilleurs plats</p>
-            </div>
-
-            <div class="commentaire">
-              <div>
-                <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
-                <h5 class="nom">Theo</h5>
-              </div>
-              <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
-                à tous ceux qui souhaitent goûter les meilleurs plats</p>
-            </div>
-
-            <div class="commentaire">
-              <div>
-                <img alt="" class="sub_commentaire_img" src="../assets/images/user.png">
-                <h5 class="nom">Mohamed</h5>
-              </div>
-              <p class="sub_commentaire_text">merveilleux restaurant avec des plats savoureux. Je recommanderais ce restaurant
-                à tous ceux qui souhaitent goûter les meilleurs plats</p>
-            </div>
-            </div>
-          </div>
-        </div>
 
       </mat-grid-list>
       <!-- fin de Details du menu-->
     </div>
   </mat-grid-tile>
   <!-- Fin de la Section menu-->
+
+  <!-- Debut de la Section commentaire-->
+  <mat-grid-tile *ngIf="showComments" [colspan]="smallCol" class="scroll" class="scroll" rowHeight="100%">
+
+    <div style="position: absolute; top: 10px; left: 10px; right: 10px">
+      <br>
+      <h5>
+        <span [matBadge]="restaurant.commentaires.length" matBadgeOverlap="false">Commentaires</span>
+      </h5>
+
+      <!-- Section notation-->
+      <div class="stars">
+        <ngx-star-rating [id]="'2'" *ngIf="authService.isConnected" name="note" [(ngModel)]="userNote" (change)="addNote()" [disabled]="false"></ngx-star-rating>
+
+      </div>
+      <mat-form-field class="full-width" >
+        <mat-label>Ajoutez un commentaire...</mat-label>
+        <input matInput #com maxlength="256" (click)="clicked = true" [(ngModel)]="userComment" name="comment">
+      </mat-form-field>
+
+      <div class="full-width" *ngIf="clicked" align="end">
+        <button mat-button (click)="cancelComment()"> Annuler</button>
+        <button class="btn-add-comment" mat-raised-button [disabled]="!userComment" (click)="sendComment()"> Ajouter</button>
+
+      </div>
+
+
+
+
+
+
+
+
+
+      <ng-container *ngFor="let com of restaurant.commentaires">
+      <div class="commentaire" class="full-width" >
+        <div class="picture">
+          <button mat-mini-fab disabled style="background-color: orange; color: white; font-size: x-large">{{com.nomClient.charAt(0)}}</button>
+        </div>
+        &nbsp;
+        <div class="text">
+          <h5 class="nom">{{com.nomClient +' '+com.prenomClient}}</h5>
+          <p >{{com.commentaire}}</p>
+
+        </div>
+      </div>
+      </ng-container>
+
+
+    </div>
+
+  </mat-grid-tile>
+
+  <!-- Fin de la Section commentaire-->
 </mat-grid-list>
 <!--fin de la section details restaurant-->
+<button *ngIf="col==1" mat-fab (click)="switchMenuComment()"
+        class="menu-button"
+        [class.mat-elevation-z2]="false"
+        [class.mat-elevation-z8]="true"
+>
+  <i class="material-icons" *ngIf="!showComments">insert_comment</i>
+  <i class="material-icons" *ngIf="showComments">restaurant_menu</i>
+</button>

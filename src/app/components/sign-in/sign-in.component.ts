@@ -35,7 +35,7 @@ export class SignInComponent implements OnInit {
         this.authService.getError(err['code'])
 
       }),
-      () => { console.log('done.');}
+      () => { }
   }
 
   navigateResetPassword() {

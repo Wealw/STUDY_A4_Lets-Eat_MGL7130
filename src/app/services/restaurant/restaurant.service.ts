@@ -170,4 +170,12 @@ export class RestaurantService {
     return temp
   }
 
+  addComment(restaurant : Restaurant){
+    return this.angularFirestore.collection('restaurant').doc(restaurant.id.toString()).update({commentaires : restaurant.commentaires})
+  }
+  addNotation(restaurant : Restaurant){
+    return this.angularFirestore.collection('restaurant').doc(restaurant.id.toString()).update({notations : restaurant.notations, note : restaurant.note})
+
+  }
+
 }
