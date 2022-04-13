@@ -3,17 +3,17 @@
 </div>
 <div class="container">
 
-    <p>Bonjour Nathan!</p>
+    <p>Bonjour {{ this.authService.currentUser.prenom}}!</p>
 
-    <mat-grid-list  cols="3"  >
+    <mat-grid-list  cols="3" *ngFor="let res of this.restaurants" >
         <mat-grid-tile>
 
           <img src="../assets/images/5352.jpg"  >
         </mat-grid-tile>
-        <mat-grid-tile colspan="2" style="position: absolute; left: 0px; right: 10px; top: 0;">
+        <mat-grid-tile  colspan="2" style="position: absolute; left: 0px; right: 10px; top: 0;">
             <div >
-          <p style="font-weight: 550; font-size: 18px;">Mcdonals </p>
-          <p style="font-size: 14px;"> 5352 rue de la salaberry H4J1J6 <br> La notation du restaurant</p>
+          <p style="font-weight: 550; font-size: 18px;">{{res.nom }} </p>
+          <p style="font-size: 14px;"> {{res.adresse.numeroDeRue }} {{res.adresse.rue }} {{res.adresse.rue }} <br> La notation du restaurant</p>
           
           </div>
         </mat-grid-tile>

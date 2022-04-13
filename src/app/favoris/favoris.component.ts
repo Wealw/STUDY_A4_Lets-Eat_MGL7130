@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthGuardService} from "../services/Authentification/auth-guard.service";
+import {Restaurant} from "../models/Restaurant";
 
 @Component({
   selector: 'app-favoris',
@@ -12,14 +14,16 @@ export class FavorisComponent implements OnInit {
   row: any;
   smallCol: any;
   bigCol: any;
-
-  constructor( 
+  restaurants : Restaurant[];
+  constructor(
     private router: Router,
+    public authService : AuthGuardService
   ) { }
 
   ngOnInit(): void {
 
-     
+     this.restaurants= this.authService.currentUser.favoritRestaurents;
+     console.log(this.restaurants);
 
      }
      // adapter la taille des grid en fonction de la taille de l'ecran
@@ -30,7 +34,7 @@ export class FavorisComponent implements OnInit {
     this.bigCol = (window.screen.width <= 770) ? 4 : 3;
   }
 
+  toRestaurant(restaurant : Restaurant){
 
   }
-
- 
+  }
