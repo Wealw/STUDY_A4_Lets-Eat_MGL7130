@@ -56,7 +56,6 @@ export class HeaderComponent implements OnInit {
   // Permet de basculer l'état d'affichage des filtres
   toggleFilter() {
     this.areFilterInUse = this.checkIfFilterAreInUse();
-    console.log(this.areFilterInUse)
     this.areFilterDisplayed = !this.areFilterDisplayed;
   }
 
@@ -118,7 +117,7 @@ export class HeaderComponent implements OnInit {
 
   checkIfFilterAreInUse(){
     const textInUse = this.restaurantService.recherche.texte !== ""
-    const distanceInUse = this.restaurantService.recherche.distance !== 50
+    const distanceInUse = this.restaurantService.recherche.distance !== 100
     const prixMinInUse = this.restaurantService.recherche.prix_max !== undefined
     const prixMaxInUse = this.restaurantService.recherche.prix_min !== undefined
     const notationInUse = this.restaurantService.recherche.notation !== undefined
