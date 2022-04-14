@@ -49,21 +49,23 @@ h6:after {
 }
 
 #bottom{
-  position: fixed;
+  position: flex;
   bottom: 10px;
-  width: 90%;
+  width: 100%;
+  padding-top: 200px;
 
 }
 
 .button_bottom {
- background-color: lightgray;
- border-color: 1px solid lightgray;
+ background-color: white;
+ border-color: 2px solid #f3780d;;
  color: #f3780d;
  width: 100%;
 }
 
 .button_bottom:hover{
-  background-color: lightgray;
-  border-color: 1px solid lightgray;
+  background-color: #f3780d;;
+  border-color: 1px solid #f3780d;
+  color:white;
 
 }

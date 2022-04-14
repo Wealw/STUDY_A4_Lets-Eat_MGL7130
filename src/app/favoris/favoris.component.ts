@@ -17,10 +17,13 @@ export class FavorisComponent implements OnInit {
   restaurants : Restaurant[];
   constructor(
     private router: Router,
-    private authService : AuthGuardService
-  ) { }
+
+    public authService : AuthGuardService
+  ){}
 
   ngOnInit(): void {
+
+   
 
      this.restaurants= this.authService.currentUser.favoritRestaurents;
 
@@ -36,6 +39,10 @@ export class FavorisComponent implements OnInit {
   toRestaurant(restaurant : Restaurant){
 
   }
+  navigateToMain() {
+    // noinspection JSIgnoredPromiseFromCall
+    this.router.navigate([`/`])
   }
 
+  }
 

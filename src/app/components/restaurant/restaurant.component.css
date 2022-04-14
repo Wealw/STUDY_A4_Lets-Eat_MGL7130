@@ -263,12 +263,7 @@ div.stars {
   right: 1.5rem;
   background-color: orange;
 }
-.add-comment{
-  /*position: fixed;*/
-  /*bottom: 4rem;*/
-  /*!*left: 1.5rem;*!*/
-  /*right: 1.5rem;*/
-}
+
 textarea{
   width: 80%;
   border: black 1px solid;

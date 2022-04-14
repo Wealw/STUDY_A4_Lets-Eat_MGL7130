@@ -6,6 +6,7 @@ import {FilterComponent} from "../filter/filter.component";
 import {MatDialog} from "@angular/material/dialog";
 import {ErrorComponent} from "../error/error.component";
 import {InternetService} from "../../services/internet/internet.service";
+import {AuthGuardService} from "../../services/Authentification/auth-guard.service";
 
 @Component({
   selector: 'app-main',
@@ -15,6 +16,7 @@ import {InternetService} from "../../services/internet/internet.service";
 
 export class MainComponent implements OnInit {
   restaurants: Restaurant[]
+  isConnected:boolean=true
   filter: FilterComponent | undefined
   mapOptions: google.maps.MapOptions = {
     center: {lat: 0, lng: -0},
@@ -29,7 +31,8 @@ export class MainComponent implements OnInit {
   tab : number[] = new Array(5);
 
   constructor(public restaurantService: RestaurantService,
-              private router: Router,
+              public router: Router,
+              public authService : AuthGuardService,
               private dialog: MatDialog,
               public internet : InternetService) {
     restaurantService.getAllRestaurants()
@@ -64,10 +67,20 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.internet.checkInternet()
+ 
+  }
+
+  ngAfterContentInit():void{
+    this.isConnected=this.authService.currentUser!=undefined
+
   }
 
   // Permet de naviguer jusqu'à restaurant donné
   goMenu(idRestaurant: string) {
     this.router.navigate([`restaurant/${idRestaurant}`])
+  }
+  navigateToFavoris() {
+    // noinspection JSIgnoredPromiseFromCall
+    this.router.navigate([`favoris`])
   }
 }
