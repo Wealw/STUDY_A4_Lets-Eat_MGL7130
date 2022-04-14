@@ -36,13 +36,38 @@ export class RestaurantService {
       latitude: 0,
       longitude: 0,
       speed: 0,})
+    let success = (position : any) => {
+      this.position.next(position.coords)
+      this.isGeolocalisationEnable.next(true)
+      this.getAllRestaurants()
+    }
+    let failure = ()=>{
+      this.isGeolocalisationEnable.next(false)
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          success(position)
+        },
+        ()=>{
+          failure()
+        }
+      )
+    }
+    // init
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        success(position)
+      },
+      ()=>{
+        failure()
+      }
+    )
+    // Auto refresh
     navigator.geolocation.watchPosition(
       position => {
-        this.position.next(position.coords)
-        this.isGeolocalisationEnable.next(true)
+        success(position)
       },
       () => {
-        this.isGeolocalisationEnable.next(false)
+        failure()
       })
   }
 
@@ -175,7 +200,6 @@ export class RestaurantService {
   }
   addNotation(restaurant : Restaurant){
     return this.angularFirestore.collection('restaurant').doc(restaurant.id.toString()).update({notations : restaurant.notations, note : restaurant.note})
-
   }
 
 }
