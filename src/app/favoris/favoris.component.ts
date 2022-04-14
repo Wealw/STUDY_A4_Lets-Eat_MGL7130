@@ -17,13 +17,15 @@ export class FavorisComponent implements OnInit {
   restaurants : Restaurant[];
   constructor(
     private router: Router,
+
     public authService : AuthGuardService
-  ) { }
+  ){}
 
   ngOnInit(): void {
 
+   
+
      this.restaurants= this.authService.currentUser.favoritRestaurents;
-     console.log(this.restaurants);
 
      }
      // adapter la taille des grid en fonction de la taille de l'ecran
@@ -37,4 +39,10 @@ export class FavorisComponent implements OnInit {
   toRestaurant(restaurant : Restaurant){
 
   }
+  navigateToMain() {
+    // noinspection JSIgnoredPromiseFromCall
+    this.router.navigate([`/`])
   }
+
+  }
+

@@ -33,6 +33,19 @@ main {
   border-radius: 5px;
 }
 
+.menu-button{
+  position: absolute;
+  float: right;
+  bottom: 30px;
+  right: 20px;
+  background-color: orange;
+}
+
+.material-icons{
+  color:white;
+
+}
+
 @media screen and (orientation: portrait) {
   .filter {
     display: none;

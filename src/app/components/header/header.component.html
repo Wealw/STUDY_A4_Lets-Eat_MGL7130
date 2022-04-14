@@ -22,9 +22,9 @@
 
   <!--Affiche le boutton des filtre quand la barre de recherche est affichée-->
 
-  <div (click)="this.toggleFilter()" *ngIf="isSearchBarEnable" class="filter" style="grid-area: second">
-    <button  mat-mini-fab color="" aria-label="Filtre">
-      <mat-icon>filter_list</mat-icon>
+  <div (click)="this.toggleFilter()" *ngIf="isSearchBarEnable" class="filter"  style="grid-area: second">
+    <button  mat-mini-fab color="" aria-label="Filtre" [ngClass]="{'filterActive' : this.areFilterInUse}">
+      <mat-icon style="background-color: transparent" >filter_list</mat-icon>
     </button>
   </div>
 

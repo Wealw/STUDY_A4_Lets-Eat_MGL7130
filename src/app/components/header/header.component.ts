@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   searchEnabledRoute = ["/accueil"]
   // Instancie les éléments graphique de FontAwesome
   faSearch = faSearch
+  areFilterInUse = false
 
   constructor(private router: Router,
               public restaurantService: RestaurantService,
@@ -54,6 +55,8 @@ export class HeaderComponent implements OnInit {
 
   // Permet de basculer l'état d'affichage des filtres
   toggleFilter() {
+    this.areFilterInUse = this.checkIfFilterAreInUse();
+    console.log(this.areFilterInUse)
     this.areFilterDisplayed = !this.areFilterDisplayed;
   }
 
@@ -80,10 +83,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([`sign-up`])
   }
   // Permet de revenir à l'écran Favoris
-navigateToFavoris() {
-  // noinspection JSIgnoredPromiseFromCall
-  this.router.navigate([`favoris`])
-}
+  navigateToFavoris() {
+    // noinspection JSIgnoredPromiseFromCall
+    this.router.navigate([`favoris`])
+  }
 
   navigateToAbout() {
     // noinspection JSIgnoredPromiseFromCall
@@ -91,6 +94,7 @@ navigateToFavoris() {
   }
 
   blurSearchBar() {
+    this.areFilterInUse = this.checkIfFilterAreInUse();
     let searchBar = document.getElementById('search')
     if (searchBar) {
       searchBar.blur()
@@ -98,6 +102,7 @@ navigateToFavoris() {
   }
 
   blurSuggestion() {
+    this.areFilterInUse = this.checkIfFilterAreInUse();
     let searchBar = document.getElementById('suggestion')
     if (searchBar) {
       searchBar.blur()
@@ -109,5 +114,16 @@ navigateToFavoris() {
     this.restaurantService.getAllRestaurants()
     this.blurSearchBar();
     this.blurSuggestion()
+  }
+
+  checkIfFilterAreInUse(){
+    const textInUse = this.restaurantService.recherche.texte !== ""
+    const distanceInUse = this.restaurantService.recherche.distance !== 50
+    const prixMinInUse = this.restaurantService.recherche.prix_max !== undefined
+    const prixMaxInUse = this.restaurantService.recherche.prix_min !== undefined
+    const notationInUse = this.restaurantService.recherche.notation !== undefined
+    const categorieInUse = !(this.restaurantService.recherche.categorie === undefined || this.restaurantService.recherche.categorie === "")
+    const condition = textInUse || distanceInUse || prixMaxInUse || prixMinInUse || notationInUse || categorieInUse
+    return condition
   }
 }

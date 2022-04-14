@@ -3,6 +3,8 @@ import {JoursHeures} from "./JoursHeures";
 import firebase from "firebase/compat";
 import {Adresse} from "./Adresse";
 import GeoPoint = firebase.firestore.GeoPoint;
+import {Commentaire} from "./Commentaire";
+import {Notation} from "./Notation";
 
 export class Restaurant {
   id ?: any
@@ -15,6 +17,9 @@ export class Restaurant {
   menu: Menu
   note: number
   photo: string
+  commentaires : Commentaire[];
+  notations : Notation[];
+  logo : string;
 
   constructor(
     id: any,
@@ -26,8 +31,11 @@ export class Restaurant {
     calendrier: JoursHeures[],
     menu: Menu,
     note: number,
-    photo: string
-  ) {
+    photo: string,
+    commentaires : Commentaire[],
+    notations : Notation[],
+    logo : string
+) {
     this.id = id;
     this.nom = nom;
     this.categorie = categorie;
@@ -38,6 +46,9 @@ export class Restaurant {
     this.menu = menu;
     this.note = note;
     this.photo = photo;
+    this.commentaires = commentaires;
+    this.notations = notations;
+    this.logo = logo;
 
   }
 

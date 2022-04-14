@@ -101,6 +101,10 @@ input {
   display: block;
 }
 
+.filterActive {
+  background-color: orange;
+}
+
 /* Cache le menu quand l'application est en mode landscape */
 @media screen and (orientation: landscape) {
   .filter {

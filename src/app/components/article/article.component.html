@@ -39,12 +39,18 @@
   <mat-grid-tile colspan="2" [rowspan]="rowDescription">
     <mat-form-field class="description" appearance="fill">
       <mat-label>Description</mat-label>
-      <textarea matInput
+      <textarea matInput *ngIf="article.description"
                 cdkTextareaAutosize [(ngModel)]="article.description"
                 #autosize="cdkTextareaAutosize"
                 disabled
                 cdkAutosizeMinRows="1"
                 [cdkAutosizeMaxRows]="rowDescription+1"></textarea>
+      <textarea matInput *ngIf="!article.description"
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                disabled
+                cdkAutosizeMinRows="1"
+                [cdkAutosizeMaxRows]="rowDescription+1">Description non disponible</textarea>
     </mat-form-field>
   </mat-grid-tile>
 </mat-grid-list>

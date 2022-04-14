@@ -29,64 +29,13 @@
 }
 
 .image{
-
-}
-@media only screen and (max-width: 400px) {
-  .image { width: 125px;height: 100px;margin-left: -110px;}
-}
-@media only screen and (min-width: 400px) {
-  .image { width: 125px;height: 100px;margin-left: -110px;}
+border-radius: 10px;
+  padding-left: 0;
+  margin-left: 0;
+  width: 125px;
+  height: 100px;
 }
 
-@media only screen and (min-width: 600px) {
-  .image { width: 125px;height: 100px;margin-left: -110px;}
-}
-
-@media only screen and (min-width: 768px) {
-  .image { width: 125px;height: 100px;margin-left: 30px;}
-}
-
-@media only screen and (min-width: 992px) {
-  .image { width: 125px;height: 100px;margin-left: 30px;}
-}
-
-@media only screen and (min-width: 1200px) {
-  .image { width: 125px;height: 100px;margin-left: 30px;}
-}
-@media only screen and (min-width: 1500px) {
-  .image { width: 125px;height: 100px;margin-left: 30px;}
-}
-@media only screen and (min-width: 1920px) {
-  .image { width: 125px;height: 100px;margin-left: 30px;}
-}
-@media only screen and (max-width: 400px) {
-  .textcard {margin-left: -3em;}
-}
-@media only screen and (min-width: 400px) {
-  .textcard {margin-left: -5em}
-}
-
-@media only screen and (min-width: 600px) {
-  .textcard {margin-left: -8em}
-}
-
-@media only screen and (min-width: 768px) {
-  .textcard {margin-left: 1em;}
-}
-
-@media only screen and (min-width: 992px) {
-  .textcard {margin-left:1em;}
-}
-
-@media only screen and (min-width: 1200px) {
-  .textcard {margin-left: 1em;}
-}
-@media only screen and (min-width: 1500px) {
-  .textcard {margin-left: 1em}
-}
-@media only screen and (min-width: 1920px) {
-  .textcard {margin-left: 1em}
-}
 .commentary {
   padding-bottom: 10px;
   box-shadow: 3px 3px 9px 2px rgba(0, 0, 0, 0.35);
@@ -204,6 +153,7 @@
 }
 
 .sub_commentaire_text {
+  width: 100%;
   font-size: 14px;
   margin: 2px 10px;
 
@@ -277,10 +227,10 @@ img {
 
 div.stars {
   width: 270px;
-  padding: 0 0px !important;
+  height: 50px;
+  padding: 0 !important;
   display: inline-block;
 }
-
 .picture_text {
   min-width: 100%;
   min-height: 100%;
@@ -304,5 +254,30 @@ div.stars {
 }
 
 .main_grid-list {
+  /*border: 1px solid black;*/
   margin: 10px 10px 10px;
+}
+.menu-button{
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: orange;
+}
+
+textarea{
+  width: 80%;
+  border: black 1px solid;
+  border-radius: 5px;
+}
+.btn-add-comment{
+  background-color: orange;
+  color: white;
+}
+.full-width {
+  width: 100%;
+}
+.picture, .text{
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px 0;
 }
