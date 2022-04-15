@@ -52,7 +52,7 @@ export class RestaurantService {
         }
       )
     }
-    // init
+    // init position
     navigator.geolocation.getCurrentPosition(
       position => {
         success(position)
@@ -61,14 +61,6 @@ export class RestaurantService {
         failure()
       }
     )
-    // Auto refresh
-    navigator.geolocation.watchPosition(
-      position => {
-        success(position)
-      },
-      () => {
-        failure()
-      })
   }
 
 // permet de recuperer tous les restaurants
