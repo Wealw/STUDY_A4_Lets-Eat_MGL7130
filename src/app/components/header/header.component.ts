@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   // Initialise l'état du menu de naviaation
   isSearchBarEnable = true
   areFilterDisplayed = false
-  searchEnabledRoute = ["/accueil"]
+  searchEnabledRoute = ["/"]
   // Instancie les éléments graphique de FontAwesome
   faSearch = faSearch
   areFilterInUse = false
@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
   // Permet de revenir à l'écran d'accueil
   navigateToHome() {
     // noinspection JSIgnoredPromiseFromCall
-    this.router.navigate([`accueil`])
+    this.router.navigate([``])
   }
 
   // Permet de basculer l'état d'affichage des filtres

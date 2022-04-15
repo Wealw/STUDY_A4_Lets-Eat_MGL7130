@@ -13,7 +13,7 @@ import {ResetPasswordComponent} from "./components/reset-password/reset-password
 
 const routes: Routes = [
   {
-    path: 'accueil',
+    path: '',
     component: MainComponent
   },
   {
@@ -31,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'favoris',
-    component: FavorisComponent
+    component: FavorisComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'about',
@@ -48,14 +49,9 @@ const routes: Routes = [
   {
     path: '**',
     pathMatch: 'full',
-    redirectTo: 'accueil'
+    redirectTo: ''
   },
 
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'accueil'
-  }
 ];
 
 @NgModule({
