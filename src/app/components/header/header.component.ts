@@ -77,6 +77,7 @@ export class HeaderComponent implements OnInit {
 
   signOut() {
     this.authService.signout().then(() => {
+      // noinspection JSIgnoredPromiseFromCall
       this.router.navigate(['sign-in']);
     });
 
@@ -127,7 +128,6 @@ export class HeaderComponent implements OnInit {
     const prixMaxInUse = this.restaurantService.recherche.prix_min !== undefined
     const notationInUse = this.restaurantService.recherche.notation !== undefined
     const categorieInUse = !(this.restaurantService.recherche.categorie === undefined || this.restaurantService.recherche.categorie === "")
-    const condition = textInUse || distanceInUse || prixMaxInUse || prixMinInUse || notationInUse || categorieInUse
-    return condition
+    return textInUse || distanceInUse || prixMaxInUse || prixMinInUse || notationInUse || categorieInUse
   }
 }
