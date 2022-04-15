@@ -34,7 +34,6 @@ import {AboutComponent} from './components/about/about.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
-import {RestaurantReviewsComponent} from "./components/restaurant-reviews/restaurant-reviews.component";
 import { ErrorComponent } from './components/error/error.component';
 import {AuthGuardService} from "./services/Authentification/auth-guard.service";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
@@ -47,7 +46,6 @@ import { FavorisComponent } from './favoris/favoris.component';
 @NgModule({
   declarations: [
     AppComponent,
-    RestaurantReviewsComponent,
     HeaderComponent,
     MainComponent,
     FilterComponent,
