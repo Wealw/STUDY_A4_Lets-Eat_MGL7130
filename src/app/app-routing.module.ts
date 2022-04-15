@@ -24,7 +24,7 @@ const routes: Routes = [
     path: 'sign-in',
     component: SignInComponent
   },
-  
+
   {
     path: 'sign-up',
     component: SignUpComponent
@@ -36,7 +36,6 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent,
-    canActivate: [AuthGuardService]
   },
   {
     path: 'resetPassword',
