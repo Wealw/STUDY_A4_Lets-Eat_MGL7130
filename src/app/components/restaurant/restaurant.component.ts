@@ -90,8 +90,13 @@ export class RestaurantComponent implements OnInit {
       this.showComments = true;
       this.showMenu = true;
     } else {
-      this.showComments = false;
-      this.showMenu = true;
+      if (this.showComments){
+        this.showComments = true;
+        this.showMenu = false;
+      } else {
+        this.showComments = false;
+        this.showMenu = true;
+      }
     }
 
 
