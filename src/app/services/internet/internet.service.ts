@@ -26,17 +26,14 @@ export class InternetService {
     };
     try {
       const response = await fetch(url, options)
-      if (response.status != 0){
-        //console.debug('Server is offline !');
+      if (response.status != 200 && response.status != 0){
         this.isOnline.next(false);
         return
       }
     } catch (e) {
-      //console.debug('Status fetch has failed !');
       this.isOnline.next(false);
       return
     }
-    //console.debug('Internet : OK !')
     this.isOnline.next(true)
   }
 }

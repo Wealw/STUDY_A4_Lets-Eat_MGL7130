@@ -51,7 +51,6 @@ export class MainComponent implements OnInit {
       {
         this.isOnline__copy = this.internet.isOnline.getValue()
         if (!this.internet.isOnline.getValue()){
-          console.debug("ERROR WINDOWS CALLED !")
           const dialogref = this.dialog.open(ErrorComponent, {
             data: {errorMessage: 'S\'il vous plait, vérifiez votre connexion internet!',codeError : 0},
             height: '400px',
@@ -67,7 +66,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.internet.checkInternet()
- 
+
   }
 
   ngAfterContentInit():void{
