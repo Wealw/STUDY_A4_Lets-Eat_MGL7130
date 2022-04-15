@@ -5,7 +5,7 @@ import {MainComponent} from "./components/main/main.component";
 import {SignInComponent} from "./components/sign-in/sign-in.component";
 import {SignUpComponent} from "./components/sign-up/sign-up.component";
 import {AboutComponent} from "./components/about/about.component";
-import { FavorisComponent } from './favoris/favoris.component';
+import { FavorisComponent } from './components/favoris/favoris.component';
 import {AuthGuard} from "@angular/fire/auth-guard";
 import {AuthGuardService} from "./services/Authentification/auth-guard.service";
 import {EmailComponent} from "./components/reset-password/email/email.component";

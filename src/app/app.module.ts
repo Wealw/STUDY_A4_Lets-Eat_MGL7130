@@ -40,7 +40,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ResetPasswordComponent } from './components/reset-password/reset-password/reset-password.component';
 import { EmailComponent } from './components/reset-password/email/email.component';
 import {MessagingService} from "./services/messaging/messaging.service";
-import { FavorisComponent } from './favoris/favoris.component';
+import { FavorisComponent } from './components/favoris/favoris.component';
 
 
 @NgModule({

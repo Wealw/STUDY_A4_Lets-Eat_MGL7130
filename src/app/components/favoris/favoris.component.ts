@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthGuardService} from "../services/Authentification/auth-guard.service";
-import {Restaurant} from "../models/Restaurant";
+import {AuthGuardService} from "../../services/Authentification/auth-guard.service";
+import {Restaurant} from "../../models/Restaurant";
 
 @Component({
   selector: 'app-favoris',
@@ -23,7 +23,7 @@ export class FavorisComponent implements OnInit {
 
   ngOnInit(): void {
 
-   
+
 
      this.restaurants= this.authService.currentUser.favoritRestaurents;
 
@@ -43,6 +43,13 @@ export class FavorisComponent implements OnInit {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`/`])
   }
+
+  navigateToRestaurant(id : number) {
+    // noinspection JSIgnoredPromiseFromCall
+    this.router.navigate([`restaurant/` + id])
+  }
+
+
 
   }
 
