@@ -59,6 +59,11 @@ export class HeaderComponent implements OnInit {
     this.areFilterDisplayed = !this.areFilterDisplayed;
   }
 
+  closeFilter() {
+    this.areFilterInUse = this.checkIfFilterAreInUse();
+    this.areFilterDisplayed = false
+  }
+
   // Récupère la valeur d'un champ de texte pour réaliser un two-way binding
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;

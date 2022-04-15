@@ -30,7 +30,7 @@
 
   <!--Affiche un boutton permettant de déployer les options-->
   <div  class="roundBox" style="grid-area: third">
-    <button mat-mini-fab [matMenuTriggerFor]="menu" color="">
+    <button mat-mini-fab [matMenuTriggerFor]="menu" color="" (click)="closeFilter()">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
@@ -67,6 +67,7 @@
 
 <!--Instance du filtre quand ils sont déployés-->
 <div *ngIf="areFilterDisplayed" class="filter-container">
+  <div (click)="toggleFilter()" class="menu-height"></div>
   <app-filter [delegate]="this"></app-filter>
   <div (click)="toggleFilter()" class="filter-close"></div>
 </div>

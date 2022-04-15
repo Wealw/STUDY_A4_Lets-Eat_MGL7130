@@ -60,19 +60,32 @@ input {
 }
 
 .filter-container {
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  top: 4em;
   color: #222;
   width: 100%;
-  height: 100%;
+  height: calc(100%);
   z-index: 600;
   /*box-shadow: 3px 3px 9px 2px rgba(0,0,0,0.35);*/
 }
+app-filter{
+  z-index: 700;
+}
 
 .filter-close {
+  flex-grow: 1;
+  position: relative;
   width: 100%;
   height: 100%;
+  z-index: 500;
 }
+
+.menu-height{
+    height: 8em;
+  margin-left: auto;
+  width: 9em;
+  }
 
 #suggestion{
   padding: 0;
