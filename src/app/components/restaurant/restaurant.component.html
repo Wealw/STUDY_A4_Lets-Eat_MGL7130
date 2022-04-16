@@ -1,5 +1,5 @@
 <div
-  style="background: url(../assets/images/5352.jpg); background-size: cover; width: 100%; height: 6em; background-position: cover; border-radius: 0 0 10px 10px;"></div>
+  style="background: url('../assets/images/5352.jpg'); background-size: cover; width: 100%; height: 6em; background-position: cover; border-radius: 0 0 10px 10px;"></div>
 <!--debut de la section details restaurant-->
 <mat-grid-list (window:resize)="onResize($event)" *ngIf="restaurant" class="main_grid-list" cols="6" rowHeight="100%">
 
@@ -14,7 +14,7 @@
       </div>
       <div *ngIf="restaurant.calendrier" class="pad">
         <fa-icon [icon]="faClock" class="icon" size="lg"></fa-icon>&nbsp;&nbsp;
-        <p class="sous_titre">Ouvert jusqu'A {{restaurant.calendrier[0].heureFermeture + 'h'}}</p>
+        <p class="sous_titre">Ouvert jusqu'à {{restaurant.calendrier[0].heureFermeture + 'h'}}</p>
 
       </div>
       <div class="pad">
@@ -25,13 +25,12 @@
       </div>
       <div class="pad">
         <fa-icon [icon]="faPhone" class="icon" size="lg"></fa-icon>&nbsp;&nbsp;
-        <a href="tel:restaurant.numeroTelephone">{{restaurant.numeroTelephone}}</a>
+        <a href="tel:{{restaurant.numeroTelephone}}">{{restaurant.numeroTelephone}}</a>
 
       </div>
       <!-- Section notation-->
       <div class="stars">
         <ngx-star-rating [id]="'1'" [(ngModel)]="restaurant.note" [disabled]="true"></ngx-star-rating>
-
       </div>
       <!-- Fin de la Section notation-->
       <!-- Fin de Details du restaurant-->
@@ -88,15 +87,6 @@
         <button class="btn-add-comment" mat-raised-button [disabled]="!userComment" (click)="sendComment()"> Ajouter</button>
 
       </div>
-
-
-
-
-
-
-
-
-
       <ng-container *ngFor="let com of restaurant.commentaires">
       <div class="commentaire" class="full-width" >
         <div class="picture">

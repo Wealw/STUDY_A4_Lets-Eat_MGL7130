@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   // Initialise l'état du menu de naviaation
   isSearchBarEnable = true
   areFilterDisplayed = false
-  searchEnabledRoute = ["/accueil"]
+  searchEnabledRoute = ["/"]
   // Instancie les éléments graphique de FontAwesome
   faSearch = faSearch
   areFilterInUse = false
@@ -50,13 +50,18 @@ export class HeaderComponent implements OnInit {
   // Permet de revenir à l'écran d'accueil
   navigateToHome() {
     // noinspection JSIgnoredPromiseFromCall
-    this.router.navigate([`accueil`])
+    this.router.navigate([``])
   }
 
   // Permet de basculer l'état d'affichage des filtres
   toggleFilter() {
     this.areFilterInUse = this.checkIfFilterAreInUse();
     this.areFilterDisplayed = !this.areFilterDisplayed;
+  }
+
+  closeFilter() {
+    this.areFilterInUse = this.checkIfFilterAreInUse();
+    this.areFilterDisplayed = false
   }
 
   // Récupère la valeur d'un champ de texte pour réaliser un two-way binding
@@ -72,6 +77,7 @@ export class HeaderComponent implements OnInit {
 
   signOut() {
     this.authService.signout().then(() => {
+      // noinspection JSIgnoredPromiseFromCall
       this.router.navigate(['sign-in']);
     });
 
@@ -122,7 +128,6 @@ export class HeaderComponent implements OnInit {
     const prixMaxInUse = this.restaurantService.recherche.prix_min !== undefined
     const notationInUse = this.restaurantService.recherche.notation !== undefined
     const categorieInUse = !(this.restaurantService.recherche.categorie === undefined || this.restaurantService.recherche.categorie === "")
-    const condition = textInUse || distanceInUse || prixMaxInUse || prixMinInUse || notationInUse || categorieInUse
-    return condition
+    return textInUse || distanceInUse || prixMaxInUse || prixMinInUse || notationInUse || categorieInUse
   }
 }

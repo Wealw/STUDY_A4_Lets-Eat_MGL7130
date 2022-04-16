@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthGuardService} from "../services/Authentification/auth-guard.service";
-import {Restaurant} from "../models/Restaurant";
+import {AuthGuardService} from "../../services/Authentification/auth-guard.service";
+import {Restaurant} from "../../models/Restaurant";
 
 @Component({
   selector: 'app-favoris',
