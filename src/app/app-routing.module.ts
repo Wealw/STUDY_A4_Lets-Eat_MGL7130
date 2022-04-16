@@ -24,19 +24,20 @@ const routes: Routes = [
     path: 'sign-in',
     component: SignInComponent
   },
-  
+
   {
     path: 'sign-up',
     component: SignUpComponent
   },
   {
     path: 'favoris',
-    component: FavorisComponent
+    component: FavorisComponent,
+    canActivate: [AuthGuardService]
+
   },
   {
     path: 'about',
     component: AboutComponent,
-    canActivate: [AuthGuardService]
   },
   {
     path: 'resetPassword',

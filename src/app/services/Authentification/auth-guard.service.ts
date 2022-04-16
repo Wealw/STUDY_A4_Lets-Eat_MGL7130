@@ -23,15 +23,24 @@ export class AuthGuardService implements CanActivate {
   }
 
   canActivate(): boolean {
-    if (!this.isConnected) {
+    if (!firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        return true;
+      } else {
+        return false;
+      }
+    })) {
+      this.router.navigate(['acceuil']);
       this._snackBar.open("Vous devez etre connecté!", '', {
         duration: 3000,
         panelClass: 'orange-snackbar',
         horizontalPosition: 'center',
 
       });
+      console.log('return false')
       return false;
     }
+
     return true;
   }
 

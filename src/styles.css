@@ -62,7 +62,7 @@ textarea{
   height: 100% ;
 }
 mat-grid-tile{
-  /*border: 1px solid black;*/
+  border: 1px solid black;
 }
 
 .close.mat-button {
@@ -78,3 +78,4 @@ mat-grid-tile{
   color: black !important;
   padding: 0px;
 }
+
