@@ -31,7 +31,9 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+
   ngOnInit(): void {
+    // add an event listener that launch a search when th enter key is pressed
     this.elementRef.nativeElement.addEventListener("keyup", (event: { preventDefault: () => void; keyCode: any; }) => {
       event.preventDefault()
       if (event.keyCode === 13) {
@@ -75,6 +77,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([`sign-in`])
   }
 
+  // Permet de se déconnecter
   signOut() {
     this.authService.signout().then(() => {
       // noinspection JSIgnoredPromiseFromCall
@@ -93,11 +96,13 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([`favoris`])
   }
 
+  // Permet d'afficher la page à propos
   navigateToAbout() {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`about`])
   }
 
+  // Deselectionne la barre de recherche
   blurSearchBar() {
     this.areFilterInUse = this.checkIfFilterAreInUse();
     let searchBar = document.getElementById('search')
@@ -106,6 +111,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  // Cache les suggestions
   blurSuggestion() {
     this.areFilterInUse = this.checkIfFilterAreInUse();
     let searchBar = document.getElementById('suggestion')
@@ -114,6 +120,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  // Selectionne un tiem de la liste et femre les suggestion et la barre de recherche
   selectItem(search : string){
     this.restaurantService.recherche.texte = search
     this.restaurantService.getAllRestaurants()
@@ -121,6 +128,7 @@ export class HeaderComponent implements OnInit {
     this.blurSuggestion()
   }
 
+  // Verifie si les filtre sont utilisés.
   checkIfFilterAreInUse(){
     const textInUse = this.restaurantService.recherche.texte !== ""
     const distanceInUse = this.restaurantService.recherche.distance !== 100

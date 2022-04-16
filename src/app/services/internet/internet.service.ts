@@ -12,7 +12,7 @@ export class InternetService {
   constructor() {
     this.isOnline = new BehaviorSubject<boolean>(true)
   }
-
+  // check internet status
   async checkInternet(){
     if (!navigator.onLine) {
       //console.debug('Navigator is offline !')

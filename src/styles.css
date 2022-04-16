@@ -15,7 +15,6 @@ body {
 
 input.star:checked ~ label.star:before {
   color: orange !important;
-
 }
 
 label.star:before {
