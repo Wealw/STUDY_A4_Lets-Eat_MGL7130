@@ -1,39 +1,71 @@
 <div
   style="background: url('../assets/images/1.jpg'); background-size: cover; width: 100%; height: 10em; background-position: cover; border-radius: 0 0 10px 10px;">
 </div>
-<div class="container">
+<div class="container-fluid">
 
-    <p>Bonjour {{ this.authService.currentUser.prenom}}!</p>
+<!--  <p>Bonjour {{ this.authService.currentUser.prenom}}!</p>-->
+  <h1 style="text-align: center">Restaurants favoris</h1>
 
-    <mat-grid-list  cols="3" *ngFor="let res of this.restaurants" (click)="navigateToRestaurant(res.id)" >
-        <mat-grid-tile>
+  <mat-grid-list (window:resize)="onResize($event)" [cols]="col" rowHeight="120">
+    <ng-container *ngFor="let res of this.restaurants">
 
-          <img src="../assets/images/5352.jpg" class="im"  >
-        </mat-grid-tile>
-        <mat-grid-tile  colspan="2" style="position: absolute; left: 0px; right: 10px; top: 0;">
-            <div >
+      <!--      <mat-grid-tile>-->
+      <!--        <mat-grid-tile>-->
 
-          <p style="font-weight: 550; font-size: 18px; margin-left:10px">{{res.nom }} </p>
-          <p style="font-size: 12px;margin-left:10px"> {{res.adresse.numeroDeRue + ' ' + res.adresse.rue + ' ' + res.adresse.ville + ' ' + res.adresse.codePostal + ' ' + res.adresse.ville}}.<br> La notation du restaurant</p>
-          <p class="stars" >
-            <ngx-star-rating  [(ngModel)]="res.note" [disabled]="true"></ngx-star-rating>
-          </p>
+      <!--          <img [src]="res.menu.articles[0].photo" class="image"  >-->
+      <!--        </mat-grid-tile>-->
+      <!--        <mat-grid-tile  colspan="2" style="position: absolute; left: 0px; right: 10px; top: 0;">-->
+      <!--          <div >-->
 
-          </div>
-        </mat-grid-tile>
+      <!--            <p style="font-weight: 550; font-size: 18px; margin-left:10px">{{res.nom }} </p>-->
+      <!--            <p style="font-size: 12px;margin-left:10px"> {{res.adresse.numeroDeRue + ' ' + res.adresse.rue + ' ' + res.adresse.ville + ' ' + res.adresse.codePostal + ' ' + res.adresse.ville}}.<br> La notation du restaurant</p>-->
+      <!--            <p class="stars" >-->
+      <!--              <ngx-star-rating  [(ngModel)]="res.note" [disabled]="true"></ngx-star-rating>-->
 
-    </mat-grid-list>
+      <!--            </p>-->
 
+
+      <!--          </div>-->
+      <!--        </mat-grid-tile>-->
+      <!--      </mat-grid-tile>-->
+
+
+      <mat-grid-tile [rowspan]="row">
+        <div class='picture_text'>
+          <mat-grid-list cols="2" rowHeight="120">
+            <mat-grid-tile (click)="toRestaurant(res.id)" [colspan]="col" rowspan="1" style="position: absolute; left: 10px; right: 10px">
+
+              <img [src]="res.menu.articles[0].photo" alt="" class="image">
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="col" rowspan="1" style="text-align: center;">
+              <div class="text-container">
+                <p style="font-weight: 550; font-size: 18px; ">{{res.nom }} </p>
+                <p
+                  style="font-size: 14px"> {{res.adresse.numeroDeRue + ' ' + res.adresse.rue + ' ' + res.adresse.ville + ' ' + res.adresse.codePostal + ' ' + res.adresse.ville}}</p>
+
+              </div>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+        </div>
+      </mat-grid-tile>
+
+
+    </ng-container>
+  </mat-grid-list>
+
+
+  <button mat-fab (click)="navigateToMain() "
+          class="menu-button"
+          [class.mat-elevation-z2]="false"
+          [class.mat-elevation-z8]="true"
+  >
+
+    <mat-icon aria-hidden="false" class="material-icons" aria-label="Example home icon">location_on</mat-icon>
+
+  </button>
 
 </div>
-<button  mat-fab  (click)="navigateToMain() "
-        class="menu-button"
-        [class.mat-elevation-z2]="false"
-        [class.mat-elevation-z8]="true"
->
 
-  <mat-icon aria-hidden="false" class="material-icons" aria-label="Example home icon">home</mat-icon>
-
-</button>
 
 

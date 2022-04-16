@@ -17,17 +17,17 @@
                     [position]="{lat: res.geoPoint.latitude, lng: res.geoPoint.longitude}"></map-marker>
       </google-map>
 
-       
-      
+
+
     </div>
   </div>
 
   <button *ngIf="this.authService.isConnected" mat-fab  (click)="navigateToFavoris()"
         class="menu-button"
-       
+
 >
-  <mat-icon class="material-icons">restaurant</mat-icon>
-  
+  <mat-icon class="material-icons">favorite</mat-icon>
+
 
 </button>
 </main>

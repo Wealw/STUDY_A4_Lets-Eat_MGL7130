@@ -13,7 +13,7 @@ import {ResetPasswordComponent} from "./components/reset-password/reset-password
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'accueil',
     component: MainComponent
   },
   {
@@ -33,6 +33,7 @@ const routes: Routes = [
     path: 'favoris',
     component: FavorisComponent,
     canActivate: [AuthGuardService]
+
   },
   {
     path: 'about',
@@ -49,7 +50,7 @@ const routes: Routes = [
   {
     path: '**',
     pathMatch: 'full',
-    redirectTo: ''
+    redirectTo: 'accueil'
   },
 
 ];

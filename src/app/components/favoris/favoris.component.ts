@@ -22,7 +22,10 @@ export class FavorisComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-
+    this.col = (window.screen.width <= 770) ? 1 : 2;
+    this.row = (window.screen.width <= 770) ? 1 : 2;
+    this.smallCol = (window.screen.width <= 770) ? 0 : 1;
+    this.bigCol = (window.screen.width <= 770) ? 4 : 3;
 
 
      this.restaurants= this.authService.currentUser.favoritRestaurents;
@@ -36,20 +39,13 @@ export class FavorisComponent implements OnInit {
     this.bigCol = (window.screen.width <= 770) ? 4 : 3;
   }
 
-  toRestaurant(restaurant : Restaurant){
-
+  toRestaurant(idRestaurant : string){
+    this.router.navigate([`restaurant/${idRestaurant}`])
   }
   navigateToMain() {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`/`])
   }
-
-  navigateToRestaurant(id : number) {
-    // noinspection JSIgnoredPromiseFromCall
-    this.router.navigate([`restaurant/` + id])
-  }
-
-
 
   }
 

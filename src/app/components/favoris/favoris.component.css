@@ -6,20 +6,19 @@
 
   div.stars {
     width: 270px;
-    padding-top: 0px; 
+    padding-top: 0px;
     display: inline-block;
   }
-  .menu-button{
-    position: absolute;
-    float: right;
-    bottom: 30px;
-    right: 20px;
-    background-color: orange;
-  }
+.menu-button{
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: orange;
+}
 
   .material-icons{
     color:white;
-  
+
   }
 
   .stars{
@@ -27,4 +26,30 @@
     padding-top:0;
   }
 
-  
+.image{
+  border-radius: 10px;
+  padding-left: 0;
+  margin-left: 0;
+  width: 125px;
+  height: 100px;
+}
+.picture_text {
+  min-width: 100%;
+  min-height: 100%;
+  /*padding: 20px;*/
+}
+.text-container {
+  position: absolute;
+  width: 100%;
+}
+@media screen and (max-width: 770px) and (orientation: portrait) {
+
+  .text-container {
+    position: absolute;
+    top: 50%;
+    text-align: left;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+}

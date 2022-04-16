@@ -34,10 +34,9 @@ main {
 }
 
 .menu-button{
-  position: absolute;
-  float: right;
-  bottom: 30px;
-  right: 20px;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
   background-color: orange;
 }
 
