@@ -63,6 +63,7 @@ input {
   display: flex;
   flex-direction: column;
   position: absolute;
+  top: 0px;
   color: #222;
   width: 100%;
   height: calc(100%);
@@ -118,8 +119,11 @@ app-filter{
   background-color: orange;
 }
 
-/* Cache le menu quand l'application est en mode landscape */
+/* Cache le filtre quand l'application est en mode landscape */
 @media screen and (orientation: landscape) {
+  .filter-container {
+    display: none;
+  }
   .filter {
     display: none;
   }

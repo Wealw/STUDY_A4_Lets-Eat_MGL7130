@@ -48,13 +48,13 @@ h6:after {
   margin-left: 10px
 }
 
-#bottom{
-  position: flex;
-  bottom: 10px;
-  width: 100%;
-  padding-top: 200px;
+/*#bottom{*/
+/*  position: flex;*/
+/*  bottom: 10px;*/
+/*  width: 100%;*/
+/*  padding-top: 200px;*/
 
-}
+/*}*/
 
 .button_bottom {
  background-color: white;

@@ -52,6 +52,7 @@ main {
 
 }
 
+
 @media screen and (orientation: landscape) {
   .selector {
     flex: 0 0 auto;

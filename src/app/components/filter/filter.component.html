@@ -1,11 +1,9 @@
 <form>
 
   <mat-list>
-    <mat-grid-list *ngIf="restaurantService.isGeolocalisationEnable" [cols]="11" rowHeight="90px">
-      <mat-grid-tile [colspan]="3">
-        Distance:
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="6">
+    <mat-grid-list *ngIf="restaurantService.isGeolocalisationEnable" [cols]="1" rowHeight="90px">
+      <mat-grid-tile [colspan]="1">
+        <i class="material-icons">directions_car</i>
         <mat-slider
           [(ngModel)]="restaurantRecherche.distance"
           [displayWith]="formatLabel"
@@ -15,10 +13,14 @@
           name="slider"
           step="1"
           thumbLabel></mat-slider>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="2">
         {{restaurantRecherche.distance + 'KM'}}
       </mat-grid-tile>
+<!--      <mat-grid-tile [colspan]="9">-->
+<!--       -->
+
+<!--      </mat-grid-tile>-->
+<!--      <mat-grid-tile [colspan]="3">-->
+<!--      </mat-grid-tile>-->
 
     </mat-grid-list>
     <mat-list-item>
@@ -45,12 +47,14 @@
       </mat-form-field>
     </mat-list-item>
 
-    <mat-list-item class="cont">
-      <div class="stars">
-        <ngx-star-rating [(ngModel)]="restaurantRecherche.notation" name="rating"></ngx-star-rating>
+    <mat-list-item >
+      <div class="cont">
+        <div class="stars">
+          <ngx-star-rating  [id]="'rating'"></ngx-star-rating>
+        </div>
       </div>
     </mat-list-item>
-    <mat-list-item>
+    <mat-list-item class="rating">
       <button (click)="handleForm()" class="button" mat-raised-button
               style="align-content: end">Appliquer
       </button>

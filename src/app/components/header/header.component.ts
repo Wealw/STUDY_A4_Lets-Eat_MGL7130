@@ -3,6 +3,7 @@ import {faSearch} from '@fortawesome/free-solid-svg-icons'
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
 import {Router} from '@angular/router';
 import {AuthGuardService} from "../../services/Authentification/auth-guard.service";
+import {Location} from "@angular/common";
 
 
 @Component({
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
   areFilterInUse = false
 
   constructor(private router: Router,
+              private _location: Location,
               public restaurantService: RestaurantService,
               private elementRef: ElementRef,
               public authService: AuthGuardService) {
@@ -48,10 +50,10 @@ export class HeaderComponent implements OnInit {
   }
 
   // Permet de revenir à l'écran d'accueil
-  navigateToHome() {
+  back() {
     // noinspection JSIgnoredPromiseFromCall
-    this.router.navigate([``])
-  }
+    this._location.back();
+    }
 
   // Permet de basculer l'état d'affichage des filtres
   toggleFilter() {
@@ -79,6 +81,7 @@ export class HeaderComponent implements OnInit {
     this.authService.signout().then(() => {
       // noinspection JSIgnoredPromiseFromCall
       this.router.navigate(['sign-in']);
+      this.authService.checkAuthentification();
     });
 
   }
