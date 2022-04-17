@@ -9,6 +9,7 @@ export class Recherche {
 
   private constructor() {
     this.texte = ""
+    this.distance = 100
   }
 
   static getInstance() {

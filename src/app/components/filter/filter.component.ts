@@ -16,11 +16,11 @@ export class FilterComponent implements OnInit {
   @Input() delegate: HeaderComponent;
 
   constructor(public restaurantService: RestaurantService, private internet : InternetService) {
-    this.restaurantRecherche = restaurantService.recherche;
+    this.restaurantRecherche = restaurantService.recherche
   }
 
   ngOnInit(): void {
-    this.restaurantRecherche.distance = 100;
+
   }
 
   formatLabel(value: number) {
