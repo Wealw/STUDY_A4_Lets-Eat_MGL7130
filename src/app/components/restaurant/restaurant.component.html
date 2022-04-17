@@ -1,5 +1,5 @@
-<div
-  style="background: url('../assets/images/5352.jpg'); background-size: cover; width: 100%; height: 6em; background-position: cover; border-radius: 0 0 10px 10px;"></div>
+<div *ngIf="restaurant" [ngStyle]="{ 'background-image': 'url(' + restaurant.logo + ')'}"
+  style=" background-size: cover; width: 100%; height: 6em; background-position: center; border-radius: 0 0 10px 10px;"></div>
 <!--debut de la section details restaurant-->
 <mat-grid-list (window:resize)="onResize($event)" *ngIf="restaurant" class="main_grid-list" cols="6" rowHeight="100%">
 
@@ -29,22 +29,25 @@
 
       </div>
       <!-- Section notation-->
+      <div class="cont">
       <div class="stars">
         <ngx-star-rating [id]="'1'" [(ngModel)]="restaurant.note" [disabled]="true"></ngx-star-rating>
       </div>
+      </div>
+      <br>
       <!-- Fin de la Section notation-->
       <!-- Fin de Details du restaurant-->
       <!-- Debut de Details du menu-->
       <mat-grid-list [cols]="col" rowHeight="120">
         <ng-container *ngFor="let article of restaurant.menu.articles">
-          <mat-grid-tile (click)="toArticle(article)" [rowspan]="row">
+          <mat-grid-tile class="ani" (click)="toArticle(article)" [rowspan]="row">
             <div class='picture_text'>
-              <mat-grid-list cols="2" rowHeight="120">
-                <mat-grid-tile [colspan]="col" rowspan="1" style="position: absolute; left: 10px; right: 10px">
+              <mat-grid-list cols="6" rowHeight="120">
+                <mat-grid-tile [colspan]="colImage" rowspan="1" style="position: absolute; left: 10px; right: 10px">
 
                   <img [src]="article.photo" alt="" class="image">
                 </mat-grid-tile>
-                <mat-grid-tile [colspan]="col" rowspan="1" style="text-align: center;">
+                <mat-grid-tile [colspan]="colText" rowspan="1" style="text-align: center;">
                   <div class="text-container">{{article.nom}} <br>
                     {{article.taillePrix[0].taille + ': ' + article.taillePrix[0].prix + ' $'}}
                   </div>
@@ -73,9 +76,10 @@
       </h5>
 
       <!-- Section notation-->
+      <div class="cont" *ngIf="authService.isConnected">
       <div class="stars">
-        <ngx-star-rating [id]="'2'" *ngIf="authService.isConnected" name="note" [(ngModel)]="userNote" (change)="addNote()" [disabled]="false"></ngx-star-rating>
-
+        <ngx-star-rating [id]="'2'"  name="note" [(ngModel)]="userNote" (change)="addNote()" [disabled]="false"></ngx-star-rating>
+      </div>
       </div>
       <mat-form-field class="full-width" >
         <mat-label>Ajoutez un commentaire...</mat-label>

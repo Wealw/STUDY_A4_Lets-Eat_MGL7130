@@ -11,6 +11,8 @@ import {Restaurant} from "../../models/Restaurant";
 export class FavorisComponent implements OnInit {
 
   col: any;
+  colImage: any;
+  colText: any;
   row: any;
   smallCol: any;
   bigCol: any;
@@ -23,6 +25,8 @@ export class FavorisComponent implements OnInit {
 
   ngOnInit(): void {
     this.col = (window.screen.width <= 770) ? 1 : 2;
+    this.colImage = (window.screen.width <= 770) ? 2 : 6;
+    this.colText = (window.screen.width <= 770) ? 4 : 6;
     this.row = (window.screen.width <= 770) ? 1 : 2;
     this.smallCol = (window.screen.width <= 770) ? 0 : 1;
     this.bigCol = (window.screen.width <= 770) ? 4 : 3;
@@ -34,6 +38,8 @@ export class FavorisComponent implements OnInit {
      // adapter la taille des grid en fonction de la taille de l'ecran
   onResize(event: any) {
     this.col = (window.screen.width <= 770) ? 1 : 2;
+    this.colImage = (window.screen.width <= 770) ? 2 : 6;
+    this.colText = (window.screen.width <= 770) ? 4 : 6;
     this.row = (window.screen.width <= 770) ? 1 : 2;
     this.smallCol = (window.screen.width <= 770) ? 0 : 1;
     this.bigCol = (window.screen.width <= 770) ? 4 : 3;

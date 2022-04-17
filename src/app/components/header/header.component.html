@@ -1,7 +1,7 @@
 <!--Change les propriété d'affichage du menu de navigation en accord avec l'état du composant-->
 <header [ngStyle]="{'grid-template-columns' : (isSearchBarEnable) ? '1fr auto auto' : '1fr 1fr auto'}">
   <!--Affiche un spacer dans le boutton de retour dans la barre de recherche est désactivée-->
-  <div (click)="navigateToHome()" *ngIf="!isSearchBarEnable" class="roundBox" style="grid-area: first">
+  <div (click)="back()" *ngIf="!isSearchBarEnable" class="roundBox" style="grid-area: first">
     <button  mat-mini-fab color="" aria-label="Filtre">
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
@@ -47,7 +47,7 @@
       <ng-container *ngIf="authService.isConnected">
 
         <button (click)="navigateToFavoris()" mat-menu-item>
-          <mat-icon>person_add_alt</mat-icon>
+          <mat-icon>favorite_border</mat-icon>
           <span>Mes favoris</span>
         </button>
         <button (click)="signOut()" mat-menu-item>

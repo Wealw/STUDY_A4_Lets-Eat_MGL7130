@@ -1,5 +1,5 @@
 <div
-  style="background: url('../assets/images/1.jpg'); background-size: cover; width: 100%; height: 10em; background-position: cover; border-radius: 0 0 10px 10px;">
+  style="background: url('../assets/images/2.png'); background-size: cover; width: 100%; height: 14em; background-position: cover; border-radius: 0 0 10px 10px;">
 </div>
 <br>
 <div class="container-fluid">
@@ -27,17 +27,17 @@
   <button  class="button " mat-raised-button style="align-content: end" type="submit"  (click)="onSubmit()">
     Connectez-vous
   </button><br>
-<p style="font-size: 14px; color: black; text-decoration: none;">Mot de passe oublié?
-  <button mat-raised-button  (click)="navigateResetPassword()">Cliquez ici!</button>
-</p>
+<!--    <a (click)="navigateResetPassword()">Mot de passe oublié?</a>-->
+  <a routerLink="/resetPassword" >Mot de passe oublié?</a>
 
   </form>
-
+<br>
 
 <div id="bottom" >
   <h6>ou</h6>
   <button  class="button_bottom" mat-raised-button  (click)="router.navigate(['sign-up'])">Créez un compte</button>
 </div>
+  <br>
 </div>
 
 

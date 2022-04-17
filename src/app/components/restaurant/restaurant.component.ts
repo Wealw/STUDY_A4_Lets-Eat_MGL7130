@@ -12,11 +12,43 @@ import {CdkTextareaAutosize} from "@angular/cdk/text-field";
 import {Commentaire} from "../../models/Commentaire";
 import {Notation} from "../../models/Notation";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {animate, query, stagger, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.component.html',
-  styleUrls: ['./restaurant.component.css']
+  styleUrls: ['./restaurant.component.css'],
+  animations: [
+    trigger('pageAnimations', [
+      transition(':enter', [
+        query('.ani', [
+          style({opacity: 0, transform: 'translateY(-100px)'}),
+          stagger(-30, [
+            animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))
+          ])
+        ])
+      ])
+    ]),
+    trigger('filterAnimation', [
+      transition(':enter, * => 0, * => -1', []),
+      transition(':increment', [
+        query(':enter', [
+          style({ opacity: 0, width: '0px' }),
+          stagger(50, [
+            animate('300ms ease-out', style({ opacity: 1, width: '*' })),
+          ]),
+        ], { optional: true })
+      ]),
+      transition(':decrement', [
+        query(':leave', [
+          stagger(50, [
+            animate('300ms ease-out', style({ opacity: 0, width: '0px' })),
+          ]),
+        ])
+      ]),
+    ]),
+  ]
+
 })
 export class RestaurantComponent implements OnInit {
 
@@ -26,6 +58,8 @@ export class RestaurantComponent implements OnInit {
   faPhone = faPhone
   faLocationArrow = faLocationArrow
   col: any;
+  colImage: any;
+  colText: any;
   row: any;
   smallCol: any;
   bigCol: any;
@@ -54,6 +88,8 @@ export class RestaurantComponent implements OnInit {
   ngOnInit(): void {
     // adapter la taille des grid en fonction de la taille de l'ecran
     this.col = (window.screen.width <= 770) ? 1 : 2;
+    this.colImage = (window.screen.width <= 770) ? 2 : 6;
+    this.colText = (window.screen.width <= 770) ? 4 : 6;
     this.row = (window.screen.width <= 770) ? 1 : 2;
     this.smallCol = (window.screen.width <= 770) ? 6 : 2;
     this.bigCol = (window.screen.width <= 770) ? 6 : 4;
@@ -83,6 +119,8 @@ export class RestaurantComponent implements OnInit {
   // adapter la taille des grid en fonction de la taille de l'ecran
   onResize(event: any) {
     this.col = (window.screen.width <= 770) ? 1 : 2;
+    this.colImage = (window.screen.width <= 770) ? 2 : 6;
+    this.colText = (window.screen.width <= 770) ? 4 : 6;
     this.row = (window.screen.width <= 770) ? 1 : 2;
     this.smallCol = (window.screen.width <= 770) ? 6 : 2;
     this.bigCol = (window.screen.width <= 770) ? 6 : 4;

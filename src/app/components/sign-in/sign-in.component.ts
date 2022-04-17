@@ -29,13 +29,12 @@ export class SignInComponent implements OnInit {
   onSubmit() {
     this.authService.signin(this.signinForm.get('email')?.value, this.signinForm.get('motdepasse')?.value)
       .then(() => {
-        this.router.navigate(['acceuil'])
+        this.router.navigate([''])
       })
       .catch((err) => {
         this.authService.getError(err['code'])
 
-      }),
-      () => { }
+      })
   }
 
   navigateResetPassword() {

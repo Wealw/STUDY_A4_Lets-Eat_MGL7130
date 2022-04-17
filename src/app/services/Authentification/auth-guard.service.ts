@@ -37,7 +37,6 @@ export class AuthGuardService implements CanActivate {
         horizontalPosition: 'center',
 
       });
-      console.log('return false')
       return false;
     }
 
@@ -69,7 +68,6 @@ export class AuthGuardService implements CanActivate {
   signin(email: string, password: string) {
     this.angularFireAuth.setPersistence(auth.Auth.Persistence.LOCAL);
     return this.angularFireAuth.signInWithEmailAndPassword(email, password);
-
 
   }
 

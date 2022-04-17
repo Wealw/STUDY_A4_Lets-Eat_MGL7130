@@ -23,12 +23,6 @@ label.star:before {
 
 }
 
-div.stars {
-  width: auto !important;
-  padding: 0 !important;
-
-}
-
 .mat-slider-thumb {
   background-color: orange !important;
 }
@@ -78,3 +72,7 @@ mat-grid-tile{
   padding: 0px;
 }
 
+button:focus {
+  outline: none;
+  border: 0;
+}

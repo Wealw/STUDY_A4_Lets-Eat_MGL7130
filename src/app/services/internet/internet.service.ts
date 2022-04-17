@@ -15,7 +15,6 @@ export class InternetService {
   // check internet status
   async checkInternet(){
     if (!navigator.onLine) {
-      //console.debug('Navigator is offline !')
       this.isOnline.next(false)
       return
     }

@@ -48,6 +48,7 @@
     position: absolute;
     top: 50%;
     text-align: left;
+    margin-left: 20px;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
