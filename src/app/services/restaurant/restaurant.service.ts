@@ -65,6 +65,7 @@ export class RestaurantService {
 
 // permet de recuperer tous les restaurants
   getAllRestaurants() {
+    console.log(this.recherche)
     let temp: Array<Restaurant> = []
     const query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges();
     // noinspection JSIgnoredPromiseFromCall

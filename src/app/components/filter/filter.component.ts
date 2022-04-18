@@ -33,6 +33,7 @@ export class FilterComponent implements OnInit {
     if (this.delegate != undefined) {
       this.delegate.toggleFilter()
     }
+    return false
   }
 
 
