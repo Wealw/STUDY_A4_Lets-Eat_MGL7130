@@ -36,5 +36,12 @@ export class FilterComponent implements OnInit {
     return false
   }
 
+  resetSearch(){
+    this.restaurantService.recherche.reset()
+    this.restaurantService.getAllRestaurants()
+    if (this.delegate != undefined) {
+      this.delegate.areFilterInUse = this.restaurantService.recherche.checkIfFilterAreInUse();
+    }
+  }
 
 }

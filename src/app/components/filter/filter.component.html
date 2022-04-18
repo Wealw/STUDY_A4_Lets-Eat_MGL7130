@@ -50,7 +50,7 @@
     <mat-list-item >
       <div class="cont">
         <div class="stars">
-          <ngx-star-rating  [id]="'rating'" [(ngModel)]="this.restaurantService.recherche.notation" [ngModelOptions]="{standalone: true}"></ngx-star-rating>
+          <ngx-star-rating  [id]="'rating'"  [(ngModel)]="this.restaurantService.recherche.notation"  name="rating" type="number"></ngx-star-rating>
         </div>
       </div>
     </mat-list-item>
@@ -60,7 +60,7 @@
       </button>
     </mat-list-item>
     <mat-list-item class="rating">
-      <button (click)="this.restaurantService.recherche.reset()" class="button" mat-raised-button
+      <button (click)="this.resetSearch()" class="button" mat-raised-button
            style="align-content: end; background-color: indianred !important;">Réinitialiser
       </button>
     </mat-list-item>
