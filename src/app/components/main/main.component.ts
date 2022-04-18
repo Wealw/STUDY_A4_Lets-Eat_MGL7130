@@ -47,6 +47,7 @@ export class MainComponent implements OnInit {
         }))
       }
     });
+
     internet.isOnline.asObservable().subscribe(()=>{
       {
         this.isOnline__copy = this.internet.isOnline.getValue()

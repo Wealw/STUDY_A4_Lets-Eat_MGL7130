@@ -3,15 +3,13 @@
 </div>
 <div class="container-fluid">
 
-<!--  <p>Bonjour {{ this.authService.currentUser.prenom}}!</p>-->
+<!--  Titre de la page des favoris-->
   <h1 style="text-align: center; color: orange; font-family: 'Poor Richard'" *ngIf="restaurants.length == 0">{{authService.currentUser.prenom}}, tu n'as pas encore ajouté des restaurants aux favoris!</h1>
   <h1 style="text-align: center; color: orange; font-family: 'Poor Richard'" *ngIf="restaurants.length > 0">Hey {{authService.currentUser.prenom}}, Voici ta liste favoris!</h1>
 
+  <!--Debut de restaurants favoris-->
   <mat-grid-list (window:resize)="onResize($event)" [cols]="col" rowHeight="120">
     <ng-container *ngFor="let res of this.restaurants">
-
-
-
 
       <mat-grid-tile [rowspan]="row">
         <div class='picture_text'>
@@ -36,8 +34,8 @@
 
     </ng-container>
   </mat-grid-list>
-
-
+<!--Fin de restaurants Favoris-->
+<!--Debut du button pour naviguer entre les restaurants favoris et le map-->
   <button mat-fab (click)="navigateToMain() "
           class="menu-button"
           [class.mat-elevation-z2]="false"
@@ -47,6 +45,7 @@
     <mat-icon aria-hidden="false" class="material-icons" aria-label="Example home icon">location_on</mat-icon>
 
   </button>
+  <!--Fin du button pour naviguer entre les restaurants favoris et le map-->
 
 </div>
 
