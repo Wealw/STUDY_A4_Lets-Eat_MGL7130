@@ -50,7 +50,7 @@
     <mat-list-item >
       <div class="cont">
         <div class="stars">
-          <ngx-star-rating  [id]="'rating'"  [(ngModel)]="this.restaurantService.recherche.notation"  name="rating" type="number"></ngx-star-rating>
+          <ngx-star-rating id="rating" [(ngModel)]="this.restaurantService.recherche.notation"  name="rating" type="number" *ngIf="refresh"></ngx-star-rating>
         </div>
       </div>
     </mat-list-item>

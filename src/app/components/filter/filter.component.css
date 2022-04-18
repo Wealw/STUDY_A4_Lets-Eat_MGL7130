@@ -289,7 +289,7 @@ i{
 div.stars {
   width: 187px;
   display: inline-block !important;
-
+  height: 74px;
 }
 mat-list-item{
   padding-left: 0 !important;

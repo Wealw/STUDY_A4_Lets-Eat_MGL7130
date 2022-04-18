@@ -12,7 +12,7 @@ import {InternetService} from "../../services/internet/internet.service";
 })
 export class FilterComponent implements OnInit {
   restaurantRecherche: Recherche;
-
+  refresh = true
   @Input() delegate: HeaderComponent;
 
   constructor(public restaurantService: RestaurantService, private internet : InternetService) {
@@ -42,6 +42,9 @@ export class FilterComponent implements OnInit {
     if (this.delegate != undefined) {
       this.delegate.areFilterInUse = this.restaurantService.recherche.checkIfFilterAreInUse();
     }
+    this.refresh = false
+    setTimeout(()=> {
+      this.refresh = true
+    }, 0)
   }
-
 }
