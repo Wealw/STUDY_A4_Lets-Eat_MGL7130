@@ -78,14 +78,14 @@ app-filter{
   flex-grow: 1;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 50%;
   z-index: 500;
 }
 
 .menu-height{
-    height: 8em;
-  margin-left: auto;
-  width: 9em;
+    height: 4em;
+    margin-left: auto;
+    width: 9em;
   }
 
 #suggestion{
