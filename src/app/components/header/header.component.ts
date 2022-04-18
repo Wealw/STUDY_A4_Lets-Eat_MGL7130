@@ -59,12 +59,12 @@ export class HeaderComponent implements OnInit {
 
   // Permet de basculer l'état d'affichage des filtres
   toggleFilter() {
-    this.areFilterInUse = this.checkIfFilterAreInUse();
+    this.areFilterInUse = this.restaurantService.recherche.checkIfFilterAreInUse();
     this.areFilterDisplayed = !this.areFilterDisplayed;
   }
 
   closeFilter() {
-    this.areFilterInUse = this.checkIfFilterAreInUse();
+    this.areFilterInUse = this.restaurantService.recherche.checkIfFilterAreInUse();
     this.areFilterDisplayed = false
   }
 
@@ -107,7 +107,7 @@ export class HeaderComponent implements OnInit {
 
   // Deselectionne la barre de recherche
   blurSearchBar() {
-    this.areFilterInUse = this.checkIfFilterAreInUse();
+    this.areFilterInUse = this.restaurantService.recherche.checkIfFilterAreInUse();
     let searchBar = document.getElementById('search')
     if (searchBar) {
       searchBar.blur()
@@ -116,7 +116,7 @@ export class HeaderComponent implements OnInit {
 
   // Cache les suggestions
   blurSuggestion() {
-    this.areFilterInUse = this.checkIfFilterAreInUse();
+    this.areFilterInUse = this.restaurantService.recherche.checkIfFilterAreInUse();
     let searchBar = document.getElementById('suggestion')
     if (searchBar) {
       searchBar.blur()
@@ -131,14 +131,5 @@ export class HeaderComponent implements OnInit {
     this.blurSuggestion()
   }
 
-  // Verifie si les filtre sont utilisés.
-  checkIfFilterAreInUse(){
-    const textInUse = this.restaurantService.recherche.texte !== ""
-    const distanceInUse = this.restaurantService.recherche.distance !== 100
-    const prixMinInUse = this.restaurantService.recherche.prix_max !== undefined
-    const prixMaxInUse = this.restaurantService.recherche.prix_min !== undefined
-    const notationInUse = this.restaurantService.recherche.notation !== undefined
-    const categorieInUse = !(this.restaurantService.recherche.categorie === undefined || this.restaurantService.recherche.categorie === "")
-    return textInUse || distanceInUse || prixMaxInUse || prixMinInUse || notationInUse || categorieInUse
-  }
+
 }
