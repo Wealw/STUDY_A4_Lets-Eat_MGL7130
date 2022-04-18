@@ -3,8 +3,8 @@
 </div>
 <div class="container-fluid">
 
-<!--  <p>Bonjour {{ this.authService.currentUser.prenom}}!</p>-->
-  <h1 style="text-align: center">Restaurants favoris</h1>
+ <p>Bonjour {{ this.authService.currentUser.prenom}}! <br><span>Restaurants favoris</span></p>
+ <!--<h1 style="text-align: center">Restaurants favoris</h1>-->
 
   <mat-grid-list (window:resize)="onResize($event)" [cols]="col" rowHeight="120">
     <ng-container *ngFor="let res of this.restaurants">
