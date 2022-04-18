@@ -16,7 +16,6 @@ export class Restaurant {
   calendrier: JoursHeures[]
   menu: Menu
   note: number
-  photo: string
   commentaires : Commentaire[];
   notations : Notation[];
   logo : string;
@@ -31,7 +30,6 @@ export class Restaurant {
     calendrier: JoursHeures[],
     menu: Menu,
     note: number,
-    photo: string,
     commentaires : Commentaire[],
     notations : Notation[],
     logo : string
@@ -45,7 +43,6 @@ export class Restaurant {
     this.calendrier = calendrier;
     this.menu = menu;
     this.note = note;
-    this.photo = photo;
     this.commentaires = commentaires;
     this.notations = notations;
     this.logo = logo;

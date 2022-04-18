@@ -3,41 +3,22 @@
 </div>
 <div class="container-fluid">
 
- <p>Bonjour {{ this.authService.currentUser.prenom}}! <br><span>Restaurants favoris</span></p>
- <!--<h1 style="text-align: center">Restaurants favoris</h1>-->
+<!--  Titre de la page des favoris-->
+  <h1 style="text-align: center; color: orange; font-family: 'Poor Richard'" *ngIf="restaurants.length == 0">{{authService.currentUser.prenom}}, tu n'as pas encore ajouté des restaurants aux favoris!</h1>
+  <h1 style="text-align: center; color: orange; font-family: 'Poor Richard'" *ngIf="restaurants.length > 0">Hey {{authService.currentUser.prenom}}, Voici ta liste favoris!</h1>
 
+  <!--Debut de restaurants favoris-->
   <mat-grid-list (window:resize)="onResize($event)" [cols]="col" rowHeight="120">
     <ng-container *ngFor="let res of this.restaurants">
 
-      <!--      <mat-grid-tile>-->
-      <!--        <mat-grid-tile>-->
-
-      <!--          <img [src]="res.menu.articles[0].photo" class="image"  >-->
-      <!--        </mat-grid-tile>-->
-      <!--        <mat-grid-tile  colspan="2" style="position: absolute; left: 0px; right: 10px; top: 0;">-->
-      <!--          <div >-->
-
-      <!--            <p style="font-weight: 550; font-size: 18px; margin-left:10px">{{res.nom }} </p>-->
-      <!--            <p style="font-size: 12px;margin-left:10px"> {{res.adresse.numeroDeRue + ' ' + res.adresse.rue + ' ' + res.adresse.ville + ' ' + res.adresse.codePostal + ' ' + res.adresse.ville}}.<br> La notation du restaurant</p>-->
-      <!--            <p class="stars" >-->
-      <!--              <ngx-star-rating  [(ngModel)]="res.note" [disabled]="true"></ngx-star-rating>-->
-
-      <!--            </p>-->
-
-
-      <!--          </div>-->
-      <!--        </mat-grid-tile>-->
-      <!--      </mat-grid-tile>-->
-
-
       <mat-grid-tile [rowspan]="row">
         <div class='picture_text'>
-          <mat-grid-list cols="2" rowHeight="120">
-            <mat-grid-tile (click)="toRestaurant(res.id)" [colspan]="col" rowspan="1" style="position: absolute; left: 10px; right: 10px">
+          <mat-grid-list cols="6" rowHeight="120">
+            <mat-grid-tile (click)="toRestaurant(res.id)" [colspan]="colImage" rowspan="1" style="position: absolute; left: 10px; right: 10px">
 
-              <img [src]="res.menu.articles[0].photo" alt="" class="image">
+              <img [src]="res.logo" alt="" class="image">
             </mat-grid-tile>
-            <mat-grid-tile [colspan]="col" rowspan="1" style="text-align: center;">
+            <mat-grid-tile [colspan]="colText" rowspan="1" style="text-align: center;">
               <div class="text-container">
                 <p style="font-weight: 550; font-size: 18px; ">{{res.nom }} </p>
                 <p
@@ -53,8 +34,8 @@
 
     </ng-container>
   </mat-grid-list>
-
-
+<!--Fin de restaurants Favoris-->
+<!--Debut du button pour naviguer entre les restaurants favoris et le map-->
   <button mat-fab (click)="navigateToMain() "
           class="menu-button"
           [class.mat-elevation-z2]="false"
@@ -64,6 +45,7 @@
     <mat-icon aria-hidden="false" class="material-icons" aria-label="Example home icon">location_on</mat-icon>
 
   </button>
+  <!--Fin du button pour naviguer entre les restaurants favoris et le map-->
 
 </div>
 

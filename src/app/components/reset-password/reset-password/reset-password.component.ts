@@ -37,7 +37,6 @@ export class ResetPasswordComponent implements OnInit {
       .confirmPasswordReset(this.code, this.resetForm.get('motdepasse')?.value)
       .then(() => this.router.navigate(['sign-in']))
       .catch((err) => {
-        console.log(err)
         this.authService.getError(err['code'])
       })
   }

@@ -16,11 +16,11 @@ export class FilterComponent implements OnInit {
   @Input() delegate: HeaderComponent;
 
   constructor(public restaurantService: RestaurantService, private internet : InternetService) {
-    this.restaurantRecherche = restaurantService.recherche;
+    this.restaurantRecherche = restaurantService.recherche
   }
 
   ngOnInit(): void {
-    this.restaurantRecherche.distance = 100;
+
   }
 
   formatLabel(value: number) {
@@ -33,7 +33,15 @@ export class FilterComponent implements OnInit {
     if (this.delegate != undefined) {
       this.delegate.toggleFilter()
     }
+    return false
   }
 
+  resetSearch(){
+    this.restaurantService.recherche.reset()
+    this.restaurantService.getAllRestaurants()
+    if (this.delegate != undefined) {
+      this.delegate.areFilterInUse = this.restaurantService.recherche.checkIfFilterAreInUse();
+    }
+  }
 
 }

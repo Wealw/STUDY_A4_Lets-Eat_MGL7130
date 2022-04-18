@@ -3,6 +3,7 @@ import {faSearch} from '@fortawesome/free-solid-svg-icons'
 import {RestaurantService} from "../../services/restaurant/restaurant.service";
 import {Router} from '@angular/router';
 import {AuthGuardService} from "../../services/Authentification/auth-guard.service";
+import {Location} from "@angular/common";
 
 
 @Component({
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
   areFilterInUse = false
 
   constructor(private router: Router,
+              private _location: Location,
               public restaurantService: RestaurantService,
               private elementRef: ElementRef,
               public authService: AuthGuardService) {
@@ -31,7 +33,9 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+
   ngOnInit(): void {
+    // add an event listener that launch a search when th enter key is pressed
     this.elementRef.nativeElement.addEventListener("keyup", (event: { preventDefault: () => void; keyCode: any; }) => {
       event.preventDefault()
       if (event.keyCode === 13) {
@@ -48,19 +52,19 @@ export class HeaderComponent implements OnInit {
   }
 
   // Permet de revenir à l'écran d'accueil
-  navigateToHome() {
+  back() {
     // noinspection JSIgnoredPromiseFromCall
-    this.router.navigate([``])
-  }
+    this._location.back();
+    }
 
   // Permet de basculer l'état d'affichage des filtres
   toggleFilter() {
-    this.areFilterInUse = this.checkIfFilterAreInUse();
+    this.areFilterInUse = this.restaurantService.recherche.checkIfFilterAreInUse();
     this.areFilterDisplayed = !this.areFilterDisplayed;
   }
 
   closeFilter() {
-    this.areFilterInUse = this.checkIfFilterAreInUse();
+    this.areFilterInUse = this.restaurantService.recherche.checkIfFilterAreInUse();
     this.areFilterDisplayed = false
   }
 
@@ -75,10 +79,12 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([`sign-in`])
   }
 
+  // Permet de se déconnecter
   signOut() {
     this.authService.signout().then(() => {
       // noinspection JSIgnoredPromiseFromCall
       this.router.navigate(['sign-in']);
+      this.authService.checkAuthentification();
     });
 
   }
@@ -93,27 +99,31 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([`favoris`])
   }
 
+  // Permet d'afficher la page à propos
   navigateToAbout() {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate([`about`])
   }
 
+  // Deselectionne la barre de recherche
   blurSearchBar() {
-    this.areFilterInUse = this.checkIfFilterAreInUse();
+    this.areFilterInUse = this.restaurantService.recherche.checkIfFilterAreInUse();
     let searchBar = document.getElementById('search')
     if (searchBar) {
       searchBar.blur()
     }
   }
 
+  // Cache les suggestions
   blurSuggestion() {
-    this.areFilterInUse = this.checkIfFilterAreInUse();
+    this.areFilterInUse = this.restaurantService.recherche.checkIfFilterAreInUse();
     let searchBar = document.getElementById('suggestion')
     if (searchBar) {
       searchBar.blur()
     }
   }
 
+  // Selectionne un tiem de la liste et femre les suggestion et la barre de recherche
   selectItem(search : string){
     this.restaurantService.recherche.texte = search
     this.restaurantService.getAllRestaurants()
@@ -121,13 +131,5 @@ export class HeaderComponent implements OnInit {
     this.blurSuggestion()
   }
 
-  checkIfFilterAreInUse(){
-    const textInUse = this.restaurantService.recherche.texte !== ""
-    const distanceInUse = this.restaurantService.recherche.distance !== 100
-    const prixMinInUse = this.restaurantService.recherche.prix_max !== undefined
-    const prixMaxInUse = this.restaurantService.recherche.prix_min !== undefined
-    const notationInUse = this.restaurantService.recherche.notation !== undefined
-    const categorieInUse = !(this.restaurantService.recherche.categorie === undefined || this.restaurantService.recherche.categorie === "")
-    return textInUse || distanceInUse || prixMaxInUse || prixMinInUse || notationInUse || categorieInUse
-  }
+
 }

@@ -22,6 +22,7 @@ export class RestaurantService {
   recherche: Recherche
   position: BehaviorSubject<GeolocationCoordinates>
   isGeolocalisationEnable: BehaviorSubject<boolean>;
+  areFilterInUSe = false;
 
   constructor(private angularFirestore: AngularFirestore) {
     this.recherche = Recherche.getInstance();
@@ -65,6 +66,7 @@ export class RestaurantService {
 
 // permet de recuperer tous les restaurants
   getAllRestaurants() {
+    this.areFilterInUSe = this.recherche.checkIfFilterAreInUse()
     let temp: Array<Restaurant> = []
     const query = this.angularFirestore.collection('restaurant', ref => this.chainedQuery(ref)).valueChanges();
     // noinspection JSIgnoredPromiseFromCall
@@ -137,11 +139,11 @@ export class RestaurantService {
         tempRestaurantList.splice(counter, 1)
       }
       //Tester si un restaurant remplit la condition de prix minimum
-      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => obj1.prix < this.recherche.prix_min))) {
+      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => this.recherche.prix_min !== undefined && obj1.prix < this.recherche.prix_min))) {
         tempRestaurantList.splice(counter, 1)
       }
       //Tester si un restaurant remplit la condition de prix maximum
-      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => obj1.prix > this.recherche.prix_max))) {
+      else if (tempRestaurantList[counter].menu.articles.find((obj: Article) => obj.taillePrix.find((obj1: TaillePrix) => this.recherche.prix_max !== undefined&& obj1.prix > this.recherche.prix_max))) {
         tempRestaurantList.splice(counter, 1)
       }
       // Testez si le restaurant est à portée

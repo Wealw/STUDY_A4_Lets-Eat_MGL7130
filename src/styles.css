@@ -15,17 +15,10 @@ body {
 
 input.star:checked ~ label.star:before {
   color: orange !important;
-
 }
 
 label.star:before {
   font-size: 15px;
-  padding: 0 !important;
-
-}
-
-div.stars {
-  width: auto !important;
   padding: 0 !important;
 
 }
@@ -79,3 +72,7 @@ mat-grid-tile{
   padding: 0px;
 }
 
+button:focus {
+  outline: none;
+  border: 0;
+}
